@@ -1,19 +1,32 @@
 var express = require('express');
-const bcrypt = require('brcyptjs');
+const bcrypt = require('bcryptjs');
 var router = express.Router();
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors, csrfProtection } = require("../utils");
 const db = require("../db/models");
+const { userValidators } = require('../auth.js')
 
 const { User } = db;
 
+
 /* GET users listing. */
-router.get('/', csrfProtection, (req, res, next) => {
-  const newUser = User.build();
-  res.render('pug-file-name', {newUser, csrfToken: req.csrfToken()})
+router.get('/', handleValidationErrors, csrfProtection, (req, res, next) => {
+  res.render('/home', {csrfToken: req.csrfToken()})
 });
 
-router.post('/', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/', handleValidationErrors, csrfProtection, userValidators, asyncHandler(async (req, res) => {
+  const {userName, displayName, password, confirmedPassword} = req.body;
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = User.create({userName, displayName, hashedPassword});
+    res.redirect('/my-profile', {newUser});
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('/', { errors, csrfToken: req.csrfToken(), });
+  }
 
 }))
 
