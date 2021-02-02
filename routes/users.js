@@ -37,6 +37,7 @@ router.post('/', csrfProtection, userValidators, asyncHandler(async (req, res) =
     // });
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
+    console.log("errors array------------->>", errors)
     res.render('error', { newUser, errors, csrfToken: req.csrfToken(), });
   }
 
