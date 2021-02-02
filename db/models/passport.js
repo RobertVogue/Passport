@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Passport.associate = function(models) {
     Passport.hasMany(models.Stamp, {foreignKey: 'passport_id'})
+    Passport.belongsTo(models.User, {foreignKey: 'user_id'})
   };
   return Passport;
 };

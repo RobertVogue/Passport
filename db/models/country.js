@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Country.associate = function(models) {
-    Country.belongsTo(models.Stamp, {foreignKey: 'countries_id'})
+    Country.hasMany(models.Stamp, {foreignKey: 'countries_id'})
   };
   return Country;
 };

@@ -29,7 +29,7 @@ module.exports = {
       tags_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { Model: "Stamp_tags" }
+        references: { Model: "Stamps_tags" }
       },
       dates: {
         allowNull: false,
@@ -49,11 +49,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
