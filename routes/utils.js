@@ -85,4 +85,13 @@ const userValidators = [
 
   ];
 
-module.exports = { asyncHandler, handleValidationErrors, csrfProtection, userValidators };
+  const loginValidators = [
+    check("email")
+      .exists({ checkFalsy: true })
+      .withMessage("Email field cannot be empty"),
+    check("password")
+      .exists({ checkFalsy: true })
+      .withMessage("Password field cannot be empty"),
+  ];
+
+module.exports = { asyncHandler, handleValidationErrors, csrfProtection, userValidators, logInValidators };

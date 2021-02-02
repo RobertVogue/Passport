@@ -2,7 +2,7 @@ var express = require('express');
 const bcrypt = require('bcryptjs');
 var router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { asyncHandler, handleValidationErrors, csrfProtection, userValidators} = require("./utils");
+const { asyncHandler, handleValidationErrors, csrfProtection, userValidators , logInValidators} = require("./utils");
 const db = require("../db/models");
 // const { User } = db;
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
@@ -56,8 +56,8 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 router.get('/login', csrfProtection, (req, res) => {
     res.render('login', {csrfToken: req.csrfToken()});
 })
-//! 'still need to add in login validator'
-router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
+
+router.post('/login', csrfProtection, logInValidators, asyncHandler(async (req, res) => {
     const {email, password} = req.body;
     let errors = [];
     const validatorErrors = validationResult(req);
@@ -65,7 +65,7 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
 
-      if (user !== null) {
+      if (user) {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
         if (passwordMatch) {
