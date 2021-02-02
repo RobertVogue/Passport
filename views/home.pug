@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	form(action="/users" method="post")
+		input(type="hidden" name="_csrf" value=csrfToken)
+		div
+			label Username
+			input(type="text" name="username" placeholder="Username" required)
+		div
+			label Display Name
+			input(type="text" name="displayName" placeholder="Display Name" required)
+		div
+			label Email
+			input(type="email" name="email" placeholder="Email" required)
+		div
+			label Password
+			input(type="password" name="password" placeholder="Password" required)
+		div
+			label Confirm Password
+			input(type="password" name="confirmPassword" placeholder="Confirm Password" required)
+		div
+		button(type="submit") Submit
