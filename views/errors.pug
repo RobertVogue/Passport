@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= message
+    each error in errors
+        h2= error.message
+  

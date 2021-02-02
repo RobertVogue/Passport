@@ -1,89 +1,99 @@
 var express = require('express');
 const bcrypt = require('bcryptjs');
 var router = express.Router();
-const { check } = require('express-validator');
-const { asyncHandler, handleValidationErrors, csrfProtection } = require("../utils");
+const { check, validationResult } = require('express-validator');
+const { asyncHandler, csrfProtection, userValidators , loginValidators} = require("./utils");
 const db = require("../db/models");
-// const { userValidators } = require('../auth.js')
-
-const { User } = db;
+const { loginUser, logoutUser, requireAuth } = require("../auth.js");
 
 
-/* GET users listing. */
-router.get('/', handleValidationErrors, csrfProtection, (req, res, next) => {
-  res.render('home', { csrfToken: req.csrfToken() })
+router.get('/', (req, res) => {
+  res.render('index');
+})
+
+
+//User sign up to render the form
+router.get('/signup', csrfProtection, (req, res) => {
+  const newUser = db.User.build();
+  res.render('signup', { newUser, csrfToken: req.csrfToken() })
 });
 
-router.post('/', handleValidationErrors, csrfProtection, asyncHandler(async (req, res) => {
-  const { userName, displayName, email, password } = req.body;
-  let result = false;
-  check('userName')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for User Name')
-    .isLength({ max: 50 })
-    .withMessage('User Name must not be more than 50 characters long'),
-    check('displayName')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Last Name')
-      .isLength({ max: 50 })
-      .withMessage('Display Name must not be more than 50 characters long'),
-    check('email')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Email Address')
-      .isLength({ max: 255 })
-      .withMessage('Email Address must not be more than 255 characters long')
-      .isEmail()
-      .withMessage('Email Address is not a valid email'),
-    check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password')
-      .isLength({ max: 50 })
-      .withMessage('Password must not be more than 50 characters long'),
-    check('confirmPassword')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Confirm Password')
-      .isLength({ max: 50 })
-      .withMessage('Confirm Password must not be more than 50 characters long')
-      .custom((value, { req }) => {
-        if (value !== req.body.password) {
-          throw new Error('Confirm Password does not match Password');
-        }
-        result = true;
-      })
-  // const validatorErrors = userValidators(req);
-// console.log(validatorErrors)
-  if (result) {
+// User to post the new user to the database
+router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+  const { username, displayName, email, password } = req.body;
+
+  const newUser = db.User.build({ username, displayName, email})
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    console.log('do i exist?')
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ userName, displayName, email, hashedPassword });
-    res.redirect('/users', { newUser });
+    newUser.hashedPassword = hashedPassword;
+    await newUser.save();
+    loginUser(req, res, newUser)
+    return req.session.save((err) => {
+      if (err) {
+        next(err);
+      } else {
+        res.redirect(`/users/${newUser.id}`);
+      }
+    });
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('error', { errors, csrfToken: req.csrfToken(), });
+    console.log('errors array ---> ', errors);
+    res.render('signup', { errors, csrfToken: req.csrfToken() });
   }
 
 }))
 
-// router.post('/', csrfProtection, userValidators,
-//   asyncHandler(async (req, res) => {
-//     const { emailAddress, firstName, lastName, password } = req.body;
-//     const user = db.User.build({
-//       emailAddress,
-//       firstName,
-//       lastName,
-//     });
-//     const validatorErrors = validationResult(req);
-//     if (validatorErrors.isEmpty()) {
-//       await user.save();
-//       res.redirect('/');
-//     } else {
-//       const errors = validatorErrors.array().map((error) => error.msg);
-//       res.render('user-register', {
-//         title: 'Register',
-//         user,
-//         errors,
-//         csrfToken: req.csrfToken(),
-//       });
-//     }
-//   }));
+// logout
+router.post("/logout", (req, res) => {
+  logoutUser(req, res);
+  return req.session.save((err) => {
+    if (err) next(err);
+    else res.redirect("/users/login");
+  });
+});
+
+router.get('/login', csrfProtection, (req, res) => {
+    res.render('login', {csrfToken: req.csrfToken()});
+})
+
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+    const {email, password} = req.body;
+    let errors = [];
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      const user = await db.User.findOne({ where: { email } });
+
+      if (user) {
+        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+        if (passwordMatch) {
+          loginUser(req, res, user);
+          return req.session.save((err) => {
+            if (err) next(err);
+            else res.redirect(`/users/${user.id}`);
+          });
+        }
+      }
+    }
+
+    else {
+      errors.push("No users exist with given email/password");
+      errors = validatorErrors.array().map((error) => error.msg);
+      res.render('users/login', {errors, csrfToken: req.csrfToken()});
+    }
+}))
+
+//User to take the specfic user page after logged in or signed up
+router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const userId = req.params.id;
+  const currentUser = await db.User.findByPk(userId);
+  res.render('profile', {currentUser});
+}))
+
 
 module.exports = router;
