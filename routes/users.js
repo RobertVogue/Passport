@@ -2,7 +2,7 @@ var express = require('express');
 const bcrypt = require('bcryptjs');
 var router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { asyncHandler, handleValidationErrors, csrfProtection, userValidators , loginValidators} = require("./utils");
+const { asyncHandler, csrfProtection, userValidators , loginValidators} = require("./utils");
 const db = require("../db/models");
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
 
@@ -47,6 +47,12 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 
 }))
 
+// logout
+router.post("/logout", (req, res) => {
+  logoutUser(req, res);
+  res.redirect("/users/login");
+});
+
 router.get('/login', csrfProtection, (req, res) => {
     res.render('login', {csrfToken: req.csrfToken()});
 })
@@ -70,28 +76,21 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
           });
         }
       }
-      errors.push("No users exist with given email/password");
     }
 
     else {
+      errors.push("No users exist with given email/password");
       errors = validatorErrors.array().map((error) => error.msg);
+      res.render('users/login', {errors, csrfToken: req.csrfToken()});
     }
-
-    res.render('users/login', {errors, csrfToken: req.csrfToken()});
-
 }))
 
 //User to take the specfic user page after logged in or signed up
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const userId = req.params.id;
-  const currentUser = db.User.findByPK(userId);
+  const currentUser = await db.User.findByPk(userId);
   res.render('profile', {currentUser});
 }))
 
-// logout
-router.post("/logout", (req, res) => {
-  logoutUser(req, res);
-  res.redirect("/users/login");
-});
 
 module.exports = router;
