@@ -94,4 +94,4 @@ const userValidators = [
       .withMessage("Password field cannot be empty"),
   ];
 
-module.exports = { asyncHandler, handleValidationErrors, csrfProtection, userValidators, logInValidators };
+module.exports = { asyncHandler, handleValidationErrors, csrfProtection, userValidators, loginValidators };
