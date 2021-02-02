@@ -1,5 +1,5 @@
 const {
-  db: { username, password, database, host },
+  db: { username, password, database, host, secret },
 } = require('./index');
 
 module.exports = {
@@ -10,5 +10,6 @@ module.exports = {
     host,
     dialect: 'postgres',
     seederStorage: 'sequelize',
+    secret
   },
 };
