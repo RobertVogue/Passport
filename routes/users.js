@@ -48,7 +48,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     console.log('errors array ---> ', errors);
-    res.render('error', { newUser, errors, csrfToken: req.csrfToken() });
+    res.render('signup', { errors, csrfToken: req.csrfToken() });
   }
 
 }))
@@ -61,6 +61,30 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
     const {email, password} = req.body;
     let errors = [];
     const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      const user = await db.User.findOne({ where: { email } });
+
+      if (user !== null) {
+        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+        if (passwordMatch) {
+          loginUser(req, res, user);
+          return req.session.save((err) => {
+            if (err) next(err);
+            else res.redirect(`/users/${user.id}`);
+          });
+        }
+      }
+      errors.push("No users exist with given email/password");
+    }
+
+    else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
+
+    res.render('users/login', {errors, csrfToken: req.csrfToken()});
+
 }))
 
 // logout
