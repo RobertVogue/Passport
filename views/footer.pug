@@ -1,11 +1,4 @@
-doctype html
-html
-  head
-      block head
-        title="Passport Group Project"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
-  body
-    header.navbar-registered <!-- this is the navbar container -->
+header.navbar-registered <!-- this is the navbar container -->
       div
         a.logo(href="/") <!-- does this need to have a full url or just the path? -->
           img.logo-img(alt="Passports Logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
@@ -17,7 +10,3 @@ html
         a.nav-item3.nav-link(href='/register') Register
       div
         a.nav-item4.nav-link(href='/login') Login
-    block content
-    
-    include footer
-
