@@ -56,7 +56,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 router.get('/login', csrfProtection, (req, res) => {
     res.render('login', {csrfToken: req.csrfToken()});
 })
-
+//! 'still need to add in login validator'
 router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
     const {email, password} = req.body;
     let errors = [];
