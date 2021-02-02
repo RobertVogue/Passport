@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Stamp.associate = function(models) {
     Stamp.belongsTo(models.Passport, {foreignKey: 'passport_id'})
-    Stamp.belongsTo(models.Stamps_Tag, {foreignKey: 'tags_id'})
+    Stamp.belongsTo(models.Stamp_Tag, {foreignKey: 'tags_id'})
     Stamp.belongsTo(models.Country, {foreignKey: 'countries_id'})
 
   };
