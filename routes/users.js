@@ -14,7 +14,7 @@ router.get('/', csrfProtection, (req, res) => {
   const newUser = db.User.build();
   res.render('home', { newUser, csrfToken: req.csrfToken() })
 });
-//! bug in userValidators will not save newUser in database if that middleware is in there
+//! bug in userValidators middleware will not save newUser in database if that is in there
 router.post('/', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, displayName, email, password } = req.body;
 

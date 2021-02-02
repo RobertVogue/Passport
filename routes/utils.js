@@ -3,6 +3,7 @@ const { check } = require('express-validator');
 const  { validationResult } = require('express-validator');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
+const db = require("../db/models");
 
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -35,7 +36,7 @@ const userValidators = [
         return db.User.findOne({ where: { username: value } }).then((user) => {
           if (user) {
             return Promise.reject(
-              "The username is already used by another climber of GoodTrees"
+              "The username is already in use"
             );
           }
         });
@@ -50,7 +51,7 @@ const userValidators = [
       .withMessage("Please provide a value for email")
       .isLength({ max: 255 })
       .withMessage(
-        "No email address longer than 255 characters can be registered on GoodTrees"
+        "No email address longer than 255 characters"
       )
       .isEmail()
       .withMessage("Email Address is not a valid email")
@@ -58,7 +59,7 @@ const userValidators = [
         return db.User.findOne({ where: { email: value } }).then((user) => {
           if (user) {
             return Promise.reject(
-              "The provide Email Address is already used by another climber of GoodTrees"
+              "The provided Email Address is already registered"
             );
           }
         });
@@ -81,6 +82,7 @@ const userValidators = [
         }
         return true;
       }),
+
   ];
 
 module.exports = { asyncHandler, handleValidationErrors, csrfProtection, userValidators };
