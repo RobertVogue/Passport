@@ -70,15 +70,13 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
           });
         }
       }
-      errors.push("No users exist with given email/password");
     }
 
     else {
+      errors.push("No users exist with given email/password");
       errors = validatorErrors.array().map((error) => error.msg);
+      res.render('users/login', {errors, csrfToken: req.csrfToken()});
     }
-
-    res.render('users/login', {errors, csrfToken: req.csrfToken()});
-
 }))
 
 //User to take the specfic user page after logged in or signed up
