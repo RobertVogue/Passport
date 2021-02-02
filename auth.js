@@ -1,40 +1,50 @@
-const { check } = require('express-validator');
+  const db = require("./db/models");
 
+const loginUser = (req, res, user) => {
+  req.session.auth = { userId: user.id };
+};
 
-const userValidators = [
-    check('userName')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for User Name')
-      .isLength({ max: 50 })
-      .withMessage('User Name must not be more than 50 characters long'),
-    check('displayName')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Last Name')
-      .isLength({ max: 50 })
-      .withMessage('Display Name must not be more than 50 characters long'),
-    check('email')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Email Address')
-      .isLength({ max: 255 })
-      .withMessage('Email Address must not be more than 255 characters long')
-      .isEmail()
-      .withMessage('Email Address is not a valid email'),
-    check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password')
-      .isLength({ max: 50 })
-      .withMessage('Password must not be more than 50 characters long'),
-    check('confirmPassword')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Confirm Password')
-      .isLength({ max: 50 })
-      .withMessage('Confirm Password must not be more than 50 characters long')
-      .custom((value, { req }) => {
-        if (value !== req.body.password) {
-          throw new Error('Confirm Password does not match Password');
-        }
-        return true;
-      })
-  ];
+const logoutUser = (req, res) => {
+  delete req.session.auth;
+};
 
-module.exports = { userValidators };
+const requireAuth = (req, res, next) => {
+  if (!res.locals.authenticated) {
+    return res.redirect("/users/login");
+  }
+  return next();
+};
+
+const restoreUser = async (req, res, next) => {
+  // Log the session object to the console
+  // to assist with debugging.
+  // console.log(req.session);
+
+  if (req.session.auth) {
+    const { userId } = req.session.auth;
+
+    try {
+      const user = await db.User.findByPk(userId);
+
+      if (user) {
+        res.locals.authenticated = true;
+        res.locals.curUser = user;
+        next();
+      }
+    } catch (err) {
+      res.locals.authenticated = false;
+      next(err);
+    }
+  } else {
+    res.locals.authenticated = false;
+    next();
+  }
+};
+
+module.exports = {
+  loginUser,
+  logoutUser,
+  requireAuth,
+  restoreUser,
+};
+
