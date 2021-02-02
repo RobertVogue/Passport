@@ -15,11 +15,14 @@ html
             a.nav-item1.nav-link(type='/profile') My Stamps <!-- needs to be hidden if not logged in  -->
           div.nav-item2
             a.nav-item2.nav-link(href='/create-stamp') Create Stamp
-          div.nav-item3
-            a.nav-item3.nav-link(href='/register') Register
-          div.nav-item4
-            a.nav-item4.nav-link(href='/login') Login
+          if authenticated
+            form(action='/users/logout' method='post')
+              button(type='submit') Logout
+          else
+            div.nav-item3
+              a.nav-item3.nav-link(href='/users/signup') Register
+            div.nav-item4
+              a.nav-item4.nav-link(href='/users/login') Login
     block content
-    
-    include footer
 
+    include footer
