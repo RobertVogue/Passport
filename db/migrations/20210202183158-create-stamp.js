@@ -19,17 +19,17 @@ module.exports = {
       passport_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { Model: "Passports" }
+        references: { model: "Passports" }
       },
       countries_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { Model: "Countries" }
+        references: { model: "Countries" }
       },
       tags_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { Model: "Stamps_tags" }
+        references: { model: "Stamps_Tags" }
       },
       dates: {
         allowNull: false,
