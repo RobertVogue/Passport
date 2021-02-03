@@ -1,5 +1,5 @@
-const { name } = require("faker");
 const { User } = require("./db/models");
+const bcrypt = require("bcryptjs");
 
 const findUserById = async (id) => {
   try {
@@ -25,12 +25,19 @@ const updateUserDisplayName = async (id, name, newName) => {
   });
 };
 
-// const findAllStampsFromUser = async (id) => {
-//   const user = await User.findByPk(id);
-//   const allStamps;
-// };
+const createNewUser = async (
+  username,
+  displayName,
+  email,
+  passwordToBeHassed
+) => {
+  const hashedPassword = await bcrypt(passwordToBeHassed, 8);
+
+  return await User.create({ username, displayName, email, hashedPassword });
+};
 
 module.exports = {
   findUserById,
   updateUserDisplayName,
+  createNewUser,
 };
