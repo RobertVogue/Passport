@@ -3,8 +3,16 @@ const bcrypt = require("bcryptjs");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const faker = require("faker");
-    const usersArray = [];
-    for (let i = 1; i < 6; i++) {
+    const hashedDemoPassword = await bcrypt.hash(`demopassword`, 8);
+    const usersArray = [
+      {
+        username: "Demo",
+        displayName: "Demo",
+        email: "demo@demo.com",
+        hashedPassword: hashedDemoPassword,
+      },
+    ];
+    for (let i = 2; i < 6; i++) {
       const hashedPassword = await bcrypt.hash(`password${i}`, 8);
       let fakeUser = {
         username: faker.internet.userName(),
