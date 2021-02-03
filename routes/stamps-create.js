@@ -4,9 +4,8 @@ const { asyncHandler, csrfProtection } = require('./utils');
 
 router.get('/', (req, res) => {
 
-    res.render('home', {})
+    res.render('stamps-create', {});
 })
-
 
 
 module.exports = router;

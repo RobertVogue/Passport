@@ -3,7 +3,6 @@ extends layout
 include utils.pug
 
 block content
-	+validationErrorSummary(errors)
 	form(action="/users/signup" method="post")
 		input(type="hidden" name="_csrf" value=csrfToken)
 		div
@@ -23,3 +22,4 @@ block content
 			input(type="password" name="confirmPassword" placeholder="Confirm Password" required)
 		div
 			button(type="submit") Submit
+	+validationErrorSummary(errors)

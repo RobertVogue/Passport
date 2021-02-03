@@ -5,24 +5,19 @@ html
         title="Passport Group Project"
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
-    header.container <!-- this is the navbar container -->
-      div.navbar-registered
-        div.logo
-          a.logo(href="/") <!-- does this need to have a full url or just the path? -->
-            img.logo-img(alt="Passports Logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
-        div.nav-item-container
-          div.nav-item1
-            a.nav-item1.nav-link(type='/profile') My Stamps <!-- needs to be hidden if not logged in  -->
-          div.nav-item2
-            a.nav-item2.nav-link(href='/create-stamp') Create Stamp
-          if authenticated
-            form(action='/users/logout' method='post')
-              button(type='submit') Logout
-          else
-            div.nav-item3
-              a.nav-item3.nav-link(href='/users/signup') Register
-            div.nav-item4
-              a.nav-item4.nav-link(href='/users/login') Login
+    nav.container__navbar
+      div.container__logo
+        a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
+      div.container__links
+        a(href='/profile'): button.btn My Stamps
+        a(href='/stamps/create'): button.btn Create Stamp
+      div.container__account
+        if authenticated          
+          form(action='/users/logout' method='post')
+            button.btn(type='submit') Logout
+        else
+          a(href='/users/signup'): button.btn Demo Login
+          a(href='/users/signup'): button.btn Register
+          a(href='/users/login'): button.btn Login
     block content
 
-    include footer
