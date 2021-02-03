@@ -12,9 +12,9 @@ block content
             label Password
             input(type='password' name='password')
         div
-            button(type='submit') Login
+            button.btn(type='submit') Login
     form(method='post' action='/users/demo')
-        button(type='submit') Demo Login
+        button.btn(type='submit') Demo Login
     div
         a(href='/users/signup') Sign Up here!
     +validationErrorSummary(errors)
