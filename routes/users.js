@@ -50,7 +50,10 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 // logout
 router.post("/logout", (req, res) => {
   logoutUser(req, res);
-  res.redirect("/users/login");
+  return req.session.save((err) => {
+    if (err) next(err);
+    else res.redirect("/users/login");
+  });
 });
 
 router.get('/login', csrfProtection, (req, res) => {

@@ -13,8 +13,15 @@ html
           li: a(href='/create-stamp') Create Stamp
           li: a(href='/users/signup') Sign up
           li: a(href='/users/login') Login
+          if authenticated
+            form(action='/users/logout' method='post')
+              button(type='submit') Logout
+          else
+            div
+              a(href='/users/signup') Register
+            div
+              a(href='/users/login') Login
       a.btn(href="btn"): button Contact
     block content
-    
-    include footer
 
+    include footer
