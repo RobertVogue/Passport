@@ -1,11 +1,16 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Passport = sequelize.define('Passport', {
-    passport_status: DataTypes.STRING
-  }, {});
-  Passport.associate = function(models) {
-    Passport.hasMany(models.Stamp, {foreignKey: 'passport_id'})
-    Passport.belongsTo(models.User, {foreignKey: 'user_id'})
+  const Passport = sequelize.define(
+    "Passport",
+    {
+      passport_status: DataTypes.STRING,
+      user_id: sequelize.INTEGER,
+    },
+    {}
+  );
+  Passport.associate = function (models) {
+    Passport.hasMany(models.Stamp, { foreignKey: "passport_id" });
+    Passport.belongsTo(models.User, { foreignKey: "user_id" });
   };
   return Passport;
 };
