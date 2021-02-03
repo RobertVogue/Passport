@@ -1,46 +1,39 @@
 "use strict";
-
-const { Sequelize } = require("sequelize/types");
-
 module.exports = (sequelize, DataTypes) => {
   const Stamp = sequelize.define("Stamp", {
     name: {
       allowNull: false,
-      type: Sequelize.STRING(50),
+      type: DataTypes.STRING(50),
     },
     detailed_location: {
       allowNull: false,
-      type: Sequelize.STRING(50),
+      type: DataTypes.STRING(50),
     },
     passport_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     countries_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     tags_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     dates: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     price: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     review: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     rating: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     imgURL: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
   });
-  const Stamp = sequelize.define('Stamp', {
-    
-    name: DataTypes.STRING
-  }, {});
   Stamp.associate = function(models) {
     Stamp.belongsTo(models.Passport, {foreignKey: 'passport_id'})
     Stamp.belongsTo(models.Stamp_Tag, {foreignKey: 'tags_id'})

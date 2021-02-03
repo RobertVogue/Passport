@@ -1,10 +1,9 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Passport = sequelize.define(
-    "Passport",
+  const Passport = sequelize.define("Passport",
     {
       passport_status: DataTypes.STRING,
-      user_id: sequelize.INTEGER,
+      user_id: DataTypes.INTEGER,
     },
     {}
   );
