@@ -38,6 +38,20 @@ const updateusername = async (id, name, newName) => {
     username: newName,
   });
 };
+const updateEmail = async (id, email, newEmail) => {
+  let user = await User.findeOne({
+    where: {
+      email,
+    },
+  });
+  if (!email) {
+    user = await User.findByPk(id);
+  }
+
+  await user.update({
+    newEmail,
+  });
+};
 
 const createNewUser = async (
   username,
@@ -55,4 +69,5 @@ module.exports = {
   updateUserDisplayName,
   createNewUser,
   updateusername,
+  updateEmail,
 };
