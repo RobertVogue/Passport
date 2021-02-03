@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 :root {
-    --primary-color: #868686;
+    --primary-color: #848484;
     --secondary-color: #1c3fa8;
     --dark-color: #002240;
     --light-color: #f4f4f4;
@@ -14,134 +14,42 @@
     padding: 0;
 }
 
-nav {
+.container__navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 8vh;
     background-color: var(--primary-color);
     font-family: "Montserrat", sans-serif;
 }
 
-button {
+.container__navbar > div {
+    background-color: red;
+}
+
+.container__logo {}
+
+.container__links {}
+
+.btn {
+    box-shadow: 0px 0px 3px rgba(0,0,0,1);
     color: var(--dark-color);
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
     font-size: 14px;
+    margin: 10px;
 }
 
-/* li, a, button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #ededed;
-    text-decoration: none;
-} */
-
-/* header {
+.container__account {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 30px 10%;
-} */
+    margin-left: auto;
+}
+
+
 
 .logo {
     cursor: pointer;
 }
 
-.nav_links li {
-    list-style: none;
-}
-
-.nav_links {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    width: 30%;
-}
-
-/* .nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.nav_links li a {
-    transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-    color: #0088a9
-}
-
-button {
-    padding: 9px 25px;
-    background-color: rgba(0,136,169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-button:hover {
-    background-color: rgba(0,136,169, 0.8);
-
-} */
-
-/*
-h1 {
-    color: #555555;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 110px;
-    background-color: royalblue;
-    border-radius: 10px;
-    padding: 30px 10%;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-}
-
-.container {
-    width: 10%;
-    margin: 5px;
-    height: 120px;
-    background-color: aqua;
-    border: 1px solid rgb(207, 78, 78);
-    box-sizing: border-box;
-}
-
-.nav-item-container {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    width: 70%;
-}
-
-img {
-    width: 100%;
-    margin: 0px;
-}
-
-.navbar a:hover {
-    border-bottom: 2px #fff solid;
-}
-
-.button {
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
-    border-radius: 5px;
-    padding: 5px;
-    box-shadow: 10px 10px rgba(0, 0, 0, .8);
-    margin: 10px;
-}*/

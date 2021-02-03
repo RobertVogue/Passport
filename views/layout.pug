@@ -5,21 +5,20 @@ html
         title="Passport Group Project"
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
-    header
-      nav
-        div.logo: a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
-        ul.nav_links
-          li: a(href='/profile'): button My Stamps <!-- needs to be hidden if not logged in  -->
-          li: a(href='/create-stamp'): button Create Stamp
-          li: a(href='/users/login'): button Login
-        if authenticated
+    nav.container__navbar
+      div.container__logo
+        a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
+      div.container__links
+        a(href='/profile'): button.btn My Stamps
+        a(href='/create-stamp'): button.btn Create Stamp
+      div.container__account
+        if authenticated          
           form(action='/users/logout' method='post')
-            button(type='submit') Logout
+            button.btn(type='submit') Logout
         else
-          div
-            a(href='/users/signup') Register
-          div
-            a(href='/users/login') Login
+          a(href='/users/signup'): button.btn Demo Login
+          a(href='/users/signup'): button.btn Register
+          a(href='/users/login'): button.btn Login
     block content
 
     include footer
