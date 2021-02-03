@@ -12,7 +12,6 @@ block content
 			div
 				label Password
 				input(type='password' name='password')
-		div.login_buttons
 			div
 				button.btn(type='submit') Login
 		form.demo_container(method='post' action='/users/demo')
@@ -21,3 +20,5 @@ block content
 		div.signup_redirect_container
 			a(href='/users/signup') Sign Up here!
 		+validationErrorSummary(errors)
+
+		//- div.login_buttons
