@@ -5,6 +5,7 @@ html
         title="Passport Group Project"
         link(rel='stylesheet' href='/stylesheets/index.css')
         link(rel='stylesheet' href='/stylesheets/login.css')
+        link(rel='stylesheet' href='/stylesheets/signup.css')
   body
     nav.container__navbar
       div.container__logo
@@ -15,6 +16,7 @@ html
         div.container__account
           a(href='/profile'): button.btn Profile
           a(href='/stamps/create'): button.btn Create Stamp
+
           form(action='/users/logout' method='post')
             button.btn(type='submit') Logout
       else
