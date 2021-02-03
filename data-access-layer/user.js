@@ -1,4 +1,4 @@
-const { User } = require("./db/models");
+const { User } = require("../db/models");
 const bcrypt = require("bcryptjs");
 
 const findUserById = async (id) => {
@@ -90,4 +90,5 @@ module.exports = {
   createNewUser,
   updateusername,
   updateEmail,
+  updatePassword,
 };
