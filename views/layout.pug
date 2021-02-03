@@ -2,13 +2,22 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        title="Passport Group Project"
+        link(rel='stylesheet' href='/stylesheets/index.css')
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      a.navbar-brand(href='/') Passport
-      .navbar-nav
-        a.nav-item.nav-link(href='/profile') My Passport
+    nav.container__navbar
+      div.container__logo
+        a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
+      div.container__links
+        a(href='/profile'): button.btn My Stamps
+        a(href='/stamps/create'): button.btn Create Stamp
+      div.container__account
+        if authenticated          
+          form(action='/users/logout' method='post')
+            button.btn(type='submit') Logout
+        else
+          a(href='/users/signup'): button.btn Demo Login
+          a(href='/users/signup'): button.btn Register
+          a(href='/users/login'): button.btn Login
     block content
-    footer
-      
+

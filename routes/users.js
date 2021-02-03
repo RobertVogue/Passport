@@ -2,9 +2,8 @@ var express = require('express');
 const bcrypt = require('bcryptjs');
 var router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { asyncHandler, handleValidationErrors, csrfProtection, userValidators} = require("./utils");
+const { asyncHandler, csrfProtection, userValidators , loginValidators} = require("./utils");
 const db = require("../db/models");
-// const { User } = db;
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
 
 
@@ -12,19 +11,14 @@ router.get('/', (req, res) => {
   res.render('index');
 })
 
-router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-  const userId = req.params.id;
-  const currentUser = db.User.findByPK(userId);
-  res.render('profile', {currentUser});
-}))
 
-
-/* GET users listing. */
+//User sign up to render the form
 router.get('/signup', csrfProtection, (req, res) => {
   const newUser = db.User.build();
   res.render('signup', { newUser, csrfToken: req.csrfToken() })
 });
-//! bug in userValidators middleware will not save newUser in database if that is in there
+
+// User to post the new user to the database
 router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, displayName, email, password } = req.body;
 
@@ -33,7 +27,6 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    console.log('do i exist?')
     const hashedPassword = await bcrypt.hash(password, 10);
     newUser.hashedPassword = hashedPassword;
     await newUser.save();
@@ -53,11 +46,20 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 
 }))
 
+// logout
+router.post("/logout", (req, res) => {
+  logoutUser(req, res);
+  return req.session.save((err) => {
+    if (err) next(err);
+    else res.redirect("/users/login");
+  });
+});
+
 router.get('/login', csrfProtection, (req, res) => {
     res.render('login', {csrfToken: req.csrfToken()});
 })
-//! 'still need to add in login validator'
-router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
+
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
     const {email, password} = req.body;
     let errors = [];
     const validatorErrors = validationResult(req);
@@ -65,7 +67,7 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
 
-      if (user !== null) {
+      if (user) {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
         if (passwordMatch) {
@@ -76,21 +78,31 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
           });
         }
       }
-      errors.push("No users exist with given email/password");
     }
 
     else {
+      errors.push("No users exist with given email/password");
       errors = validatorErrors.array().map((error) => error.msg);
+      res.render('login', {errors, csrfToken: req.csrfToken()});
     }
-
-    res.render('users/login', {errors, csrfToken: req.csrfToken()});
-
 }))
 
-// logout
-router.post("/logout", (req, res) => {
-  logoutUser(req, res);
-  res.redirect("/users/login");
-});
+//create a post for demo user
+router.post('/demo', asyncHandler(async (req, res) => {
+  const demoUser = await db.User.findOne({where: {email: 'demo@demo.com'}});
+    loginUser(req, res, demoUser);
+    return req.session.save((err) => {
+      if (err) next(err);
+      else res.redirect(`/users/${demoUser.id}`);
+    })
+}))
+
+//User to take the specfic user page after logged in or signed up
+router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const userId = req.params.id;
+  const currentUser = await db.User.findByPk(userId);
+  res.render('profile', {currentUser});
+}))
+
 
 module.exports = router;
