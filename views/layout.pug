@@ -10,7 +10,7 @@ html
         a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
       div.container__links
         a(href='/profile'): button.btn My Stamps
-        a(href='/create-stamp'): button.btn Create Stamp
+        a(href='/stamps/create'): button.btn Create Stamp
       div.container__account
         if authenticated          
           form(action='/users/logout' method='post')
@@ -21,4 +21,3 @@ html
           a(href='/users/login'): button.btn Login
     block content
 
-    include footer
