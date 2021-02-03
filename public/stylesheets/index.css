@@ -39,8 +39,17 @@ body {
 }
 
 #logo {
-    height:50%;
-    width:50%;
+    height:100%;
+    width:100%;
+}
+
+#lg {
+    display: flex;
+    justify-content: center;
+    max-width: 37.5px;
+    max-height: 37.5px;
+
+    /* margin: 0; */
 }
 
 .container__logo {

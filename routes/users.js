@@ -40,7 +40,6 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     });
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    console.log('errors array ---> ', errors);
     res.render('signup', { errors, csrfToken: req.csrfToken() });
   }
 
@@ -79,10 +78,9 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
         }
       }
     }
-
     else {
-      errors.push("No users exist with given email/password");
       errors = validatorErrors.array().map((error) => error.msg);
+      errors.push("No users exist with given email/password");
       res.render('login', {errors, csrfToken: req.csrfToken()});
     }
 }))
