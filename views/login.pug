@@ -3,18 +3,21 @@ extends layout
 include utils
 
 block content
-    form(method='post' action='/users/login')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        div
-            label Email
-            input(type='email' name='email')
-        div
-            label Password
-            input(type='password' name='password')
-        div
-            button(type='submit') Login
-    form(method='post' action='/users/demo')
-        button(type='submit') Demo Login
-    div
-        a(href='/users/signup') Sign Up here!
-    +validationErrorSummary(errors)
+	span.login_container
+		form.login_form(method='post' action='/users/login')
+			input(type='hidden' name='_csrf' value=csrfToken)
+			div
+				label Email
+				input(type='email' name='email')
+			div
+				label Password
+				input(type='password' name='password')
+		div.login_buttons
+			div
+				button.btn(type='submit') Login
+		form.demo_container(method='post' action='/users/demo')
+			div.login_buttons
+				button.btn(type='submit') Demo Login
+		div.signup_redirect_container
+			a(href='/users/signup') Sign Up here!
+		+validationErrorSummary(errors)
