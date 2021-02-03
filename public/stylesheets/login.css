@@ -1,0 +1,20 @@
+body {
+    /* display: flex; */
+}
+
+
+.login_container {
+    box-sizing: border-box;
+    border: 5px solid black;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+}
+
+.login_buttons {
+
+}
