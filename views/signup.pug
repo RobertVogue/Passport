@@ -3,23 +3,26 @@ extends layout
 include utils.pug
 
 block content
-	form(action="/users/signup" method="post")
-		input(type="hidden" name="_csrf" value=csrfToken)
-		div
-			label Username
-			input(type="text" name="username" placeholder="Username" required)
-		div
-			label Display Name
-			input(type="text" name="displayName" placeholder="Display Name" required)
-		div
-			label Email
-			input(type="email" name="email" placeholder="Email" required)
-		div
-			label Password
-			input(type="password" name="password" placeholder="Password" required)
-		div
-			label Confirm Password
-			input(type="password" name="confirmPassword" placeholder="Confirm Password" required)
-		div
-			button(type="submit") Submit
-	+validationErrorSummary(errors)
+	body.largerContainer
+	div.logContainer
+		form(action="/users/signup" method="post")
+			h2.headerr Create your account here!
+			input(type="hidden" name="_csrf" value=csrfToken)
+			div
+				label.box Username:
+				input.box(type="text" name="username" placeholder="Username" required)
+			div
+				label.box Display Name:
+				input.box(type="text" name="displayName" placeholder="Display Name" required)
+			div
+				label.box Email:
+				input.box(type="email" name="email" placeholder="Email" required)
+			div
+				label.box Password:
+				input.box(type="password" name="password" placeholder="Password" required)
+			div
+				label.box Confirm Password:
+				input.box(type="password" name="confirmPassword" placeholder="Confirm Password" required)
+			div
+				button(type="submit" class="sub") Submit Form
+		+validationErrorSummary(errors)
