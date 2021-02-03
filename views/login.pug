@@ -3,7 +3,6 @@ extends layout
 include utils
 
 block content
-    +validationErrorSummary(errors)
     form(method='post' action='/users/login')
         input(type='hidden' name='_csrf' value=csrfToken)
         div
@@ -14,6 +13,9 @@ block content
             input(type='password' name='password')
         div
             button(type='submit') Login
-            button(href='/users/demo') Demo Login
+        div
+            form(method='post' action='/users/demo')
+                button(type='submit') Demo Login
     div
         a(href='/users/signup') Sign Up here!
+    +validationErrorSummary(errors)
