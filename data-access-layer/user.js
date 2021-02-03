@@ -49,8 +49,28 @@ const updateEmail = async (id, email, newEmail) => {
   }
 
   await user.update({
-    newEmail,
+    email: newEmail,
   });
+};
+const updatePassword = async (id, email, oldPassword, newPassword) => {
+  const newHashedPassword = await bcrypt(newPassword, 8)
+  let user = await User.findeOne({
+    where: {
+      email,
+    },
+  });
+  if (!email) {
+    user = await User.findByPk(id);
+  }
+  const confirmPassword = await bcrypt.compare(oldPassword, user.hashedPassword, (err) => false)
+  if (confirmPassword) {
+
+    return await user.update({
+      hashedPassword = newHashedPassword
+    });
+  } else {
+    return new Error('wrong password!')
+  }
 };
 
 const createNewUser = async (
