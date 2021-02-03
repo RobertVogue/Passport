@@ -14,18 +14,18 @@ const findOwnerId = async (stampId) => {
   return userId;
 };
 
-const handleAsync = async (cb1, cb2) => {
-  try {
-    const res1 = await cb1(2);
-    const res2 = await cb2(2);
+// const handleAsync = async (cb1, cb2) => {
+//   try {
+//     const res1 = await cb1(2);
+//     const res2 = await cb2(2);
 
-    console.log(res1, res2);
-  } catch (err) {
-    console.log(err);
-  }
-};
+//     console.log(res1, res2);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
-handleAsync(findStamp, findOwnerId);
+// handleAsync(findStamp, findOwnerId);
 module.exports = {
   findStamp,
   findOwnerId,
