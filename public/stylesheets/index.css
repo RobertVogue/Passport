@@ -41,7 +41,7 @@
 .container__links {
     order: 1;
     display: flex;
-    
+
 }
 
 .container__account {
@@ -79,4 +79,3 @@
     box-shadow: 10px 10px rgba(0, 0, 0, .8);
     margin: 10px;
 }
-

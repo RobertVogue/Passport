@@ -4,6 +4,7 @@ html
       block head
         title="Passport Group Project"
         link(rel='stylesheet' href='/stylesheets/index.css')
+        link(rel='stylesheet' href='/stylesheets/signup.css')
   body
     nav.container__navbar
       div.container__logo
@@ -12,7 +13,7 @@ html
         a(href='/profile'): button.btn My Stamps
         a(href='/stamps/create'): button.btn Create Stamp
       div.container__account
-        if authenticated          
+        if authenticated
           form(action='/users/logout' method='post')
             button.btn(type='submit') Logout
         else
@@ -20,4 +21,3 @@ html
           a(href='/users/signup'): button.btn Register
           a(href='/users/login'): button.btn Login
     block content
-
