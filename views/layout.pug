@@ -6,22 +6,20 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
     header
-      a(href="/"): img.logo(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
       nav
+        div.logo: a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
         ul.nav_links
-          li: a(href='/profile') My Stamps <!-- needs to be hidden if not logged in  -->
-          li: a(href='/create-stamp') Create Stamp
-          li: a(href='/users/signup') Sign up
-          li: a(href='/users/login') Login
-          if authenticated
-            form(action='/users/logout' method='post')
-              button(type='submit') Logout
-          else
-            div
-              a(href='/users/signup') Register
-            div
-              a(href='/users/login') Login
-      a.btn(href="btn"): button Contact
+          li: a(href='/profile'): button My Stamps <!-- needs to be hidden if not logged in  -->
+          li: a(href='/create-stamp'): button Create Stamp
+          li: a(href='/users/login'): button Login
+        if authenticated
+          form(action='/users/logout' method='post')
+            button(type='submit') Logout
+        else
+          div
+            a(href='/users/signup') Register
+          div
+            a(href='/users/login') Login
     block content
 
     include footer
