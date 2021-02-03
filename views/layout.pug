@@ -7,9 +7,9 @@ html
   body
     nav.container__navbar
       div.container__logo
-        a(href="/"): img(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
+        a(href="/"): img#logo(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
         p PASSPORT GLOBAL
-      if authenticated          
+      if authenticated
         //- div.container__links
         div.container__account
           a(href='/profile'): button.btn Profile
@@ -23,4 +23,3 @@ html
           a(href='/users/signup'): button.btn Register
           a(href='/users/login'): button.btn Login
     block content
-

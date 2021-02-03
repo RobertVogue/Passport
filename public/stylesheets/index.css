@@ -29,6 +29,7 @@ body {
     align-items: center;
     background-color: var(--primary-color);
     font-family: "Montserrat", sans-serif;
+    height: 50px;
 }
 
 .container__navbar > div {
@@ -37,20 +38,26 @@ body {
     justify-content: space-between;
 }
 
+#logo {
+    height:50%;
+    width:50%;
+}
+
 .container__logo {
+    margin: 0;
     order: 0;
     font-family: "Montserrat", sans-serif;
     display: flex;
     align-items: center;
     letter-spacing: 5px;
     color: var(--light-color);
-    
+    height: 100%;
 }
 
 .container__links {
     order: 1;
     display: flex;
-    
+
 }
 
 .container__account {
@@ -83,6 +90,8 @@ body {
     cursor: pointer;
     /* transition: all 0.3s ease 0s; */
     margin: 5px;
+    outline: none;
+    color:white;
     /* box-sizing: border-box; */
     /* border appears when the button is being clicked. Needs to be fixed. */
 }
@@ -107,4 +116,3 @@ body {
     box-shadow: 10px 10px rgba(0, 0, 0, .8);
     margin: 10px;
 } */
-
