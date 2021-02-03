@@ -13,9 +13,8 @@ block content
             input(type='password' name='password')
         div
             button(type='submit') Login
-        div
-            form(method='post' action='/users/demo')
-                button(type='submit') Demo Login
+    form(method='post' action='/users/demo')
+        button(type='submit') Demo Login
     div
         a(href='/users/signup') Sign Up here!
     +validationErrorSummary(errors)

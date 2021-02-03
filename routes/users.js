@@ -88,14 +88,13 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 }))
 
 //create a post for demo user
-router.post('/demo', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/demo', asyncHandler(async (req, res) => {
   const demoUser = await db.User.findOne({where: {email: 'demo@demo.com'}});
-
-  loginUser(req, res, demoUser);
-  return req.session.save((err) => {
-    if (err) next(err);
-    else res.redirect(`/users/${demoUser.id}`);
-  })
+    loginUser(req, res, demoUser);
+    return req.session.save((err) => {
+      if (err) next(err);
+      else res.redirect(`/users/${demoUser.id}`);
+    })
 }))
 
 //User to take the specfic user page after logged in or signed up
