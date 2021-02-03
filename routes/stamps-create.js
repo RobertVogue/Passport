@@ -1,11 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { asyncHandler, csrfProtection } = require('./utils');
+const { asyncHandler, csrfProtection } = require("./utils");
 
-router.get('/', (req, res) => {
-
-    res.render('stamps-create', {});
-})
-
+router.get("/", (req, res) => {
+  res.render("stamps-create", {});
+});
 
 module.exports = router;
