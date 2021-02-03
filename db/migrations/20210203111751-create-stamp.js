@@ -12,7 +12,7 @@ module.exports = {
         },
         name: {
           allowNull: false,
-          type: Sequelize.STRING(20),
+          type: Sequelize.STRING(50),
         },
         detailed_location: {
           allowNull: false,

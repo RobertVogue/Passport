@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   const Stamp = sequelize.define("Stamp", {
     name: {
       allowNull: false,
-      type: Sequelize.STRING(20),
+      type: Sequelize.STRING(50),
     },
     detailed_location: {
       allowNull: false,
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.INTEGER,
     },
     tags_id: {
-      type: DataTypes.ARRAY(sequelize.INTEGER),
+      type: Sequelize.INTEGER,
     },
     dates: {
       type: Sequelize.STRING,

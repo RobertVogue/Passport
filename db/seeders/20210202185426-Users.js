@@ -1,11 +1,11 @@
 "use strict";
-
+const bcrypt = require("bcryptjs");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const faker = require("faker");
-    const hashedPassword = await bcrypt.hash("password", 8);
     const usersArray = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
+      const hashedPassword = await bcrypt.hash(`password${i}`, 8);
       let fakeUser = {
         username: faker.internet.userName(),
         displayName: faker.internet.userName(),
@@ -14,7 +14,7 @@ module.exports = {
       };
       usersArray.push(fakeUser);
     }
-    return queryInterface.bulkInsert("Users", fakeUser);
+    return queryInterface.bulkInsert("Users", usersArray);
   },
 
   down: (queryInterface, Sequelize) => {
