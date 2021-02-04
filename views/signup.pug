@@ -25,4 +25,7 @@ block content
 					input.box(type="password" name="confirmPassword" placeholder="Confirm Password" required)
 				div
 					button(type="submit" class="sub") Submit Form
+			form.demo_container(method = 'post' action = '/users/demo')
+				div
+					button(type = 'submit' class='login_button2') Demo Login
 			+validationErrorSummary(errors)
