@@ -6,10 +6,12 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
         link(rel='stylesheet' href='/stylesheets/login.css')
         link(rel='stylesheet' href='/stylesheets/signup.css')
+        link(rel='stylesheet' href='/stylesheets/stamps-create.css')
   body
     nav.container__navbar
       div.container__logo
-        a#lg(href="/"): img#logo(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
+        //- https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png
+        a#lg(href="/"): img#logo(alt="logo" src="🤖")
         a#app_title(href="/") PASSPORT GLOBAL
       if authenticated
         //- div.container__links
@@ -27,7 +29,7 @@ html
           a(href='/users/login'): button.btn Login
     block content
 
-    nav(class='footer')
+    nav.footer_container
       div(class='person1')
         p(class="name") Peter Anderson
         a(href='https://www.linkedin.com/in/peterbanderson1/' class='linked')
