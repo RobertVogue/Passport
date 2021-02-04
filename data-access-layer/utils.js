@@ -158,13 +158,42 @@ const getTenStamps = async (userId) => {
     },
     limit: 10,
   });
-  return res;
+  const results = res.map((result) => result.dataValues);
+  return results;
 };
 
 const createTag = async (name) => {
   const newTag = await Tag.create({ name });
   if (newTag) {
     return newTag.dataValues;
+  } else {
+    return Error("tag not created");
+  }
+};
+const createStamp = async (
+  name,
+  detailed_location,
+  passport_id,
+  countries_id,
+  tags_id,
+  dates,
+  price,
+  review,
+  rating
+) => {
+  const stamp = await Stamp.create({
+    name,
+    detailed_location,
+    passport_id,
+    countries_id,
+    tags_id,
+    dates,
+    price,
+    review,
+    rating,
+  });
+  if (stamp) {
+    return stamp.dataValues;
   } else {
     return Error("tag not created");
   }
@@ -183,4 +212,5 @@ module.exports = {
   getStamps,
   getUserPassports,
   createTag,
+  createStamp,
 };
