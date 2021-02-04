@@ -45,7 +45,7 @@ app.use(restoreUser);
 app.use("/", indexRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
-app.use("/stamps/create", createStamps);
+app.use("/stamps", createStamps);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

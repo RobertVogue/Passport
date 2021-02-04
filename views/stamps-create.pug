@@ -5,24 +5,22 @@ block content
 	.outer_container
 		.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
-				.header_text
-					.status_header STATUS
-					.country_header COUNTRY
-					.cost_header COST
+				.status_header STATUS
+				.country_header COUNTRY
+				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
-				.top_form
-					select.status.dropdown(name="status")
-						option(value="visited") Visited
-						option(value="must go") Must go!
-						option(value="I'm a local") I'm a local
-					select#countries.dropdown(name="countries" placeholder="Select Country")
-						each country in countries
-							option(value=country.id)= country.name
-					label.price(for="expensive")
-					select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
-						option(value="1") $
-						option(value="2") $$
-						option(value="3") $$$
+				select.status.dropdown(name="status")
+					option(value="visited") Visited
+					option(value="must go") Must go!
+					option(value="I'm a local") I'm a local
+				select#countries.dropdown(name="countries" placeholder="Select Country")
+					each country in countries
+						option(value=country.id)= country.name
+				label.price(for="expensive")
+				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
+					option(value="1") $
+					option(value="2") $$
+					option(value="3") $$$
 				.det_loc_text
 					label.detailed_location_label(for="detailed-location") Detailed Location
 				.det_loc
@@ -42,3 +40,8 @@ block content
 					label(for="star2" title="text") 2 stars
 					input#star1(type="radio" name="rate" value="1")
 					label(for="star1" title="text") 1 stars
+				.tags
+					select.dropdown(name="tag" placeholder="Tag your trip!")
+						each tag in tags
+							option(value=tag.id)= tag.name
+				button.btn.stamp_btn Create Stamp!

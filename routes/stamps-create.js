@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const { asyncHandler, csrfProtection } = require("./utils");
-// const { Country } = require('../db/models/country');
 const db = require("../db/models");
 
-router.get("/", asyncHandler(async (req, res) => {
+router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
   const countries = await db.Country.findAll();
-  // console.log("countries-------->>", countries)
-  res.render("stamps-create", { countries });
+  res.render("stamps-create", { countries, csrfToken: req.csrfToken() });
 }));
 
-// router.post("/", csrfProtection, asyncHandler (async (req, res) => {
-// }));
+router.post("/create", csrfProtection, asyncHandler (async (req, res) => {
+  // const {  }
+}));
+
+router.post("/edit")
 
 module.exports = router;
