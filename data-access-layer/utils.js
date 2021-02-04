@@ -158,7 +158,8 @@ const getTenStamps = async (userId) => {
     },
     limit: 10,
   });
-  return res;
+  const results = res.map((result) => result.dataValues);
+  return results;
 };
 
 const createTag = async (name) => {
