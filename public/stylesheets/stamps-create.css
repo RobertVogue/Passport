@@ -17,76 +17,74 @@
 }
 
 .outer_container {
-    /* display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; */
+    /* flex-direction: column; */
     height: 90vh;
     width: 100vw;
-    display: grid;
-    grid-template-rows: auto, 100px;
-    justify-items: center;
-    align-items: center;
     background-color: lightcoral;
 }
 
-/* .content_container {
-    border: 3px solid black;
-    width: 600px;
-    
-} */
-
-#create_stamp_form {
+.content_container {
     background-color: lightblue;
     position: absolute;
     display: grid;
+    grid-template-rows: repeat(7, 50px);
     grid-template-areas: 
         "header_text"
         "top_form"
-        "det_loc_text"
-        "det_loc"
-        "det_desc_text"
-        "det_desc"
+        "det_loc_text" 
+        "det_loc" 
+        "det_desc_text" 
+        "det_desc" 
         "rating";
     border-radius: 20px;
     padding: 4rem;
     width: 60%;
     border: 3px solid black;
+    
+}
+/* grid-template-areas: 
+"header_status header_country header_country header_country header_cost"
+"box box box box box"
+"det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
+"det_loc det_loc det_loc det_loc det_loc"
+"det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
+"det_desc det_desc det_desc det_desc det_desc"
+"rating rating rating rating rating";
+     */
+
+#create_stamp_form {
     /* background-color: red; */
 }
-/* grid-template-columns: repeat(5, 20%);
-grid-template-rows: repeat(7, 200px);
-grid-template-areas: 
-    "statusText countryText countryText countryText costText"
-    "status country country country cost"
-    "detLocLab detLocLab detLocLab detLocLab detLocLab"
-    "detLoc detLoc detLoc detLoc detLoc"
-    "detDescLab detDescLab detDescLab detDescLab detDescLab"
-    "detDesc detDesc detDesc detDesc detDesc"
-    "rate rate rate rate rate"; */
 
 .content_header {
 }
 
 .header_text {
     grid-area: header_text;
+    display: grid;
+    grid-template-columns: 20%, 60%, 20%;
+    grid-template-areas: 
+        "header_status header_country header_cost";
+    text-align: center;
     /* order: 1; */
     /* display: flex;
     justify-content: space-between; */
 }
 
-/* .status_header {
-    grid-area: statusText;
+.status_header {
+    grid-area: header_status;
 }
 
 .country_header {
-    grid-area: countryText;
+    grid-area: header_country;
 }
 
 .cost_header {
-    grid-area: costText;
-
-} */
+    grid-area: header_cost;
+}
 
 .dropdown {
 
@@ -94,6 +92,10 @@ grid-template-areas:
 
 .top_form {
     grid-area: top_form;
+    display: grid;
+    grid-template-columns: 20%, 60%, 20%;
+    grid-template-areas: 
+        "status country cost";
     /* order: 1;
     display: flex;
     justify-content: space-between;
@@ -101,7 +103,7 @@ grid-template-areas:
 }
 
 .status {
-
+    grid-area: status;
 }
 
 #countries {
@@ -110,10 +112,12 @@ grid-template-areas:
     padding: 16px;
     font-size: 16px;
     cursor: pointer; */
+    grid-area: country;
+    max-width: 60%;
 }
 
 .price {
-
+    grid-area: cost;
 }
 
 .det_loc_text {

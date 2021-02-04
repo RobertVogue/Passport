@@ -3,42 +3,42 @@ include utils
 
 block content
 	.outer_container
-		//- .content_container
-		form#create_stamp_form(action="/stamps/create" method="post")
-			.header_text
-				.status_header STATUS
-				.country_header COUNTRY
-				.cost_header COST
-			input(type="hidden" name="_csrf" value=csrfToken)
-			.top_form
-				select.status.dropdown(name="status")
-					option(value="visited") Visited
-					option(value="must go") Must go!
-					option(value="I'm a local") I'm a local
-				select#countries.dropdown(name="countries" placeholder="Select Country")
-					each country in countries
-						option(value=country.id)= country.name
-				label.price(for="expensive")
-				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
-					option(value="1") $
-					option(value="2") $$
-					option(value="3") $$$
-			.det_loc_text
-				label.detailed_location_label(for="detailed-location") Detailed Location
-			.det_loc
-				input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
-			.det_desc_text
-				label.description_label(for="detailed-description") Detailed Description
-			.det_desc
-				textarea#description(name="detailed-description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
-			.rating
-				input#star5(type="radio" name="rate" value="5")
-				label(for="star5" title="text") 5 stars
-				input#star4(type="radio" name="rate" value="4")
-				label(for="star4" title="text") 4 stars
-				input#star3(type="radio" name="rate" value="3")
-				label(for="star3" title="text") 3 stars
-				input#star2(type="radio" name="rate" value="2")
-				label(for="star2" title="text") 2 stars
-				input#star1(type="radio" name="rate" value="1")
-				label(for="star1" title="text") 1 stars
+		.content_container
+			form#create_stamp_form(action="/stamps/create" method="post")
+				.header_text
+					.status_header STATUS
+					.country_header COUNTRY
+					.cost_header COST
+				input(type="hidden" name="_csrf" value=csrfToken)
+				.top_form
+					select.status.dropdown(name="status")
+						option(value="visited") Visited
+						option(value="must go") Must go!
+						option(value="I'm a local") I'm a local
+					select#countries.dropdown(name="countries" placeholder="Select Country")
+						each country in countries
+							option(value=country.id)= country.name
+					label.price(for="expensive")
+					select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
+						option(value="1") $
+						option(value="2") $$
+						option(value="3") $$$
+				.det_loc_text
+					label.detailed_location_label(for="detailed-location") Detailed Location
+				.det_loc
+					input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+				.det_desc_text
+					label.description_label(for="detailed-description") Detailed Description
+				.det_desc
+					textarea#description(name="detailed-description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
+				.rating
+					input#star5(type="radio" name="rate" value="5")
+					label(for="star5" title="text") 5 stars
+					input#star4(type="radio" name="rate" value="4")
+					label(for="star4" title="text") 4 stars
+					input#star3(type="radio" name="rate" value="3")
+					label(for="star3" title="text") 3 stars
+					input#star2(type="radio" name="rate" value="2")
+					label(for="star2" title="text") 2 stars
+					input#star1(type="radio" name="rate" value="1")
+					label(for="star1" title="text") 1 stars
