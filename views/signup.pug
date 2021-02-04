@@ -3,27 +3,26 @@ extends layout
 include utils.pug
 
 block content
-	body.largerContainer
-	div.logContainer
-		form(action="/users/signup" method="post")
-			h2.headerr Create your account here!
-			input(type="hidden" name="_csrf" value=csrfToken)
-			div
-				label.box Username:
-				input.box(type="text" name="username" placeholder="Username" required)
-			div
-				label.box Display Name:
-				input.box(type="text" name="displayName" placeholder="Display Name" required)
-			div
-				label.box Email:
-				input.box(type="email" name="email" placeholder="Email" required)
-			div
-				label.box Password:
-				input.box(type="password" name="password" placeholder="Password" required)
-			div
-				label.box Confirm Password:
-				input.box(type="password" name="confirmPassword" placeholder="Confirm Password" required)
-			div
-				button(type="submit" class="sub") Submit Form
-		+validationErrorSummary(errors)
-
+	div.largerContainer
+		div.logContainer
+			form(action="/users/signup" method="post")
+				h2.headerr Account Creation
+				input(type="hidden" name="_csrf" value=csrfToken)
+				div
+					label.box Username:
+					input.box(type="text" name="username" placeholder="Username" required)
+				div
+					label.box Display Name:
+					input.box(type="text" name="displayName" placeholder="Display Name" required)
+				div
+					label.box Email:
+					input.box(type="email" name="email" placeholder="Email" required)
+				div
+					label.box Password:
+					input.box(type="password" name="password" placeholder="Password" required)
+				div
+					label.box Confirm Password:
+					input.box(type="password" name="confirmPassword" placeholder="Confirm Password" required)
+				div
+					button(type="submit" class="sub") Submit Form
+			+validationErrorSummary(errors)

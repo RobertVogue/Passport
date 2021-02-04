@@ -14,24 +14,16 @@
     padding: 0;
 }
 .largerContainer {
-    width: 100%;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    position: relative;
-    animation: easy 10s ease-in-out infinite;
+    display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 90vh;
 
 }
-@keyframes easy {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
-}
+
 .logContainer{
     background-color: white;
     padding: 5%;
@@ -64,8 +56,13 @@
     color: #eee;
     font-size: 20px;
     position: relative;
-    transition: 5s;
-    position: relative;
+
+  }
+  .sub:hover {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+      transition: translateY(1px);
   }
 .headerr {
     display: flex;
@@ -79,10 +76,4 @@
     height: 30px;
     font-size: 18px;
     position: relative;
-}
-
-@media screen and (max-width:600px) {
-    .logContainer {
-        width: 600px;
-    }
 }
