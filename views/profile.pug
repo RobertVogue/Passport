@@ -1,4 +1,9 @@
 extends layout
 
 block content
-    h1 My Profile
+	div.profileBody
+		h1 My Profile
+			ul My Stamps
+				each image in images
+					li.imgTag
+					img.stampImg(src=image)

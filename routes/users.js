@@ -1,10 +1,11 @@
-var express = require('express');
+const express = require('express');
 const bcrypt = require('bcryptjs');
-var router = express.Router();
+const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection, userValidators , loginValidators} = require("./utils");
 const db = require("../db/models");
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
+const { getTenStamps } = require("../data-access-layer/utils");
 
 
 router.get('/', (req, res) => {
@@ -99,7 +100,10 @@ router.post('/demo', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const userId = req.params.id;
   const currentUser = await db.User.findByPk(userId);
-  res.render('profile', {currentUser});
+  const stamps = await getTenStamps(userId);
+  const images = stamps.map((stamp) => stamp.imgURL);
+  const stampIds = stamps.map((stamp) => stamp.id);
+  res.render("profile", { currentUser, images, stampIds });
 }))
 
 
