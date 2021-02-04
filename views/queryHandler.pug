@@ -2,6 +2,5 @@ extends layout
 
 block content
   h1= message
-  h2= results
     each result in results
-        h2= result
+        h2= result.dataValues.id

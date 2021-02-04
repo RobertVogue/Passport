@@ -1,5 +1,6 @@
 const { User, Passport, Stamp, Country, Tag } = require("../db/models");
 const bcrypt = require("bcryptjs");
+const { Op } = require("sequelize");
 const updateEmail = async (id, email, newEmail) => {
   let user = await User.findOne({
     where: {
@@ -146,7 +147,22 @@ const getUserPassports = async (id) => {
   return results;
 };
 
+const getTenStamps = async (userId) => {
+  let user = await findUserById(userId);
+  const myMap = user.Passports.map((passport) => passport.dataValues.id);
+  const res = await Stamp.findAll({
+    where: {
+      passport_id: {
+        [Op.or]: [...myMap],
+      },
+    },
+    limit: 10,
+  });
+  return res;
+};
+
 module.exports = {
+  getTenStamps,
   updateEmail,
   updatePassword,
   updateusername,

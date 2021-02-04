@@ -3,6 +3,7 @@ const queryHandlerRouter = express.Router();
 const { asyncHandler } = require("../routes/utils");
 
 const {
+  getTenStamps,
   updateEmail, // (userid, [email], newEmail)
   updatePassword, // (id, [email], oldPassword, newPassword)
   updateusername, // (userid, [name], newName)
@@ -19,7 +20,7 @@ const {
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await updateEmail(2, null, "new@test.email");
+    const results = await getTenStamps(1);
     console.log(results);
     return res.render("queryHandler", { results });
   })
