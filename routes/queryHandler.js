@@ -3,12 +3,10 @@ const queryHandlerRouter = express.Router();
 const { asyncHandler } = require("../routes/utils");
 
 const {
-  createNewUser, // ( username, displayname, email, passwordToBeHashed)
-  updateusername, // (userid, [name], newName)
   updateEmail, // (userid, [email], newEmail)
   updatePassword, // (id, [email], oldPassword, newPassword)
-} = require("../data-access-layer/user");
-const {
+  updateusername, // (userid, [name], newName)
+  createNewUser, // ( username, displayname, email, passwordToBeHashed)
   updateUserDisplayName, // (userid , [displayName] , newDisplayName)
   findUserById,
   getStamps,
@@ -21,7 +19,7 @@ const {
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await updateUserDisplayName(1, null, "Demo");
+    const results = await updateEmail(2, null, "new@test.email");
     console.log(results);
     return res.render("queryHandler", { results });
   })
