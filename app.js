@@ -13,10 +13,8 @@ const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
 const createStamps = require("./routes/stamps-create");
 const queryHandlerRouter = require("./routes/queryHandler");
-
 const profileRouter = require("./routes/profile");
-const { db, secret } = require("./config");
-
+const { secret } = require("./config");
 
 const app = express();
 
@@ -34,7 +32,8 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret,
+    secret, 
+    store,
     saveUninitialized: false,
     store,
     resave: false,
