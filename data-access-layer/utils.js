@@ -169,6 +169,34 @@ const createTag = async (name) => {
     return Error("tag not created");
   }
 };
+const createStamp = async (
+  name,
+  detailed_location,
+  passport_id,
+  countries_id,
+  tags_id,
+  dates,
+  price,
+  review,
+  rating
+) => {
+  const stamp = await Stamp.create({
+    name,
+    detailed_location,
+    passport_id,
+    countries_id,
+    tags_id,
+    dates,
+    price,
+    review,
+    rating,
+  });
+  if (stamp) {
+    return stamp.dataValues;
+  } else {
+    return Error("tag not created");
+  }
+};
 
 module.exports = {
   getTenStamps,
@@ -183,4 +211,5 @@ module.exports = {
   getStamps,
   getUserPassports,
   createTag,
+  createStamp,
 };
