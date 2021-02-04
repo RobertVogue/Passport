@@ -1,29 +1,6 @@
 const { User } = require("../db/models");
 const bcrypt = require("bcryptjs");
 
-const findUserById = async (id) => {
-  try {
-    const user = await User.findByPk(id);
-    return user;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const updateUserDisplayName = async (id, name, newName) => {
-  let user = await User.findeOne({
-    where: {
-      displayName: name,
-    },
-  });
-  if (!name) {
-    user = await User.findByPk(id);
-  }
-
-  await user.update({
-    displayName: newName,
-  });
-};
 const updateusername = async (id, name, newName) => {
   let user = await User.findeOne({
     where: {
@@ -87,12 +64,20 @@ const createNewUser = async (
 ) => {
   const hashedPassword = await bcrypt(passwordToBeHassed, 8);
 
-  return await User.create({ username, displayName, email, hashedPassword });
+  const newUser = await User.create({
+    username,
+    displayName,
+    email,
+    hashedPassword,
+  });
+  if (newUser) {
+    return newUser;
+  } else {
+    return Error("user not created");
+  }
 };
 
 module.exports = {
-  findUserById,
-  updateUserDisplayName,
   createNewUser,
   updateusername,
   updateEmail,

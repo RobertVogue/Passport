@@ -31,7 +31,7 @@ module.exports = {
         tags_id: {
           allowNull: false,
           type: Sequelize.INTEGER,
-          references: { model: "Stamps_Tags" },
+          references: { model: "Tags" },
         },
         dates: {
           allowNull: false,
