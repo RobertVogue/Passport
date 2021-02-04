@@ -1,4 +1,76 @@
 const { User, Passport, Stamp, Country, Tag } = require("../db/models");
+const bcrypt = require("bcryptjs");
+const updateEmail = async (id, email, newEmail) => {
+  let user = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  if (!email) {
+    user = await User.findByPk(id);
+  }
+
+  const result = await user.update({
+    email: newEmail,
+  });
+
+  return result.dataValues;
+};
+
+const updatePassword = async (id, email, newPassword) => {
+  let user = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  if (!user) {
+    user = await User.findByPk(id);
+  }
+  const newHashedPassword = await bcrypt.hash(newPassword, 8);
+  const result = await user.update({
+    hashedPassword: newHashedPassword,
+  });
+
+  return result.dataValues.hashedPassword;
+};
+
+const updateusername = async (id, name, newName) => {
+  let user = await User.findOne({
+    where: {
+      username: name,
+    },
+  });
+  if (!user) {
+    user = await User.findByPk(id);
+  }
+
+  const myUpdate = await user.update({
+    username: newName,
+  });
+
+  return myUpdate.dataValues;
+};
+
+const createNewUser = async (
+  username,
+  displayName,
+  email,
+  passwordToBeHassed
+) => {
+  const hashedPassword = await bcrypt.hash(passwordToBeHassed, 8);
+
+  const newUser = await User.create({
+    username,
+    displayName,
+    email,
+    hashedPassword,
+  });
+  if (newUser) {
+    return newUser.dataValues;
+  } else {
+    return Error("user not created");
+  }
+};
 const updateUserDisplayName = async (id, name, newName) => {
   let user = await User.findOne({
     where: {
@@ -75,6 +147,10 @@ const getUserPassports = async (id) => {
 };
 
 module.exports = {
+  updateEmail,
+  updatePassword,
+  updateusername,
+  createNewUser,
   updateUserDisplayName,
   findUserById,
   findStamp,
