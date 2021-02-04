@@ -14,9 +14,63 @@
     padding: 0;
 }
 
-body {
-    background-color: var(--secondary-color);
+.footer {
+    display: grid;
+    justify-content: space-around;
+    position: fixed;
+    grid-template-areas: 'person1 person2 person3 person4';
+    width: 100%;
+    height: 4em;
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size:400% 400%;
+    animation: medium 10s ease-in-out infinite;
 }
+.linked{
+    grid-area: linked;
+    margin: auto;
+    color: #5f9585;
+    margin-left: 5px;
+
+}
+.github{
+    grid-area: github;
+    margin: auto;
+    color: #5f9585;
+    margin-left: 5px;
+}
+.p1 {
+    display: grid;
+    grid-area: person1;
+    justify-content: space-around;
+    grid-template-areas: "name linked github";
+
+}
+.p2 {
+    display: grid;
+    grid-area: person2;
+    justify-content: space-around;
+    grid-template-areas: "name linked github";
+
+}
+.p3 {
+    display: grid;
+    grid-area: person3;
+    justify-content: space-around;
+    grid-template-areas: "name linked github";
+
+}
+.p4 {
+    display: grid;
+    grid-area: person4;
+    justify-content: space-around;
+    grid-template-areas: "name linked github";
+
+}
+.name {
+    color:black;
+    font-size: 18px;
+}
+
 
 #app_title {
     text-decoration: none;
@@ -31,12 +85,29 @@ body {
 
 
 .container__navbar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
     font-family: "Montserrat", sans-serif;
     height: 50px;
+    background-size:400% 400%;
+    position: relative;
+    animation: medium 10s ease-in-out infinite;
+    border-bottom: 2.5px solid rgb(0, 225, 255);
+
+}
+@keyframes medium {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .container__navbar > div {
@@ -103,21 +174,24 @@ body {
     cursor: pointer;
 } */
 .btn {
+    min-width: 140px;
+    max-width: 140px;
     padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
+    background-color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     /* transition: all 0.3s ease 0s; */
     margin: 5px;
     outline: none;
-    color:white;
+    color:black;
     /* box-sizing: border-box; */
     /* border appears when the button is being clicked. Needs to be fixed. */
 }
 
 .btn:hover {
-    background-color: rgba(0, 136, 169, 0.8);
+    background-color: black;
+    color: white;
     transform: translateY(1px);
 }
 
@@ -135,6 +209,5 @@ body {
     padding: 5px;
     box-shadow: 10px 10px rgba(0, 0, 0, .8);
     margin: 10px;
-} 
+}
  */
-

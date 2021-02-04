@@ -4,17 +4,98 @@ body {
 
 /* working on centering vertically */
 .login_container {
-    box-sizing: border-box;
-    border: 5px solid black;
-    background-color: red;
     display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
-    height: 50%;
+    width: 100vw;
+    height: 90vh;
+
+
+}
+.bigBox {
+    background-color: white;
+    padding: 5%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    border: 1px solid #2da1b1;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+
+
+}
+.bigBox div {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
-.login_buttons {
-
+.login_button1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    height: 40px;
+    min-width: 400px;
+    border: none;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 20px;
+    position: relative;
+}
+.login_button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    height: 40px;
+    min-width: 400px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    position: relative;
+}
+.login_button3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    height: 40px;
+    min-width: 400px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    text-decoration: none;
+}
+.login_button1:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: translateY(1px);
+}
+.login_button2:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: translateY(1px);
+}
+.login_button3:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: translateY(1px);
+}
+.box {
+    height: 30px;
+    font-size: 18px;
+    position: relative;
 }

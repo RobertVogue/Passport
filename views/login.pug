@@ -1,24 +1,25 @@
 extends layout
-
 include utils
 
 block content
-	span.login_container
-		form.login_form(method='post' action='/users/login')
-			input(type='hidden' name='_csrf' value=csrfToken)
-			div
-				label Email
-				input(type='email' name='email')
-			div
-				label Password
-				input(type='password' name='password')
-			div
-				button.btn(type='submit') Login
-		form.demo_container(method='post' action='/users/demo')
-			div.login_buttons
-				button.btn(type='submit') Demo Login
-		div.signup_redirect_container
-			a(href='/users/signup') Sign Up here!
-		+validationErrorSummary(errors)
+	div.login_container
+		div.bigBox
+			form.login_form(method = 'post' action = '/users/login')
+				h2.headerr Welcome Back!
+				input(type = 'hidden' name = '_csrf' value = csrfToken)
+				div
+					label.box Email:
+					input.box(type = 'email' name = 'email' placeholder = 'email')
+				div
+					label.box Password:
+					input.box(type = 'password' name = 'password' placeholder = 'password')
+				div
+					button(type = 'submit' class='login_button1') Login
+			form.demo_container(method = 'post' action = '/users/demo')
+				div
+					button(type = 'submit' class='login_button2') Demo Login
+				div.signup_redirect_container
+					a(href = '/users/signup' class='login_button3') Sign Up Here!
+			+validationErrorSummary(errors)
 
 		//- div.login_buttons
