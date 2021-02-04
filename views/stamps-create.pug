@@ -3,22 +3,26 @@ include utils
 
 block content
 	.outer_container
-		form#create_stamp(action="/stamps/create" method="post")
+		form#create_stamp_form(action="/stamps/create" method="post")
 			input(type="hidden" name="_csrf" value=csrfToken)
 			.top_form
-				input.status(type="text" name="status" required)
-				select#countries(name="countries")
-					//- each country in countries
-					//- 	option(value=country.id)= country.name
+				select.status.dropdown(name="status")
+					option(value="visited") Visited
+					option(value="must go") Must go!
+					option(value="I'm a local") I'm a local
+				select#countries.dropdown(name="countries" placeholder="Select Country")
+					each country in countries
+						option(value=country.id)= country.name
 				label.price(for="expensive") Cost
-				select.price(type="text" name="expensive" value="$ $$ $$$")
+				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
 					option(value="1") $
 					option(value="2") $$
 					option(value="3") $$$
-			label.detailed_location_label(for="detailed-location") Detailed Description
-			input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
-			label.description_label(for="detailed-description") Detailed Description
-			textarea#description(name="detailed-description", cols="30", rows="10")
+			.text_sections
+				label.detailed_location_label(for="detailed-location") Detailed Location
+				input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+				label.description_label(for="detailed-description") Detailed Description
+				textarea#description(name="detailed-description" placeholder="This was one of the best trips!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
 			.rating
 				input#star5(type="radio" name="rate" value="5")
 				label(for="star5" title="text") 5 stars

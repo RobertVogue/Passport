@@ -12,12 +12,16 @@
 }
 
 #create_stamp_form {
-    border: 1px solid black;
     padding: 4rem;
     /* height: 90vh; */
 }
 
+.dropdown {
+
+}
+
 .top_form {
+    order: 1;
     display: flex;
 }
 
@@ -26,14 +30,26 @@
 }
 
 #countries {
-
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 .price {
 
 }
 
+.text_sections {
+    order: 2;
+}
+
 .detailed_location {
 
 }    
 
+.rating {
+    order: 3;
+}
