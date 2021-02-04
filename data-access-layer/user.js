@@ -53,7 +53,7 @@ const updateEmail = async (id, email, newEmail) => {
   });
 };
 const updatePassword = async (id, email, oldPassword, newPassword) => {
-  const newHashedPassword = await bcrypt(newPassword, 8)
+  const newHashedPassword = await bcrypt(newPassword, 8);
   let user = await User.findeOne({
     where: {
       email,
@@ -62,14 +62,20 @@ const updatePassword = async (id, email, oldPassword, newPassword) => {
   if (!email) {
     user = await User.findByPk(id);
   }
-  const confirmPassword = await bcrypt.compare(oldPassword, user.hashedPassword, (err) => false)
+  const confirmPassword = await bcrypt.compare(
+    oldPassword,
+    user.hashedPassword,
+    (err) => {
+      console.log(err);
+      return false;
+    }
+  );
   if (confirmPassword) {
-
     return await user.update({
-      hashedPassword = newHashedPassword
+      hashedPassword: newHashedPassword,
     });
   } else {
-    return new Error('wrong password!')
+    return new Error("wrong password!");
   }
 };
 
