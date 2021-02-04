@@ -129,8 +129,8 @@ button {
 #lg {
     display: flex;
     justify-content: center;
-    max-width: 37.5px;
-    max-height: 37.5px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 
@@ -216,5 +216,3 @@ button {
     margin: 10px;
 }
  */
-
- 
