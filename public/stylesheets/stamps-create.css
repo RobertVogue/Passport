@@ -50,7 +50,7 @@
     "det_loc det_loc det_loc det_loc det_loc"
     "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
     "det_desc det_desc det_desc det_desc det_desc"
-    "rating rating rating rating rating"
+    "rating rating rating tag tag"
     "btn btn btn btn btn";
 }
 
@@ -121,13 +121,13 @@
     box-sizing: border-box; */
 }
 
-.text_sections {
-    /* order: 2;
+/* .text_sections {
+    order: 2;
     display: flex;
-    flex-direction: column; */
-}
+    flex-direction: column;
+} */
 
-.detailed_location {
+/* .detailed_location {
 
-}    
+}     */
 

@@ -1,0 +1,12 @@
+.stampImg {
+   max-width: 300px;
+   grid-row: 2;
+}
+.imgTag {
+   list-style-type: none;
+}
+
+.profileBody {
+   display:grid;
+   grid-template-rows: 3 25% 50% 25%;
+}

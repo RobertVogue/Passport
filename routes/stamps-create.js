@@ -5,7 +5,8 @@ const db = require("../db/models");
 
 router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
   const countries = await db.Country.findAll();
-  res.render("stamps-create", { countries, csrfToken: req.csrfToken() });
+  const tags = await db.Stamp_Tag.findAll();
+  res.render("stamps-create", { tags, countries, csrfToken: req.csrfToken() });
 }));
 
 router.post("/create", csrfProtection, asyncHandler (async (req, res) => {
