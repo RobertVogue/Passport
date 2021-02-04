@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+}
+
+.sub_a {
+    display: flex;
+    background-color: darkblue;
+    height: 6vh;
+    width: 100vw;
+    justify-content: center;
+}
+
+.btn2 {
+    min-width: 140px;
+    max-width: 160px;
+    padding: 9px 25px;
+    background-color: brown;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    /* transition: all 0.3s ease 0s; */
+    margin: 5px;
+    outline: none;
+    color:black;
+    /* box-sizing: border-box; */
+    /* border appears when the button is being clicked. Needs to be fixed. */
+}
+
+.btn2:hover {
+    background-color: black;
+    color: white;
+    transform: translateY(1px);
+}
+
+.sub_b {
+    display: flex;
+    width: 100vw;
+    height: 42vh;
+    justify-content: center;
+}
+
+
+.sub_c {
+    display: flex;
+    width: 100vw;
+    height: 42vh;
+    justify-content: center;
+}
