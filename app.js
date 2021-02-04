@@ -12,7 +12,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
 const queryHandlerRouter = require("./routes/queryHandler");
-const { db, secret } = require("./config");
+const { secret } = require("./config");
 
 const app = express();
 
@@ -30,7 +30,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: secret, //CLARIFY WITH CHRIS ON THIS ONE////////////////////////////////////////////////////////////////////////
+    secret, //CLARIFY WITH CHRIS ON THIS ONE////////////////////////////////////////////////////////////////////////
     store,
     saveUninitialized: false,
     resave: false,
