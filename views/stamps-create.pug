@@ -2,8 +2,8 @@ extends layout
 include utils
 
 block content
-	.outer_container
-		.content_container
+	div.outer_container
+		div.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
 				.header_text
 					.status_header STATUS
@@ -24,9 +24,8 @@ block content
 						option(value="2") $$
 						option(value="3") $$$
 				.det_loc_text
-					label.detailed_location_label(for="detailed-location") Detailed Location
-				.det_loc
-					input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+					label.detailed_location(for="detailed-location") Detailed Location
+					input.detailed_location2(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
 				.det_desc_text
 					label.description_label(for="detailed-description") Detailed Description
 				.det_desc

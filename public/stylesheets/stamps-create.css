@@ -17,30 +17,19 @@
 }
 
 .outer_container {
-    /* position: relative; */
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
-    height: 90vh;
+    display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    flex-direction: column;
     width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .content_container {
     display: grid;
-    grid-template-rows: auto, 100px;
-    justify-items: center;
-    align-items: center;
-    background-color: lightblue;
-    border: 3px solid black;
-    width: 600px;
-
-}
-
-#create_stamp_form {
-    position: absolute;
-    display: grid;
-    grid-template-areas: 
+    background-color: white;
+    grid-template-areas:
         "header_text"
         "top_form"
         "det_loc_text"
@@ -49,14 +38,37 @@
         "det_desc"
         "rating";
     border-radius: 20px;
-    padding: 4rem;
-    width: 60%;
+    border-radius: 20px;
+    width: 606px;
     border: 3px solid black;
-    /* background-color: red; */
+}
+
+.header_text, .top_form {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+
+}
+.detailed_location, .description_label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailed_location2, #description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 600px;
+}
+.rating {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
 }
 /* grid-template-columns: repeat(5, 20%);
 grid-template-rows: repeat(7, 200px);
-grid-template-areas: 
+grid-template-areas:
     "statusText countryText countryText countryText costText"
     "status country country country cost"
     "detLocLab detLocLab detLocLab detLocLab detLocLab"
@@ -141,7 +153,7 @@ grid-template-areas:
 
 .detailed_location {
 
-}    
+}
 
 .rating {
     grid-area: rating;
