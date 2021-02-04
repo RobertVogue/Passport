@@ -18,15 +18,27 @@
 
 .outer_container {
     /* position: relative; */
-    /* min-height: 85vh; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    height: 90vh;
+    width: 100vw;
+}
+
+.content_container {
     display: grid;
     grid-template-rows: auto, 100px;
     justify-items: center;
     align-items: center;
     background-color: lightblue;
+    border: 3px solid black;
+    width: 600px;
+
 }
 
 #create_stamp_form {
+    position: absolute;
     display: grid;
     grid-template-areas: 
         "header_text"
