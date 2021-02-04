@@ -17,7 +17,7 @@
 .footer_container {
     display: grid;
     justify-content: space-around;
-    position: relative; /* if absolute then the form on create stamps will overflow into it. If it is relative, the footer won't stick to the bottom */
+    position: relative; /*if absolute then the form on create stamps will overflow into it. If it is relative, the footer won't stick to the bottom*/
     bottom: 0;
     grid-template-areas: 'person1 person2 person3 person4';
     width: 100%;
@@ -176,7 +176,7 @@
 } */
 .btn {
     min-width: 140px;
-    max-width: 140px;
+    max-width: 160px;
     padding: 9px 25px;
     background-color: white;
     border: none;
