@@ -3,26 +3,30 @@ include utils
 
 block content
 	.outer_container
-	form(action="/stamps/create" method="post")
-		input(type="hidden" name="_csrf" value=csrfToken)
-		input.header(type="text")
-		.location_price
-		.description
-		.rating
-			input#star5(type="radio" name="rate" value="5")
-			label(for="star5" title="text") 5 stars
-			input#star4(type="radio" name="rate" value="4")
-			label(for="star4" title="text") 4 stars
-			input#star3(type="radio" name="rate" value="3")
-			label(for="star3" title="text") 3 stars
-			input#star2(type="radio" name="rate" value="2")
-			label(for="star2" title="text") 2 stars
-			input#star1(type="radio" name="rate" value="1")
-			label(for="star1" title="text") 1 stars
-		//- span.fa.fa-star.checked: img(alt="star rating" src="https://png.pngtree.com/png-clipart/20201106/ourmid/pngtree-classic-yellow-stars-clipart-png-image_2395190.jpg")
-		//- span.fa.fa-star: img(alt="star rating" src="https://png.pngtree.com/png-clipart/20201106/ourmid/pngtree-classic-yellow-stars-clipart-png-image_2395190.jpg")
-		//- span.fa.fa-star: img(alt="star rating" src="https://png.pngtree.com/png-clipart/20201106/ourmid/pngtree-classic-yellow-stars-clipart-png-image_2395190.jpg")
-		//- span.fa.fa-star: img(alt="star rating" src="https://png.pngtree.com/png-clipart/20201106/ourmid/pngtree-classic-yellow-stars-clipart-png-image_2395190.jpg")
-		//- span.fa.fa-star: img(alt="star rating" src="https://png.pngtree.com/png-clipart/20201106/ourmid/pngtree-classic-yellow-stars-clipart-png-image_2395190.jpg")
-			//- add "checked" to the class using JS
-	.tags
+		form#create_stamp(action="/stamps/create" method="post")
+			input(type="hidden" name="_csrf" value=csrfToken)
+			.top_form
+				input.status(type="text" name="status" required)
+				select#countries(name="countries")
+					//- each country in countries
+					//- 	option(value=country.id)= country.name
+				label.price(for="expensive") Cost
+				select.price(type="text" name="expensive" value="$ $$ $$$")
+					option(value="1") $
+					option(value="2") $$
+					option(value="3") $$$
+			label.detailed_location_label(for="detailed-location") Detailed Description
+			input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+			label.description_label(for="detailed-description") Detailed Description
+			textarea#description(name="detailed-description", cols="30", rows="10")
+			.rating
+				input#star5(type="radio" name="rate" value="5")
+				label(for="star5" title="text") 5 stars
+				input#star4(type="radio" name="rate" value="4")
+				label(for="star4" title="text") 4 stars
+				input#star3(type="radio" name="rate" value="3")
+				label(for="star3" title="text") 3 stars
+				input#star2(type="radio" name="rate" value="2")
+				label(for="star2" title="text") 2 stars
+				input#star1(type="radio" name="rate" value="1")
+				label(for="star1" title="text") 1 stars

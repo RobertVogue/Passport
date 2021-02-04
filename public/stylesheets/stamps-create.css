@@ -4,3 +4,36 @@
     padding: 0;
 }
 
+.outer_container {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+}
+
+#create_stamp_form {
+    border: 1px solid black;
+    padding: 4rem;
+    /* height: 90vh; */
+}
+
+.top_form {
+    display: flex;
+}
+
+.status {
+
+}
+
+#countries {
+
+}
+
+.price {
+
+}
+
+.detailed_location {
+
+}    
+
