@@ -11,8 +11,8 @@ block content
 					option(value="must go") Must go!
 					option(value="I'm a local") I'm a local
 				select#countries.dropdown(name="countries" placeholder="Select Country")
-					each country in countries
-						option(value=country.id)= country.name
+					//- each country in countries
+					//- 	option(value=country.id)= country.name
 				label.price(for="expensive") Cost
 				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
 					option(value="1") $
