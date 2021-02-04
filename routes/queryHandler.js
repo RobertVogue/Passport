@@ -3,11 +3,6 @@ const queryHandlerRouter = express.Router();
 const { asyncHandler } = require("../routes/utils");
 
 const {
-  findStamp,
-  findOwnerId,
-  // getAllStamps,
-} = require("../data-access-layer/stamps");
-const {
   findUserById,
   updateUserDisplayName,
   createNewUser,
@@ -15,13 +10,18 @@ const {
   updateEmail,
   updatePassword,
 } = require("../data-access-layer/user");
-const { getStamps, getUserPassports } = require("../data-access-layer/utils");
+const {
+  getStamps,
+  getUserPassports,
+  findStamp,
+  findOwnerId,
+} = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await findStamp(1);
+    const results = await findOwnerId(1);
     console.log(results);
     return res.render("queryHandler", { results });
   })

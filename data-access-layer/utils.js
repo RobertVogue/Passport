@@ -1,5 +1,24 @@
-const { User, Passport, Stamp, Country, Stamp_Tag } = require("../db/models");
+const { User, Passport, Stamp, Country, Tag } = require("../db/models");
+const findStamp = async (stampId) => {
+  const stamp = await Stamp.findByPk(stampId, {
+    include: [Passport, Country, Tag],
+  });
 
+  return stamp.dataValues;
+};
+
+const findOwnerId = async (stampId) => {
+  const stamp = await Stamp.findByPk(stampId, {
+    include: [Passport],
+  });
+
+  const userId = stamp.dataValues.Passport.dataValues.user_id;
+  const user = await User.findByPk(userId, {
+    include: [Passport],
+  });
+
+  return user.dataValues;
+};
 const getStamps = async (userId) => {
   // returns an array of visited stamps
   const user = await User.findByPk(userId, {
@@ -34,6 +53,8 @@ const getUserPassports = async (id) => {
 };
 
 module.exports = {
+  findStamp,
+  findOwnerId,
   getStamps,
   getUserPassports,
 };
