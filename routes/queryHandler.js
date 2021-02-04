@@ -15,13 +15,24 @@ const {
   findStamp,
   findOwnerId,
   createTag,
+  createStamp,
 } = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await createTag("test tag");
+    const results = await createStamp(
+      "test",
+      "test location",
+      1,
+      1,
+      1,
+      "10-11-20:11-11-20",
+      "$$$",
+      "this was the best test.",
+      5
+    );
     console.log(results);
     return res.render("queryHandler", { results });
   })
