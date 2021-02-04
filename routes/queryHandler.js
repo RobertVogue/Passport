@@ -1,27 +1,38 @@
 const express = require("express");
 const queryHandlerRouter = express.Router();
 const { asyncHandler } = require("../routes/utils");
+
 const {
-  getUserPassports,
-  getUserPassportSV,
-  getUserPassportSWT,
-  getUserPassportSNB,
-} = require("../data-access-layer/passport");
-const { findStamp, findOwnerId } = require("../data-access-layer/stamps");
-const {
+  getTenStamps,
+  updateEmail, // (userid, [email], newEmail)
+  updatePassword, // (id, [email], oldPassword, newPassword)
+  updateusername, // (userid, [name], newName)
+  createNewUser, // ( username, displayname, email, passwordToBeHashed)
+  updateUserDisplayName, // (userid , [displayName] , newDisplayName)
   findUserById,
-  updateUserDisplayName,
-  createNewUser,
-  updateusername,
-  updateEmail,
-  updatePassword,
-} = require("../data-access-layer/user");
+  getStamps,
+  getUserPassports,
+  findStamp,
+  findOwnerId,
+  createTag,
+  createStamp,
+} = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await getUserPassports(1);
+    const results = await createStamp(
+      "test",
+      "test location",
+      1,
+      1,
+      1,
+      "10-11-20:11-11-20",
+      "$$$",
+      "this was the best test.",
+      5
+    );
     console.log(results);
     return res.render("queryHandler", { results });
   })

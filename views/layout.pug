@@ -6,17 +6,18 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
         link(rel='stylesheet' href='/stylesheets/login.css')
         link(rel='stylesheet' href='/stylesheets/signup.css')
+        link(rel='stylesheet' href='/stylesheets/profile.css')
         link(rel='stylesheet' href='/stylesheets/stamps-create.css')
   body
     nav.container__navbar
       div.container__logo
         //- https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png
-        a#lg(href="/"): img#logo(alt="logo" src="🤖")
+        a#lg(href="/"): img#logo(alt="logo" src="https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png")
         a#app_title(href="/") PASSPORT GLOBAL
       if authenticated
         //- div.container__links
         div.container__account
-          a(href='/profile'): button.btn Profile
+          a(href=`/users/${curUser.id}`): button.btn Profile
           a(href='/stamps/create'): button.btn Create Stamp
 
           form(action='/users/logout' method='post')
@@ -36,13 +37,13 @@ html
         a(href='https://github.com/pantheman1' class='github')
       div(class='person1')
         p(class="name") Raymond-Arthur May
-        a(href='https://www.linkedin.com/in/peterbanderson1/' class='linked')
-        a(href='https://github.com/pantheman1' class='github')
+        a(href='https://www.linkedin.com/in/coderay/' class='linked')
+        a(href='https://github.com/raymondmay95' class='github')
       div(class='person1')
         p(class="name") Veer Singh
         a(href='https://www.linkedin.com/in/veerkaran-singh-45b4a9190/' class='linked')
-        a(href='https://github.com/pantheman1' class='github')
+        a(href='https://github.com/V3RS' class='github')
       div(class='person1')
         p(class="name") Robert Vogtritter
-        a(href='https://www.linkedin.com/in/peterbanderson1/' class='linked')
-        a(href='https://github.com/pantheman1' class='github')
+        a(href='https://www.linkedin.com/in/robertvogtritter/' class='linked')
+        a(href='https://github.com/RobertVogue' class='github')
