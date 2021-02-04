@@ -21,8 +21,9 @@ const {
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = getUserPassports(1);
-    res.render("queryHandler", { results });
+    const results = await getUserPassports(1);
+    console.log(results);
+    return res.render("queryHandler", { results });
   })
 );
 
