@@ -161,6 +161,15 @@ const getTenStamps = async (userId) => {
   return res;
 };
 
+const createTag = async (name) => {
+  const newTag = await Tag.create({ name });
+  if (newTag) {
+    return newTag.dataValues;
+  } else {
+    return Error("tag not created");
+  }
+};
+
 module.exports = {
   getTenStamps,
   updateEmail,
@@ -173,4 +182,5 @@ module.exports = {
   findOwnerId,
   getStamps,
   getUserPassports,
+  createTag,
 };

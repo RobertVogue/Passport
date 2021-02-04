@@ -14,13 +14,14 @@ const {
   getUserPassports,
   findStamp,
   findOwnerId,
+  createTag,
 } = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await getTenStamps(1);
+    const results = await createTag("test tag");
     console.log(results);
     return res.render("queryHandler", { results });
   })
