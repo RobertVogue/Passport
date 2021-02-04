@@ -34,8 +34,9 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: secret, 
+    secret,
     saveUninitialized: false,
+    store,
     resave: false,
   })
 );
