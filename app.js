@@ -7,13 +7,13 @@ const { sequelize } = require("./db/models");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const { restoreUser } = require("./auth");
+const { restoreUser, requireAuth } = require("./auth");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
 const createStamps = require("./routes/stamps-create")
 const queryHandlerRouter = require("./routes/queryHandler");
-const { db } = require("./config");
+const { db, secret } = require("./config");
 
 const app = express();
 
@@ -31,7 +31,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: db.secret, //CLARIFY WITH CHRIS ON THIS ONE////////////////////////////////////////////////////////////////////////
+    secret: secret, //CLARIFY WITH CHRIS ON THIS ONE////////////////////////////////////////////////////////////////////////
     store,
     saveUninitialized: false,
     resave: false,
@@ -45,6 +45,7 @@ app.use(restoreUser);
 app.use("/", indexRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
+app.use(requireAuth);
 app.use("/stamps/create", createStamps);
 
 // catch 404 and forward to error handler
