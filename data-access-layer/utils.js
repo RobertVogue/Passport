@@ -1,4 +1,28 @@
 const { User, Passport, Stamp, Country, Tag } = require("../db/models");
+const updateUserDisplayName = async (id, name, newName) => {
+  let user = await User.findOne({
+    where: {
+      displayName: name,
+    },
+  });
+  if (!name) {
+    user = await User.findByPk(id);
+  }
+
+  const myUpdate = await user.update({
+    displayName: newName,
+  });
+
+  return myUpdate.dataValues;
+};
+
+const findUserById = async (id) => {
+  const user = await User.findByPk(id, {
+    include: [Passport],
+  });
+  return user.dataValues;
+};
+
 const findStamp = async (stampId) => {
   const stamp = await Stamp.findByPk(stampId, {
     include: [Passport, Country, Tag],
@@ -13,9 +37,7 @@ const findOwnerId = async (stampId) => {
   });
 
   const userId = stamp.dataValues.Passport.dataValues.user_id;
-  const user = await User.findByPk(userId, {
-    include: [Passport],
-  });
+  const user = await findUserById(userId);
 
   return user.dataValues;
 };
@@ -53,6 +75,8 @@ const getUserPassports = async (id) => {
 };
 
 module.exports = {
+  updateUserDisplayName,
+  findUserById,
   findStamp,
   findOwnerId,
   getStamps,
