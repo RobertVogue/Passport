@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+    --primary-color: #313131;
+    --secondary-color: #585858;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --success-color: rgba(0, 136, 169, 1);
+    --error-color: #d9534f;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 .outer_container {
@@ -11,8 +23,20 @@
     justify-content: center;
 }
 
+.header_text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status_header {
+    font-weight: 300;
+}
+
 #create_stamp_form {
     padding: 4rem;
+    width: 60%;
+    /* background-color: red; */
+    border: 3px solid black;
     /* height: 90vh; */
 }
 
@@ -23,6 +47,8 @@
 .top_form {
     order: 1;
     display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .status {
@@ -30,11 +56,10 @@
 }
 
 #countries {
-    background-color: #4CAF50;
     color: white;
+    width: 350px;
     padding: 16px;
     font-size: 16px;
-    border: none;
     cursor: pointer;
 }
 
@@ -48,10 +73,18 @@
     flex-direction: column;
 }
 
+.text_sections > * {
+    margin-top: 10px;
+}
+
 .detailed_location {
 
 }    
 
 .rating {
     order: 3;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    box-sizing: border-box;
 }

@@ -4,6 +4,10 @@ include utils
 block content
 	.outer_container
 		form#create_stamp_form(action="/stamps/create" method="post")
+			.header_text
+				h2.status_header STATUS
+				h2.country_header COUNTRY
+				h2.cost_header COST
 			input(type="hidden" name="_csrf" value=csrfToken)
 			.top_form
 				select.status.dropdown(name="status")
@@ -13,7 +17,7 @@ block content
 				select#countries.dropdown(name="countries" placeholder="Select Country")
 					//- each country in countries
 					//- 	option(value=country.id)= country.name
-				label.price(for="expensive") Cost
+				label.price(for="expensive")
 				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
 					option(value="1") $
 					option(value="2") $$
