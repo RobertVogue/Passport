@@ -16,6 +16,34 @@
     font-family: "Montserrat", sans-serif;
 }
 
+body {
+    background-image: url(../calibeach.JPG);
+    background-size: cover;
+    opacity: .9;
+}
+
+/* body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::after {
+    content: "";
+    background-image: url(../calibeach.JPG);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.75;
+} */
+
 .outer_container {
     display: flex;
     align-items: center;
@@ -23,7 +51,7 @@
     /* flex-direction: column; */
     height: 90vh;
     width: 100vw;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 }
 
 .content_container {
@@ -43,7 +71,9 @@
     display: grid;
     grid-template-columns: 1fr repeat(4, 1fr) 1fr;
     grid-gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
+    "name name name name name name"
+    "trip_name trip_name trip_name trip_name trip_name trip_name"
     "header_status header_country header_country header_country header_country header_cost"
     "status countries countries countries countries cost"
     "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
@@ -54,6 +84,17 @@
     "tag tag tag tag tag tag"
     "rating rating rating rating rating rating"
     "btn btn btn btn btn btn";
+}
+
+.trip_name {
+    grid-area: name;
+    justify-self: center;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.trip_name_box {
+    grid-area: trip_name;
 }
 
 
@@ -158,3 +199,12 @@
     /* grid-area: rating;
     grid-row: 1/3; */
 }
+
+.default {
+    color: lightgrey;
+}
+
+/* select:invalid,
+select option[value=""] {
+    color: #999999;
+} */

@@ -1,4 +1,5 @@
 extends layout
+//- include background
 include utils
 
 block content
@@ -9,34 +10,39 @@ block content
 				.country_header WHERE WAS YOUR TRIP?
 				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
-				select.status.dropdown(name="status")
+				label.trip_name(for="name") Select a Name For Your Vacation Stamp!
+				input.trip_name_box(type="text" name="name" placeholder="What are you going to call this trip?" required)
+				select.status.dropdown(name="status" required)
+					option.default(value="default" selected disabled hidden) -Status-
 					option(value="visited") Visited
 					option(value="must go") Must go!
 					option(value="I'm a local") I'm a local
-				select#countries.dropdown(name="countries" placeholder="Select Country")
+				select#countries.dropdown(name="countries" placeholder="Select Country" required)
 					each country in countries
+						option.default(value="default" selected disabled hidden) -Choose the country you visited!-
 						option(value=country.id)= country.name
 				label.price(for="expensive")
-				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
+				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$" required)
+					option.default(value="Pick One" selected disabled hidden) -Pick!-
 					option(value="1") $
 					option(value="2") $$
 					option(value="3") $$$
 				.det_loc_text
-					label.detailed_location_label(for="detailed-location") Detailed Location
+					label.detailed_location_label(for="detailed_location") Detailed Location
 				.det_loc
-					input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+					input.detailed_location(type="text" name="detailed_location" placeholder="Now where exactly was this place...?" required)
 				.date
 					label.start(for="start") Trip Start
-					input.start(type="date" name="start" value=date_start)
+					input.start(type="date" name="start" required)
 					label.start(for="start") Trip End
-					input.end(type="date" name="end" value=date_end)
+					input.end(type="date" name="end" required)
 				.det_desc_text
-					label.description_label(for="detailed-description") Detailed Description
+					label.description_label(for="detailed_description") Detailed Description
 				.det_desc
-					textarea#description(name="detailed-description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
+					textarea#description(name="detailed_description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10" required)
 				.tags
 					label#tags_label(for="tag") Tag your trip!
-					select.dropdown(name="tag" placeholder="Tag your trip!") 
+					select.dropdown(name="tag" placeholder="Tag your trip!" required) 
 						each tag in tags
 							option(value=tag.id)= tag.name
 				.rating
