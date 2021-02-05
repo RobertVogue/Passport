@@ -8,6 +8,16 @@
     height: 90vh;
 }
 
+#home_form {
+    font-size: 10px;
+    position: absolute;
+    width: 250px;
+    height: 275px;
+    left: 993px;
+    top: 93px;
+    background: #C4C4C4;
+}
+
 .sub_a {
     display: flex;
     background-color: darkblue;
@@ -53,4 +63,31 @@
     width: 100vw;
     height: 42vh;
     justify-content: center;
+}
+
+.box2 {
+    height: 20px;
+    font-size: 11px;
+    position: relative;
+}
+
+.smallBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    height: 20px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 11px;
+    position: relative;
+  }
+
+  .smallBtn:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: translateY(1px);
 }

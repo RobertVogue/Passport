@@ -10,7 +10,6 @@ const {
 } = require("./utils");
 const db = require("../db/models");
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
-const { getTenStamps } = require("../data-access-layer/utils");
 
 router.get("/", (req, res) => {
   res.render("index");
@@ -30,9 +29,35 @@ router.post(
   asyncHandler(async (req, res) => {
     const { username, displayName, email, password } = req.body;
 
-    const newUser = db.User.build({ username, displayName, email });
 
-    const validatorErrors = validationResult(req);
+  const newUser = db.User.build({ username, displayName, email})
+  // const newUser = db.User.create({ username, displayName, email})
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    newUser.hashedPassword = hashedPassword;
+    await newUser.save();
+    const newuserId = newUser.id;
+    const passportStatusLocal = 'Local'
+    const passportStatusVisited = 'Visited'
+    const passportStatusWill = 'Will Visit'
+    await db.Passport.create({ passportStatusLocal, newuserId});
+    await db.Passport.create({ passportStatusVisited, newuserId });
+    await db.Passport.create({ passportStatusWill, newuserId });
+    loginUser(req, res, newUser)
+    return req.session.save((err) => {
+      if (err) {
+        next(err);
+      } else {
+        res.redirect(`/users/${newUser.id}`);
+      }
+    });
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('signup', { username, email, displayName, errors, csrfToken: req.csrfToken() });
+  }
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -121,14 +146,6 @@ router.post(
   })
 );
 
-// //User to take the specfic user page after logged in or signed up
-// router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-//   const userId = req.params.id;
-//   const currentUser = await db.User.findByPk(userId);
-//   const stamps = await getTenStamps(userId);
-//   const images = stamps.map((stamp) => stamp.imgURL);
-//   const stampIds = stamps.map((stamp) => stamp.id);
-//   res.render("profile", { currentUser, images, stampIds });
-// }))
+
 
 module.exports = router;
