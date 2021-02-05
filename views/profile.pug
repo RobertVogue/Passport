@@ -43,14 +43,6 @@ block content
 					li.imgLiTag
 						img(src=image class="stampImg mask1" name=name)
 		.rightSideColumn
-			.Comments
-				.CommentsDecore
-					h2 My Comments
-				.commentsContainer
-				ul
-					each comment, index in comments
-						a(href="")
-							li(value=comment class=comment+index): p= comment
 			.explore
 				.exploreHeader
 					.exploreHeaderDecore
@@ -60,3 +52,11 @@ block content
 						each tag, index in allTags
 							li.tagContainer
 								a(href="" class=tag.name class=tags )=tag.name
+			.Comments
+				.CommentsDecore
+					h2 Search by review
+				.commentsContainer
+				ul
+					each comment, index in comments
+						a(href="")
+							li(value=comment class=comment+index): p= comment

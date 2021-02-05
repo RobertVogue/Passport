@@ -253,6 +253,23 @@ const getTags = async () => {
   return data;
 };
 
+const getTopCountries = async (user_id) => {
+  let arr = [];
+  const passports = await getUserPassports(user_id);
+  const ids = passports.map((passport) => passport.id);
+  for (let i = 1; i < 196; i++) {
+    let stamps = await Stamp.findAll({
+      where: {
+        countries_id: i,
+        passport_id: ids,
+      },
+    });
+    arr.push(stamps);
+  }
+
+  return arr;
+};
+
 module.exports = {
   get100Stamps,
   updateEmail,
@@ -272,4 +289,5 @@ module.exports = {
   getVisitedPassports,
   getComments,
   getTags,
+  getTopCountries,
 };

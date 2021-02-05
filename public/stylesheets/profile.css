@@ -65,17 +65,17 @@ body {
    grid-area: profileBody;
    border-bottom: 2px solid black;
    width: 100%;
+   background: linear-gradient(45deg, #fba119e8, lightgoldenrodyellow);
+   z-index: 4;
 }
 
 img[class^="stampImg"] {
-   /* margin: auto; */
-   max-width: 40rem;
-   padding: 10px;
+   max-width: 100%;
    box-sizing: border-box;
 }
 
 .mask1 {
-   -webkit-mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 20%, rgba(0, 0, 0, 0.664) 80%);
+   -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0, 0, 0, 0.664) 80%);
    mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 20%, rgba(0, 0, 0, 0.664) 80%);
 
 }
@@ -86,15 +86,20 @@ img[class^="stampImg"] {
 }
 
 .tripName {
+   text-align: center;
    display: flex;
    justify-content: center;
+   font-size: 300%;
+   text-transform: capitalize;
 }
 .tripName > h3 {
-   padding: 5px;
+   width: 100%;
+   padding: 10px;
    background-color: lightgoldenrodyellow;
-   border: 1px solid rgb(151, 151, 24);
+   border-top: 2rem solid rgba(151, 151, 24, 0.719);
    color: brown;
-   border-radius: 1rem;
+   border-top-left-radius: 1rem;
+   border-top-right-radius: 1rem;
 }
 
 .imgLiTag {
@@ -102,6 +107,11 @@ img[class^="stampImg"] {
    align-items: center;
    justify-content: center;
    list-style-type: none;
+   background: #fafad2;
+   margin-bottom: 5rem;
+   border-bottom: 2rem double black;
+   border-bottom-left-radius: 1rem;
+   border-bottom-right-radius: 1rem;
 }
 
 
@@ -180,6 +190,7 @@ img[class^="stampImg"] {
    font-weight: bold;
 }
 .Comments {
+   margin-top: 2rem;
    text-align: center;
    font-weight: bold;
 }
@@ -208,7 +219,6 @@ ul > a > li {
    list-style-type: none;
 }
 .exploreHeader {
-   margin-top: 10px;
    text-align: center;
 }
 .exploreHeaderDecore {
@@ -218,15 +228,25 @@ ul > a > li {
    margin-bottom: 10px;
 }
 
-.tags {
-   padding: 2px;
+
+.intrestTags {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   list-style-type: none;
 }
 .tagContainer {
    list-style-type: none;
-   margin: 2px;
-   border: 2px steelblue solid;
+   box-sizing: border-box;
+   margin-top: 2px;
+   border-top: 4px steelblue solid;
+   border-bottom: 4px steelblue solid;
+   border-radius: 2rem;
 }
-
+.tags {
+   box-sizing: border-box;
+   padding: 2px;
+}
 /* .Family.Friendly:hover {
    background-color: #ebf8e1;
 } */
