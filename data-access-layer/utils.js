@@ -129,8 +129,8 @@ const getStamps = async (userId) => {
       passport_id: passportId,
     },
   });
-  const idArray = stamps.map((stamp) => stamp.id);
-  return idArray;
+  const Array = stamps.map((stamp) => stamp);
+  return Array;
 };
 
 const getUserPassports = async (id) => {
@@ -240,6 +240,36 @@ const createStamp = async (
   }
 };
 
+const getComments = async (userId) => {
+  const stamps = await getStamps(userId);
+  const res = stamps.map((data) => data.dataValues.review);
+  console.log(res);
+  return res;
+};
+
+const getTags = async () => {
+  const tags = await Tag.findAll();
+  const data = tags.map((tag) => tag.dataValues);
+  return data;
+};
+
+const getTopCountries = async (user_id) => {
+  let arr = [];
+  const passports = await getUserPassports(user_id);
+  const ids = passports.map((passport) => passport.id);
+  for (let i = 1; i < 196; i++) {
+    let stamps = await Stamp.findAll({
+      where: {
+        countries_id: i,
+        passport_id: ids,
+      },
+    });
+    arr.push(stamps);
+  }
+
+  return arr;
+};
+
 module.exports = {
   get100Stamps,
   updateEmail,
@@ -257,4 +287,7 @@ module.exports = {
   getLocalPassports,
   getGoingToPassports,
   getVisitedPassports,
+  getComments,
+  getTags,
+  getTopCountries,
 };
