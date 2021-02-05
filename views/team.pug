@@ -1,5 +1,10 @@
 extends layout
 block content
+    .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/users/${curUser.id}`): button.btn2 My Passports
+        a(href='/team'): button.btn2 Meet The Team
     .team_main
         h1 Meet the Team
             .team_container
