@@ -51,7 +51,7 @@ app.use("/", indexRouter);
 app.use("/team", teamRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
-app.use("/users", viewStamps);
+app.use("/stamps", viewStamps);
 app.use(requireAuth);
 app.use("/stamps", createStamps);
 app.use("/users", profileRouter);

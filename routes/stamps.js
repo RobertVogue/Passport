@@ -4,9 +4,9 @@ const { asyncHandler, csrfProtection } = require("./utils");
 const { get100Stamps } = require("../data-access-layer/utils");
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
 
-router.get( "/:id(\\d+)/stamps/:stampId(\\d+)", asyncHandler(async (req, res) => {
-    const userId = req.params.id;
-    const stampId = req.params.stampId;
+router.get( ":id(\\d+)", asyncHandler(async (req, res) => {
+    const stampId = req.params.id;
+
 
 
 
