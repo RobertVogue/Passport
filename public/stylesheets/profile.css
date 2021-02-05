@@ -1,3 +1,6 @@
+body {
+   background-color: gray;
+}
 .title {
    margin: 0;
    padding-top: 5px;
@@ -7,23 +10,6 @@
    justify-content: center;
 }
 
-.myProfileHeader {
-   position: fixed;
-   width: 100%;
-   background-color: bisque;
-   margin: 0px;
-   padding: 35px;
-   text-align: center;
-   color: brown;
-}
-.myStampsHeader {
-   background-color: beige;
-   margin: 10px;
-   padding: 10px;
-   text-align: center;
-   color: brown;
-   border-radius: 2rem;
-}
 .gridContainer {
    font-family: Arial, Helvetica, sans-serif;
    display: grid;
@@ -40,37 +26,163 @@
    "leftSideColumn profileBody rightSideColumn"
    "leftSideColumn profileBody rightSideColumn";
 }
+.myProfileHeader {
+   position: fixed;
+   width: 100%;
+   background-color: bisque;
+   margin: 0px;
+   padding: 35px;
+   text-align: center;
+   color: brown;
+}
+.myStampsHeader {
+   background-color: beige;
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+   color: brown;
+   border-radius: 2rem;
+   margin-bottom: 20px;
+}
 
 .leftSideColumn {
+   padding-top: 120px;
    grid-area: leftSideColumn;
    background-color: pink;
 }
 .rightSideColumn {
+   padding-top: 120px;
    grid-area: rightSideColumn;
    background-color: lightblue;
 }
 
 .profileBody {
-   padding-top: 120px;
+   background-color: beige;
+   display: grid;
    grid-area: profileBody;
-   justify-self: center;
+   padding-top: 120px;
    border-bottom: 2px solid black;
+   justify-self: center;
 }
 
-img[class^="stampImg"]  {
-   margin: auto;
+img[class^="stampImg"] {
+   /* margin: auto; */
    max-width: 40rem;
    padding: 10px;
    box-sizing: border-box;
 }
 
+.mask1 {
+   -webkit-mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 20%, rgba(0, 0, 0, 0.664) 80%);
+   mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 20%, rgba(0, 0, 0, 0.664) 80%);
 
-.tripName {
-   color: darkgray;
-   text-align: center;
-   text-shadow: 4px;
 }
 
-.imgTag {
+.tripName {
+   display: flex;
+   justify-content: center;
+}
+.tripName > h3 {
+   padding: 5px;
+   background-color: lightgoldenrodyellow;
+   border: 1px solid rgb(151, 151, 24);
+   color: brown;
+   border-radius: 1rem;
+}
+
+.imgLiTag {
    list-style-type: none;
+}
+
+
+.id {
+   display: none;
+}
+.user_id {
+   display: none;
+}
+
+.updatedAt {
+   display: none;
+}
+
+.createdAt {
+   display: none;
+}
+
+.passport_status {
+   margin: 0;
+   padding: 5px;
+   text-indent: 2px;
+   font-weight: bold;
+}
+
+.localPassport {
+   display: flex;
+   justify-content: space-around;
+   list-style-type: none;
+   /* margin-left: 5px; */
+   margin-top: 2rem;
+   background-color:rgba(102, 51, 153, 0.548);
+   width: 90%;
+}
+.goToPassport {
+   display: flex;
+   justify-content: space-around;
+   list-style-type: none;
+   /* margin-left: 5px; */
+   margin-top: 3rem;
+   background-color:rgba(102, 51, 153, 0.548);
+   width: 90%;
+}
+.visitedPassport {
+   display: flex;
+   justify-content: space-around;
+   list-style-type: none;
+   /* margin-left: 5px; */
+   margin-top: 3rem;
+   background-color:rgba(102, 51, 153, 0.548);
+   width: 90%;
+}
+
+.passportContainer {
+   display: flex;
+   margin-left: 2rem;
+}
+.ImgContainer {
+   display: flex;
+   justify-content: space-around;
+   list-style-type: none;
+   /* margin-left: 5px; */
+   padding: auto;
+   border-bottom: 6px groove blue;
+   background-color: rgba(100, 148, 237, 0.589);
+   max-width: 90%;
+
+}
+.localImg {
+   max-width: 100%;
+   padding: 5px 10px;
+}
+
+.leftSideColumnTitle {
+   text-align: center;
+   font-weight: bold;
+}
+.recentComments {
+   text-align: center;
+   font-weight: bold;
+}
+.leftColumnTitleDecore {
+   margin-left: 2rem;
+   margin-right: 2rem;
+   border: 4px solid black;
+   margin-bottom: 0;
+}
+
+.recentCommentsDecore {
+   margin-left: 2rem;
+   margin-right: 2rem;
+   border: 4px solid black;
+   margin-bottom: 0;
 }
