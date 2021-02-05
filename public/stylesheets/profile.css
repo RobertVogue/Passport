@@ -9,10 +9,10 @@
 
 .myProfileHeader {
    position: fixed;
-   display: inline;
+   width: 100%;
    background-color: bisque;
    margin: 0px;
-   padding: 40px;
+   padding: 35px;
    text-align: center;
    color: brown;
 }
@@ -51,6 +51,7 @@
 }
 
 .profileBody {
+   padding-top: 120px;
    grid-area: profileBody;
    justify-self: center;
    border-bottom: 2px solid black;
