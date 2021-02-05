@@ -1,12 +1,76 @@
-.stampImg {
-   max-width: 300px;
-   grid-row: 2;
+.title {
+   margin: 0;
+   padding-top: 5px;
+   padding-bottom: 10px;
+   background-color: plum;
+   display: flex;
+   justify-content: center;
 }
-.imgTag {
-   list-style-type: none;
+
+.myProfileHeader {
+   position: fixed;
+   width: 100%;
+   background-color: bisque;
+   margin: 0px;
+   padding: 35px;
+   text-align: center;
+   color: brown;
+}
+.myStampsHeader {
+   background-color: beige;
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+   color: brown;
+   border-radius: 2rem;
+}
+.gridContainer {
+   font-family: Arial, Helvetica, sans-serif;
+   display: grid;
+   grid-template-columns:1fr 2fr 1fr;
+   grid-template-areas:
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn"
+   "leftSideColumn profileBody rightSideColumn";
+}
+
+.leftSideColumn {
+   grid-area: leftSideColumn;
+   background-color: pink;
+}
+.rightSideColumn {
+   grid-area: rightSideColumn;
+   background-color: lightblue;
 }
 
 .profileBody {
-   display:grid;
-   grid-template-rows: 3 25% 50% 25%;
+   padding-top: 120px;
+   grid-area: profileBody;
+   justify-self: center;
+   border-bottom: 2px solid black;
+}
+
+img[class^="stampImg"]  {
+   margin: auto;
+   max-width: 40rem;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+
+.tripName {
+   color: darkgray;
+   text-align: center;
+   text-shadow: 4px;
+}
+
+.imgTag {
+   list-style-type: none;
 }

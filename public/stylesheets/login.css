@@ -20,7 +20,7 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 500px;
     border: 1px solid #2da1b1;
     border-radius: 25px;
     justify-content: center;
@@ -42,7 +42,7 @@ body {
     align-items: center;
     background: #222;
     height: 40px;
-    min-width: 400px;
+    min-width: 300px;
     border: none;
     border-radius: 10px;
     color: #eee;
@@ -55,7 +55,7 @@ body {
     align-items: center;
     background: #222;
     height: 40px;
-    min-width: 400px;
+    min-width: 300px;
     border: none;
     border-radius: 10px;
     color: white;
@@ -68,7 +68,7 @@ body {
     align-items: center;
     background: #222;
     height: 40px;
-    min-width: 400px;
+    min-width: 300px;
     border: none;
     border-radius: 10px;
     color: white;
@@ -95,6 +95,7 @@ body {
     transition: translateY(1px);
 }
 .box {
+    width: 200px;
     height: 30px;
     font-size: 18px;
     position: relative;

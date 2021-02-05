@@ -27,82 +27,59 @@
 }
 
 .content_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: lightblue;
     position: absolute;
-    display: grid;
-    grid-template-rows: repeat(7, 50px);
-    /* grid-template-areas: 
-        "header_text"
-        "top_form"
-        "det_loc_text" 
-        "det_loc" 
-        "det_desc_text" 
-        "det_desc" 
-        "rating"; */
     border-radius: 20px;
     padding: 4rem;
-    width: 60%;
+    width: 40%;
     border: 3px solid black;
-    
+
 }
-/* grid-template-areas: 
-"header_status header_country header_country header_country header_cost"
-"box box box box box"
-"det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
-"det_loc det_loc det_loc det_loc det_loc"
-"det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
-"det_desc det_desc det_desc det_desc det_desc"
-"rating rating rating rating rating";
-     */
 
 #create_stamp_form {
-    /* background-color: red; */
-}
-
-.content_header {
-}
-
-.header_text {
-    /* grid-area: header_text; */
-    grid-row: 1;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+    grid-gap: 10px;
     grid-template-areas: 
-        "header_status header_country header_cost";
-    align-self: center;
-    text-align: center;
-    /* order: 1; */
-    /* display: flex;
-    justify-content: space-between; */
+    "header_status header_country header_country header_country header_country header_cost"
+    "status countries countries countries countries cost"
+    "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
+    "det_loc det_loc det_loc det_loc det_loc det_loc"
+    "date date date date date date"
+    "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
+    "det_desc det_desc det_desc det_desc det_desc det_desc"
+    "rating rating rating tag tag tag"
+    "btn btn btn btn btn btn";
+}
+
+
+.detailed_location, #description {
+    width: 100%;
 }
 
 .status_header {
     grid-area: header_status;
+    text-align: left;
+    font-size: large;
+    align-self: flex-end;
 }
 
 .country_header {
     grid-area: header_country;
+    text-align: center;
+    font-weight: 800;
+    font-size: x-large;
 }
 
 .cost_header {
     grid-area: header_cost;
-}
+    font-size: large;
+    text-align: right;
+    align-self: flex-end;
 
-.dropdown {
-
-}
-
-.top_form {
-    /* grid-area: top_form; */
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: 
-        "status country cost";
-    /* order: 1;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px; */
 }
 
 .status {
@@ -110,7 +87,7 @@
 }
 
 #countries {
-    grid-area: country;
+    grid-area: countries;
 }
 
 .price {
@@ -118,40 +95,58 @@
 }
 
 .det_loc_text {
-    /* grid-area: det_loc_text; */
-    display: grid;
+    grid-area: det_loc_text;
+    /* display: grid; */
     /* grid-template-areas: 1fr; */
-    align-items: stretch;
+    /* align-items: stretch; */
 }
 
 .det_desc {
-    /* grid-area: det_desc; */
+    grid-area: det_desc;
 }
 
 .det_loc {
-    /* grid-area: det_loc; */
+    grid-area: det_loc;
 }
 
 .det_desc_text {
-    /* grid-area: det_desc_text; */
+    grid-area: det_desc_text;
 }
 
-
-.text_sections {
-    /* order: 2;
+.date {
+    grid-area: date;
     display: flex;
-    flex-direction: column; */
+    flex-direction: column;
 }
 
-.detailed_location {
+.start {
+    margin-bottom: 5px;
+}
 
-}    
+/* #start {
+    grid-area: date_start;
+}
+
+
+#start {
+    grid-area: date_end;
+} */
+
+.stamp_btn {
+    display: block;
+    width: 100%;
+    margin: 0;
+    grid-area: btn;
+    justify-self: flex-end;
+}
 
 .rating {
-    /* grid-area: rating; */
-    /* order: 3;
     display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-    box-sizing: border-box; */
+    grid-area: rating;
+    grid-column: 1/3;
 }
+
+.tags {
+    grid-area: tag
+}
+
