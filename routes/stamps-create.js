@@ -10,15 +10,20 @@ router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
 }));
 
 router.post("/create", csrfProtection, asyncHandler (async (req, res) => {
-  console.log("req.body------>>", req.body)
+  const { name, passport_id, countries_id, detailed_location, start, end, detailed_description, price, tags_id, imgURL } = req.body
   //take start and end off of req.body and concat on ":"
-  //query for country --> name
-  //query for tag --> name
-  //query for status --> passport_status
-  // const { name, passport_id, countries_id, detailed_location, dates, detailed_description, price, tags_id } = req.body;
-  // await db.Stamp.create({ status, countries, detailed_location, start, end, detailed_description, tag });
+  const dates = `${start}:${end}`;
+  const passportIdInt = parseInt(passport_id);
+  const countriesIdInt = parseInt(countries_id);
+  const tagsIdInt = parseInt(tags_id);
+
+  console.log("countries_id---------->>>>>", req.body);
+  // await db.Stamp.create({ name, passportIdInt, countriesIdInt, detailed_location, dates, detailed_description, price, tagsIdInt, imgURL });
 
   res.redirect('/stamps/create');
+
+  // if error
+  // res.render('stamps-create', { csrfToken: req.csrfToken(), name, passportIdInt, countriesIdInt, detailed_location, dates, detailed_description, price, tagsIdInt, imgURL });
 }));
 
 router.post("/edit")
