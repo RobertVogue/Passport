@@ -34,29 +34,27 @@
     position: absolute;
     border-radius: 20px;
     padding: 4rem;
-    width: 60%;
+    width: 40%;
     border: 3px solid black;
     
 }
 
 #create_stamp_form {
     display: grid;
-    grid-template-columns: 1fr repeat(3, 1fr) 1fr;
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
     grid-gap: 10px;
     grid-template-areas: 
-    "header_status header_country header_country header_country header_cost"
-    "status countries countries countries cost"
-    "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
-    "det_loc det_loc det_loc det_loc det_loc"
-    "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
-    "det_desc det_desc det_desc det_desc det_desc"
-    "rating rating rating tag tag"
-    "btn btn btn btn btn";
+    "header_status header_country header_country header_country header_country header_cost"
+    "status countries countries countries countries cost"
+    "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
+    "det_loc det_loc det_loc det_loc det_loc det_loc"
+    "date date date date date date"
+    "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
+    "det_desc det_desc det_desc det_desc det_desc det_desc"
+    "rating rating rating tag tag tag"
+    "btn btn btn btn btn btn";
 }
 
-.status_header, .country_header, .cost_header {
-    text-align: center;
-}
 
 .detailed_location, #description {
     width: 100%;
@@ -64,14 +62,23 @@
 
 .status_header {
     grid-area: header_status;
+    text-align: left;
+    font-size: large;
+    align-self: flex-end;
 }
 
 .country_header {
     grid-area: header_country;
+    text-align: center;
+    font-weight: 800;
+    font-size: x-large;
 }
 
 .cost_header {
     grid-area: header_cost;
+    font-size: large;
+    text-align: right;
+    align-self: flex-end;
 }
 
 .status {
@@ -105,29 +112,38 @@
     grid-area: det_desc_text;
 }
 
+.date {
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+}
+
+.start {
+    margin-bottom: 5px;
+}
+
+/* #start {
+    grid-area: date_start;
+}
+
+#start {
+    grid-area: date_end;
+} */
+
 .stamp_btn {
     display: block;
     width: 100%;
     margin: 0;
     grid-area: btn;
+    justify-self: flex-end;
 }
 
 .rating {
-    grid-area: rating;
-    /* order: 3;
     display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-    box-sizing: border-box; */
+    grid-area: rating;
+    grid-column: 1/3;
 }
 
-/* .text_sections {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .detailed_location {
-
-}     */
-
+.tags {
+    grid-area: tag
+}
