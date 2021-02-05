@@ -134,7 +134,6 @@ const getStamps = async (userId) => {
 };
 
 const getUserPassports = async (id) => {
-  // returns users passport ID
   const passports = await Passport.findAll({
     where: {
       user_id: id,
@@ -142,9 +141,55 @@ const getUserPassports = async (id) => {
   });
   const results = passports.map((passport) => {
     const { dataValues } = passport;
-    return dataValues.id;
+    return dataValues;
   });
+  // console.log(results);
   return results;
+};
+const getVisitedPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Visited",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
+};
+const getGoingToPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Want to visit",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
+};
+const getLocalPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Near By",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
 };
 
 const get100Stamps = async (userId) => {
@@ -209,4 +254,7 @@ module.exports = {
   getUserPassports,
   createTag,
   createStamp,
+  getLocalPassports,
+  getGoingToPassports,
+  getVisitedPassports,
 };
