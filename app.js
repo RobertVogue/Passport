@@ -17,7 +17,6 @@ const queryHandlerRouter = require("./routes/queryHandler");
 const profileRouter = require("./routes/profile");
 const { db, secret } = require("./config");
 
-
 const app = express();
 
 // view engine setup
@@ -48,7 +47,7 @@ app.use(restoreUser);
 app.use("/", indexRouter);
 app.use("/handler", queryHandlerRouter);
 
-app.use("/users", usersRouter);
+app.use("/users", profileRouter);
 app.use(requireAuth);
 
 app.use("/stamps/create", createStamps);

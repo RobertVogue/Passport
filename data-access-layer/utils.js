@@ -147,16 +147,11 @@ const getUserPassports = async (id) => {
   return results;
 };
 
-const getTenStamps = async (userId) => {
+const get100Stamps = async (userId) => {
   let user = await findUserById(userId);
   const myMap = user.Passports.map((passport) => passport.dataValues.id);
   const res = await Stamp.findAll({
-    where: {
-      passport_id: {
-        [Op.or]: [...myMap],
-      },
-    },
-    limit: 10,
+    limit: 100,
   });
   const results = res.map((result) => result.dataValues);
   return results;
@@ -170,13 +165,14 @@ const createTag = async (name) => {
     return Error("tag not created");
   }
 };
+
 const createStamp = async (
   name,
   detailed_location,
   passport_id,
   countries_id,
   tags_id,
-  dates,
+  dates, //"12-12-12:01-02-13"
   price,
   review,
   rating
@@ -200,7 +196,7 @@ const createStamp = async (
 };
 
 module.exports = {
-  getTenStamps,
+  get100Stamps,
   updateEmail,
   updatePassword,
   updateusername,
