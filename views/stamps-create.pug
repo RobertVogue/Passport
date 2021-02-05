@@ -1,4 +1,5 @@
 extends layout
+//- include background
 include utils
 
 block content
@@ -6,49 +7,58 @@ block content
 		div.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
 				.status_header STATUS
-				.country_header COUNTRY
+				.country_header WHERE WAS YOUR TRIP?
 				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
-				select.status.dropdown(name="status")
-					option(value="visited") Visited
-					option(value="must go") Must go!
-					option(value="I'm a local") I'm a local
-				select#countries.dropdown(name="countries" placeholder="Select Country")
+				label.trip_name(for="name") Select a Name For Your Vacation Stamp!
+				input.trip_name_box(type="text" name="name" placeholder="What are you going to call this trip?" value=name)
+				select.status.dropdown(name="passport_id" value=passport_id)
+					option.default(value="default" selected disabled hidden) -Status-
+					each passport in passports
+						option(value=passport.id)= passport.passport_status
+				select#countries.dropdown(name="countries_id" placeholder="Select Country" value=countries_id)
 					each country in countries
+						option.default(value="default" selected disabled hidden) -Choose the country you visited!-
 						option(value=country.id)= country.name
-				label.price(for="expensive")
-				select.price.dropdown(type="text" name="expensive" value="$ $$ $$$")
-					option(value="1") $
-					option(value="2") $$
-					option(value="3") $$$
+				label.price(for="price")
+				select.price.dropdown(type="text" name="price" value=price)
+					option.default(value="Pick One" selected disabled hidden) -Pick!-
+					option(value="$") $
+					option(value="$$") $$
+					option(value="$$$") $$$
 				.det_loc_text
-
-					label.detailed_location_label(for="detailed-location") Detailed Location
+					label.detailed_location_label(for="detailed_location") Detailed Location
 				.det_loc
-					input.detailed_location(type="text" name="detailed-location" placeholder="Now where exactly was this place...?")
+					input.detailed_location(type="text" name="detailed_location" value=detailed_location placeholder="Now where exactly was this place...?")
 				.date
 					label.start(for="start") Trip Start
-					input.start(type="date" name="start" value=date_start)
+					input.start(type="date" name="start" value=start)
 					label.start(for="start") Trip End
-					input.end(type="date" name="end" value=date_end)
+					input.end(type="date" name="end" value=end)
 				.det_desc_text
-					label.description_label(for="detailed-description") Detailed Description
+					label.description_label(for="review") Detailed Description
 				.det_desc
-					textarea#description(name="detailed-description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
-				.rating
-					input#star5(type="radio" name="rate" value="5")
-					label(for="star5" title="text") 5
-					input#star4(type="radio" name="rate" value="4")
-					label(for="star4" title="text") 4
-					input#star3(type="radio" name="rate" value="3")
-					label(for="star3" title="text") 3
-					input#star2(type="radio" name="rate" value="2")
-					label(for="star2" title="text") 2
-					input#star1(type="radio" name="rate" value="1")
-					label(for="star1" title="text") 1
+					textarea#description(name="review" value=review placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10")
 				.tags
-					select.dropdown(name="tag" placeholder="Tag your trip!")
+					label#tags_label(for="tags_id") Tag your trip!
+					select.dropdown(name="tags_id" placeholder="Tag your trip!") 
 						each tag in tags
 							option(value=tag.id)= tag.name
-				button.btn.stamp_btn Create Stamp!
+				.imgURL_label
+					label(for="imgURL") Paste a URL Link to a Picture of Your Trip!
+				.imgURL
+					input(type="text" name="imgURL")
+				.rating
+					input#star5(type="radio" name="rating" value="5")
+					label(for="star5" title="text") 5
+					input#star4(type="radio" name="rating" value="4")
+					label(for="star4" title="text") 4
+					input#star3(type="radio" name="rating" value="3")
+					label(for="star3" title="text") 3
+					input#star2(type="radio" name="rating" value="2")
+					label(for="star2" title="text") 2
+					input#star1(type="radio" name="rating" value="1")
+					label(for="star1" title="text") 1
+				button.btn.stamp_btn(type="submit") Create Stamp!
+			+validationErrorSummary(errors)
 

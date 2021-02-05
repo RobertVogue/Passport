@@ -8,31 +8,56 @@ block content
       if authenticated
         a(href=`/users/${curUser.id}`): button.btn2 My Passports
       a(href='/team'): button.btn2 Meet The Team
+    .sub_abc
+      .sub_form
+        if !authenticated
+          .form_sub
+            if !authenticated
+                form.home_form(action="/users/signup" method="post")
+                  h5.name2 New Here? Create a Free Account!
+                  input(type="hidden" name="_csrf" value=csrfToken)
+                  div
+                    //- label.box2 Username:
+                    input.box3(type="text" name="username" placeholder="Username" value=username required)
+                  div
+                    //- label.box2 Display Name:
+                    input.box3(type="text" name="displayName" placeholder="Display Name" value=displayName required)
+                  div
+                    //- label.box2 Email:
+                    input.box3(type="email" name="email" placeholder="Email" value=email required)
+                  div
+                    //- label.box2 Password:
+                    input.box3(type="password" name="password" placeholder="Password" required)
+                  div
+                    //- label.box2 Confirm Password:
+                    input.box3(type="password" name="confirmPassword" placeholder="Confirm Password" required)
+                  div
+                    button.smallBtn(type="submit") Sign Up
+                +validationErrorSummary(errors)
     .sub_b
-      h2 Top 10 Countries To Visit
-      if !authenticated
-        form#home_form(action="/users/signup" method="post")
-          h5.box2 Register
-          input(type="hidden" name="_csrf" value=csrfToken)
-          div
-            label.box2 Username:
-            input.box2(type="text" name="username" placeholder="Username" value=username required)
-          div
-            label.box2 Display Name:
-            input.box2(type="text" name="displayName" placeholder="Display Name" value=displayName required)
-          div
-            label.box2 Email:
-            input.box2(type="email" name="email" placeholder="Email" value=email required)
-          div
-            label.box2 Password:
-            input.box2(type="password" name="password" placeholder="Password" required)
-          div
-            label.box2 Confirm Password:
-            input.box2(type="password" name="confirmPassword" placeholder="Confirm Password" required)
-          div
-            button.smallBtn(type="submit") Submit Form
+      .sub_b2
+        h2.b2 Highest Rated Visited
+        .sub_b2a
+        .sub_b2b
+        .sub_b2c
+      .sub_b3
+        h2.b2 Highest Rated Must Travel
+        .sub_b3a
+        .sub_b3b
+        .sub_b3c
+      .sub_b4
+        h2.b2 Highest Rated Local Location
+        .sub_b4a
+        .sub_b4b
+        .sub_b4c
+
     .sub_c
-      h2 Most Recent Stamps
+      .sub_c2
+        h2.b2 Most Recent Stamps
+      .sub_c3
+        h2.b2 Highest Rated Stamps
+
+
 
 
 

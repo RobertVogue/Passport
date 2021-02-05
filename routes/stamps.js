@@ -1,16 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const { asyncHandler, csrfProtection } = require("./utils");
-const { get100Stamps } = require("../data-access-layer/utils");
-const { loginUser, logoutUser, requireAuth } = require("../auth.js");
+const db = require("../db/models")
 
 router.get( ":id(\\d+)", asyncHandler(async (req, res) => {
     const stampId = req.params.id;
 
+    const stamp = await db.Stamp.findByPk(stampId);
 
-
-
-    res.render("view-stamp", { obj });
+    res.render("view-stamp", { stamp });
   })
 );
 
