@@ -18,7 +18,6 @@ const profileRouter = require("./routes/profile");
 const { secret } = require("./config");
 const teamRouter = require("./routes/team");
 
-
 const app = express();
 
 // view engine setup
@@ -55,7 +54,6 @@ app.use("/stamps", viewStamps);
 app.use(requireAuth);
 app.use("/stamps", createStamps);
 app.use("/users", profileRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

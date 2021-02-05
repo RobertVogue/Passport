@@ -9,12 +9,40 @@ block content
 	h1.myProfileHeader My Profile
 	.gridContainer
 		.leftSideColumn
+			.leftColumnTitleDecore
+				h2.leftSideColumnTitle Passports
+			.passportContainer
+				ul
+					.localPassport
+						each val, key in passportLocal
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
+					.goToPassport
+						each val, key in passportGoingTo
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
+					.visitedPassport
+						each val, key in passportVisited
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
 		.profileBody
 			.myStampsHeader
 				h2 My Stamps
 			ul
 				each name, image in obj
-					li.imgTag
-						h3.tripName= name
-						img.stampImg(src=image class="stampImg" name=name)
+					.tripName: h3= name
+					li.imgLiTag
+						img(src=image class="stampImg mask1" name=name)
 		.rightSideColumn
+			.recentComments
+				.recentCommentsDecore
+					h2 Recent Comments
