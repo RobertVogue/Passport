@@ -2,29 +2,51 @@ extends layout
 include utils.pug
 
 block content
-  h1.title = title
-    p.main Where did you travel to? Where do you want to travel? Are you a local?
-    .box
-      h2 Top Stamp by all ratings
-      h3
-        a(href='/stamps' + 1) Top Stamp Here
-      h2 Top 10 stamps
-        p.main Here they are
-          each stamps in topStamps
-            .topStamps
-              img.stampTag(src=)
-              .stampInfo
-                a(href='/stamps/' + stamp.id)=stamp.name
-                p Rating: #{stamp.rating} / 5
-                p Number of Ratings: #{stamp.ratingCount}
-    .box2
-      h2 Recently added
-        p.main Most recently added stamps!
-          each basic in basicStamps
-            .topStamps
-              img.stampTag(src=)
-              .stampInfo
-                a(href='/stamps/' + stamp.id)=stamp.name
-                p Recently added: #{basic.stamp}
-                p Rating: #{basic.rating} / 5
-                a.user(href='/users/' + basic.user.id) User: #{basic.user.userName}
+  .main
+    .sub_a
+      a(href='/'): button.btn2 Home
+      if authenticated
+        a(href=`/users/${curUser.id}`): button.btn2 My Passports
+      a(href='/'): button.btn2 Meet The Team
+    .sub_b
+      h2 Top 10 Countries To Visit
+    .sub_c
+      h2 Most Recent Stamps
+
+
+
+
+
+
+
+
+
+
+
+
+  //- h1.title = title
+  //-   p.main Where did you travel to? Where do you want to travel? Are you a local?
+  //-   .box
+  //-     h2 Top Stamp by all ratings
+  //-     h3
+  //-       a(href='/stamps' + 1) Top Stamp Here
+  //-     h2 Top 10 stamps
+  //-       p.main Here they are
+  //-         each stamps in topStamps
+  //-           .topStamps
+  //-             img.stampTag(src=)
+  //-             .stampInfo
+  //-               a(href='/stamps/' + stamp.id)=stamp.name
+  //-               p Rating: #{stamp.rating} / 5
+  //-               p Number of Ratings: #{stamp.ratingCount}
+  //-   .box2
+  //-     h2 Recently added
+  //-       p.main Most recently added stamps!
+  //-         each basic in basicStamps
+  //-           .topStamps
+  //-             img.stampTag(src=)
+  //-             .stampInfo
+  //-               a(href='/stamps/' + stamp.id)=stamp.name
+  //-               p Recently added: #{basic.stamp}
+  //-               p Rating: #{basic.rating} / 5
+  //-               a.user(href='/users/' + basic.user.id) User: #{basic.user.userName}

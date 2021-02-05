@@ -1,0 +1,19 @@
+.error {
+    color: red;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error_list {
+   list-style-type: square;
+}
+
+#errLi {
+    margin-left: 45px;
+}
+
+#errTitle {
+    color: black;
+}

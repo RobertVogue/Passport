@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection, userValidators , loginValidators} = require("./utils");
 const db = require("../db/models");
 const { loginUser, logoutUser, requireAuth } = require("../auth.js");
+const { getTenStamps } = require("../data-access-layer/utils");
 
 
 router.get('/', (req, res) => {
@@ -40,7 +41,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     });
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('signup', { errors, csrfToken: req.csrfToken() });
+    res.render('signup', { username, email, displayName, errors, csrfToken: req.csrfToken() });
   }
 
 }))
@@ -81,7 +82,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
     else {
       errors = validatorErrors.array().map((error) => error.msg);
       errors.push("No users exist with given email/password");
-      res.render('login', {errors, csrfToken: req.csrfToken()});
+      res.render('login', {email, errors, csrfToken: req.csrfToken()});
     }
 }))
 
@@ -99,7 +100,10 @@ router.post('/demo', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const userId = req.params.id;
   const currentUser = await db.User.findByPk(userId);
-  res.render('profile', {currentUser});
+  const stamps = await getTenStamps(userId);
+  const images = stamps.map((stamp) => stamp.imgURL);
+  const stampIds = stamps.map((stamp) => stamp.id);
+  res.render("profile", { currentUser, images, stampIds });
 }))
 
 
