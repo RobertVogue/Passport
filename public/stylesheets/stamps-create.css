@@ -16,6 +16,34 @@
     font-family: "Montserrat", sans-serif;
 }
 
+/* body {
+    background-image: url(../calibeach.JPG);
+    background-size: cover;
+    opacity: .9;
+} */
+
+/* body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::after {
+    content: "";
+    background-image: url(../calibeach.JPG);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.75;
+} */
+
 .outer_container {
     display: flex;
     align-items: center;
@@ -23,7 +51,7 @@
     /* flex-direction: column; */
     height: 90vh;
     width: 100vw;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 }
 
 .content_container {
@@ -43,7 +71,9 @@
     display: grid;
     grid-template-columns: 1fr repeat(4, 1fr) 1fr;
     grid-gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
+    "name name name name name name"
+    "trip_name trip_name trip_name trip_name trip_name trip_name"
     "header_status header_country header_country header_country header_country header_cost"
     "status countries countries countries countries cost"
     "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
@@ -51,8 +81,22 @@
     "date date date date date date"
     "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
     "det_desc det_desc det_desc det_desc det_desc det_desc"
-    "rating rating rating tag tag tag"
+    "tag tag tag tag tag tag"
+    "rating rating rating rating rating rating"
+    "imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label"
+    "imgURL imgURL imgURL imgURL imgURL imgURL"
     "btn btn btn btn btn btn";
+}
+
+.trip_name {
+    grid-area: name;
+    justify-self: center;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.trip_name_box {
+    grid-area: trip_name;
 }
 
 
@@ -70,8 +114,9 @@
 .country_header {
     grid-area: header_country;
     text-align: center;
-    font-weight: 800;
-    font-size: x-large;
+    font-weight: 900;
+    font-size: large;
+    align-self: flex-end;
 }
 
 .cost_header {
@@ -96,9 +141,6 @@
 
 .det_loc_text {
     grid-area: det_loc_text;
-    /* display: grid; */
-    /* grid-template-areas: 1fr; */
-    /* align-items: stretch; */
 }
 
 .det_desc {
@@ -111,6 +153,16 @@
 
 .det_desc_text {
     grid-area: det_desc_text;
+}
+
+.tags {
+    grid-area: tag;
+    display: flex;
+    flex-direction: column;
+}
+
+#tags_label {
+    margin-bottom: 10px;
 }
 
 .date {
@@ -140,13 +192,30 @@
     justify-self: flex-end;
 }
 
-.rating {
-    display: flex;
-    grid-area: rating;
-    grid-column: 1/3;
+.imgURL_label {
+    grid-area: imgURL_label;
 }
 
-.tags {
-    grid-area: tag
+.imgURL {
+    grid-area: imgURL;
 }
+
+.rating {
+    grid-area: rating;
+    display: flex;
+    margin-top: 10px;
+    /* justify-content: ; */
+    /* grid-area: rating;
+    grid-row: 1/3; */
+}
+
+
+.default {
+    color: lightgrey;
+}
+
+/* select:invalid,
+select option[value=""] {
+    color: #999999;
+} */
 
