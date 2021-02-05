@@ -14,6 +14,10 @@
     padding: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 .footer_container {
     display: grid;
     justify-content: space-around;
@@ -125,8 +129,8 @@
 #lg {
     display: flex;
     justify-content: center;
-    max-width: 37.5px;
-    max-height: 37.5px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 
