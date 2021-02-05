@@ -7,16 +7,30 @@
     width: 100vw;
     height: 90vh;
 }
-
-#home_form {
-    font-size: 10px;
-    position: absolute;
-    width: 250px;
-    height: 275px;
-    left: 993px;
-    top: 93px;
-    background: #C4C4C4;
+.sub_form {
+    margin-left: 900px;
 }
+.form_sub {
+    background-color: white;
+    padding: 5%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+}
+.form_sub div {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
 
 .sub_a {
     display: flex;
@@ -27,6 +41,7 @@
 }
 
 .btn2 {
+    height: 4.5vh;
     min-width: 140px;
     max-width: 160px;
     padding: 9px 25px;
@@ -51,7 +66,7 @@
 .sub_b {
     display: flex;
     width: 100vw;
-    height: 42vh;
+    height: 32vh;
     justify-content: center;
     background-image: url("../homeSubB.png");
     background-size: 100vw 42vh;
@@ -61,7 +76,7 @@
 .sub_c {
     display: flex;
     width: 100vw;
-    height: 42vh;
+    height: 32vh;
     justify-content: center;
 }
 
@@ -69,6 +84,22 @@
     height: 20px;
     font-size: 11px;
     position: relative;
+
+}
+.box3 {
+    height: 20px;
+    font-size: 11px;
+
+
+}
+.name2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+
 }
 
 .smallBtn {
@@ -77,7 +108,7 @@
     align-items: center;
     background: #222;
     height: 20px;
-    width: 100px;
+    width: 350px;
     border: none;
     border-radius: 10px;
     color: #eee;
