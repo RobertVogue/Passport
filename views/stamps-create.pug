@@ -6,7 +6,7 @@ block content
 		.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
 				.status_header STATUS
-				.country_header COUNTRY
+				.country_header WHERE WAS YOUR TRIP?
 				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
 				select.status.dropdown(name="status")
@@ -34,6 +34,11 @@ block content
 					label.description_label(for="detailed-description") Detailed Description
 				.det_desc
 					textarea#description(name="detailed-description" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for..." cols="30", rows="10")
+				.tags
+					label#tags_label(for="tag") Tag your trip!
+					select.dropdown(name="tag" placeholder="Tag your trip!") 
+						each tag in tags
+							option(value=tag.id)= tag.name
 				.rating
 					input#star5(type="radio" name="rate" value="5")
 					label(for="star5" title="text") 5
@@ -45,8 +50,4 @@ block content
 					label(for="star2" title="text") 2
 					input#star1(type="radio" name="rate" value="1")
 					label(for="star1" title="text") 1
-				.tags
-					select.dropdown(name="tag" placeholder="Tag your trip!")
-						each tag in tags
-							option(value=tag.id)= tag.name
 				button.btn.stamp_btn Create Stamp!
