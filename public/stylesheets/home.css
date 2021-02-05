@@ -1,0 +1,124 @@
+.main {
+    display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+}
+.sub_form {
+    margin-left: 900px;
+}
+.form_sub {
+    background-color: white;
+    padding: 5%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+}
+.form_sub div {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.sub_a {
+    display: flex;
+    background-color: darkblue;
+    height: 6vh;
+    width: 100vw;
+    justify-content: center;
+}
+
+.btn2 {
+    height: 4.5vh;
+    min-width: 140px;
+    max-width: 160px;
+    padding: 9px 25px;
+    background-color: brown;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    /* transition: all 0.3s ease 0s; */
+    margin: 5px;
+    outline: none;
+    color:black;
+    /* box-sizing: border-box; */
+    /* border appears when the button is being clicked. Needs to be fixed. */
+}
+
+.btn2:hover {
+    background-color: black;
+    color: white;
+    transform: translateY(1px);
+}
+
+.sub_b {
+    display: flex;
+    width: 100vw;
+    height: 32vh;
+    justify-content: center;
+    background-image: url("../homeSubB.png");
+    background-size: 100vw 42vh;
+}
+
+
+.sub_c {
+    display: flex;
+    width: 100vw;
+    height: 32vh;
+    justify-content: center;
+}
+
+.box2 {
+    height: 20px;
+    font-size: 11px;
+    position: relative;
+
+}
+.box3 {
+    height: 20px;
+    font-size: 11px;
+
+
+}
+.name2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+
+}
+
+.smallBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    height: 20px;
+    width: 350px;
+    border: none;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 11px;
+    position: relative;
+  }
+
+  .smallBtn:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: translateY(1px);
+}
