@@ -35,9 +35,9 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     const passportStatusLocal = 'Local'
     const passportStatusVisited = 'Visited'
     const passportStatusWill = 'Will Visit'
-    const passportLocal = await db.Passport.create({ passportStatusLocal, newuserId});
-    const passportVisited = await db.Passport.create({ passportStatusVisited, newuserId });
-    const passportWillVisit = await db.Passport.create({ passportStatusWill, newuserId });
+    await db.Passport.create({ passportStatusLocal, newuserId});
+    await db.Passport.create({ passportStatusVisited, newuserId });
+    await db.Passport.create({ passportStatusWill, newuserId });
     loginUser(req, res, newUser)
     return req.session.save((err) => {
       if (err) {
