@@ -16,7 +16,6 @@ const queryHandlerRouter = require("./routes/queryHandler");
 const profileRouter = require("./routes/profile");
 const { secret } = require("./config");
 
-
 const app = express();
 
 // view engine setup
@@ -33,7 +32,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret, 
+    secret,
     store,
     saveUninitialized: false,
     store,
@@ -48,9 +47,9 @@ app.use(restoreUser);
 app.use("/", indexRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
+app.use("/users", profileRouter);
 app.use(requireAuth);
 app.use("/stamps", createStamps);
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
