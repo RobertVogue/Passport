@@ -1,9 +1,15 @@
 extends layout
 
 block content
-	div.profileBody
-		h1 My Profile
-			ul My Stamps
-				each image in images
+	h1.myProfileHeader My Profile
+	.gridContainer
+		.leftSideColumn
+		.profileBody
+			.myStampsHeader
+				h2 My Stamps
+			ul
+				each name, image in obj
 					li.imgTag
-					img.stampImg(src=image)
+						h3.tripName= name
+						img.stampImg(src=image class="stampImg" name=name)
+		.rightSideColumn
