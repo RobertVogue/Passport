@@ -18,22 +18,22 @@ block content
 							li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
 							a(href="")
+								img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg" class="mask2")
 					.goToPassport
 						each val, key in passportGoingTo
 							li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
 							a(href="")
+								img.localImg(src="https://handluggageonly.co.uk/wp-content/uploads/2016/03/Positano-Weather.jpg" class="mask2")
 					.visitedPassport
 						each val, key in passportVisited
 							li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
 							a(href="")
+								img.localImg(src="https://i.ytimg.com/vi/x8gB3zoATaw/maxresdefault.jpg" class="mask2")
 		.profileBody
 			.myStampsHeader
 				h2 My Stamps
@@ -43,6 +43,20 @@ block content
 					li.imgLiTag
 						img(src=image class="stampImg mask1" name=name)
 		.rightSideColumn
-			.recentComments
-				.recentCommentsDecore
-					h2 Recent Comments
+			.Comments
+				.CommentsDecore
+					h2 My Comments
+				.commentsContainer
+				ul
+					each comment, index in comments
+						a(href="")
+							li(value=comment class=comment+index): p= comment
+			.explore
+				.exploreHeader
+					.exploreHeaderDecore
+						h2 Explore by Interest
+					.intrestTags
+					ul
+						each tag, index in allTags
+							li.tagContainer
+								a(href="" class=tag.name class=tags )=tag.name
