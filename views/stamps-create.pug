@@ -11,18 +11,17 @@ block content
 				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
 				label.trip_name(for="name") Select a Name For Your Vacation Stamp!
-				input.trip_name_box(type="text" name="name" placeholder="What are you going to call this trip?" value=name required)
-				select.status.dropdown(name="passport_id" value=passport_id required)
+				input.trip_name_box(type="text" name="name" placeholder="What are you going to call this trip?" value=name)
+				select.status.dropdown(name="passport_id" value=passport_id)
 					option.default(value="default" selected disabled hidden) -Status-
-					option(value="1") Visited
-					option(value="2") Must go!
-					option(value="3") I'm a local
-				select#countries.dropdown(name="countries_id" placeholder="Select Country" value=countries_id required)
+					each passport in passports
+						option(value=passport.id)= passport.passport_status
+				select#countries.dropdown(name="countries_id" placeholder="Select Country" value=countries_id)
 					each country in countries
 						option.default(value="default" selected disabled hidden) -Choose the country you visited!-
 						option(value=country.id)= country.name
 				label.price(for="price")
-				select.price.dropdown(type="text" name="price" value=price required)
+				select.price.dropdown(type="text" name="price" value=price)
 					option.default(value="Pick One" selected disabled hidden) -Pick!-
 					option(value="$") $
 					option(value="$$") $$
@@ -30,19 +29,19 @@ block content
 				.det_loc_text
 					label.detailed_location_label(for="detailed_location") Detailed Location
 				.det_loc
-					input.detailed_location(type="text" name="detailed_location" placeholder="Now where exactly was this place...?" required)
+					input.detailed_location(type="text" name="detailed_location" value=detailed_location placeholder="Now where exactly was this place...?")
 				.date
 					label.start(for="start") Trip Start
-					input.start(type="date" name="start" required)
+					input.start(type="date" name="start" value=start)
 					label.start(for="start") Trip End
-					input.end(type="date" name="end" required)
+					input.end(type="date" name="end" value=end)
 				.det_desc_text
 					label.description_label(for="review") Detailed Description
 				.det_desc
-					textarea#description(name="review" placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10" required)
+					textarea#description(name="review" value=review placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10")
 				.tags
 					label#tags_label(for="tags_id") Tag your trip!
-					select.dropdown(name="tags_id" placeholder="Tag your trip!" required) 
+					select.dropdown(name="tags_id" placeholder="Tag your trip!") 
 						each tag in tags
 							option(value=tag.id)= tag.name
 				.imgURL_label
@@ -60,4 +59,5 @@ block content
 					label(for="star2" title="text") 2
 					input#star1(type="radio" name="rating" value="1")
 					label(for="star1" title="text") 1
-				button.btn.stamp_btn Create Stamp!
+				button.btn.stamp_btn(type="submit") Create Stamp!
+			+validationErrorSummary(errors)
