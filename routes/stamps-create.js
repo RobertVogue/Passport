@@ -11,11 +11,11 @@ router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
 
 router.post("/create", csrfProtection, asyncHandler (async (req, res) => {
   console.log("req.body------>>", req.body)
-  //combine date
+  //take start and end off of req.body and concat on ":"
   //query for country --> name
   //query for tag --> name
   //query for status --> passport_status
-  // const { status, countries, detailed_location, start, end, detailed_description, tag } = req.body;
+  // const { name, passport_id, countries_id, detailed_location, dates, detailed_description, price, tags_id } = req.body;
   // await db.Stamp.create({ status, countries, detailed_location, start, end, detailed_description, tag });
 
   res.redirect('/stamps/create');

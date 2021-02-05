@@ -16,11 +16,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
-body {
+/* body {
     background-image: url(../calibeach.JPG);
     background-size: cover;
     opacity: .9;
-}
+} */
 
 /* body {
     position: relative;
@@ -83,6 +83,8 @@ body::after {
     "det_desc det_desc det_desc det_desc det_desc det_desc"
     "tag tag tag tag tag tag"
     "rating rating rating rating rating rating"
+    "imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label"
+    "imgURL imgURL imgURL imgURL imgURL imgURL"
     "btn btn btn btn btn btn";
 }
 
@@ -138,9 +140,6 @@ body::after {
 
 .det_loc_text {
     grid-area: det_loc_text;
-    /* display: grid; */
-    /* grid-template-areas: 1fr; */
-    /* align-items: stretch; */
 }
 
 .det_desc {
@@ -189,6 +188,14 @@ body::after {
     margin: 0;
     grid-area: btn;
     justify-self: flex-end;
+}
+
+.imgURL_label {
+    grid-area: imgURL_label;
+}
+
+.imgURL {
+    grid-area: imgURL;
 }
 
 .rating {
