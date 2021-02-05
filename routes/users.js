@@ -23,6 +23,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   const { username, displayName, email, password } = req.body;
 
   const newUser = db.User.build({ username, displayName, email})
+  // const newUser = db.User.create({ username, displayName, email})
 
   const validatorErrors = validationResult(req);
 
@@ -30,6 +31,13 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     const hashedPassword = await bcrypt.hash(password, 10);
     newUser.hashedPassword = hashedPassword;
     await newUser.save();
+    const newuserId = newUser.id;
+    const passportStatusLocal = 'Local'
+    const passportStatusVisited = 'Visited'
+    const passportStatusWill = 'Will Visit'
+    const passportLocal = await db.Passport.create({ passportStatusLocal, newuserId});
+    const passportVisited = await db.Passport.create({ passportStatusVisited, newuserId });
+    const passportWillVisit = await db.Passport.create({ passportStatusWill, newuserId });
     loginUser(req, res, newUser)
     return req.session.save((err) => {
       if (err) {
