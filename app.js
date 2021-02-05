@@ -33,7 +33,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret, 
+    secret,
     store,
     saveUninitialized: false,
     store,
@@ -50,6 +50,7 @@ app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
 app.use(requireAuth);
 app.use("/stamps", createStamps);
+app.use("/users", profileRouter);
 
 
 // catch 404 and forward to error handler
