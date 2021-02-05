@@ -15,6 +15,7 @@ const createStamps = require("./routes/stamps-create");
 const queryHandlerRouter = require("./routes/queryHandler");
 const profileRouter = require("./routes/profile");
 const { secret } = require("./config");
+const teamRouter = require("./routes/team");
 
 
 const app = express();
@@ -46,6 +47,7 @@ store.sync();
 
 app.use(restoreUser);
 app.use("/", indexRouter);
+app.use("/team", teamRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
 app.use(requireAuth);

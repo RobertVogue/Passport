@@ -1,0 +1,9 @@
+.team_main {
+    display: flex;
+    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+}
