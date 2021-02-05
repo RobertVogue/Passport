@@ -11,7 +11,7 @@ block content
     .sub_b
       h2 Top 10 Countries To Visit
       if !authenticated
-        form#home_form(action="/" method="post")
+        form#home_form(action="/users/signup" method="post")
           h5.box2 Register
           input(type="hidden" name="_csrf" value=csrfToken)
           div
