@@ -1,5 +1,10 @@
 extends layout
 block content
+    .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/users/${curUser.id}`): button.btn2 My Passports
+        a(href='/team'): button.btn2 Meet The Team
     .team_main
         h1 Meet the Team
             .team_container
@@ -16,7 +21,7 @@ block content
                 .member
                     h5.team1 Robert Vogtritter
                         .headshot_container
-                            img(src="/headshots/bo.png" alt="headshot")
+                            img(src="/headshots/bo.jpg" alt="headshot")
                             h5 Developer
                                 .icon_container
                                     a(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
