@@ -3,8 +3,8 @@ extends layout
 include utils
 
 block content
-	.outer_container
-		.content_container
+	div.outer_container
+		div.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
 				.status_header STATUS
 				.country_header WHERE WAS YOUR TRIP?
@@ -61,3 +61,4 @@ block content
 					label(for="star1" title="text") 1
 				button.btn.stamp_btn(type="submit") Create Stamp!
 			+validationErrorSummary(errors)
+

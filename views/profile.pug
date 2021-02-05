@@ -1,9 +1,48 @@
 extends layout
 
 block content
-	div.profileBody
-		h1 My Profile
-			ul My Stamps
-				each image in images
-					li.imgTag
-					img.stampImg(src=image)
+	.sub_a
+		a(href='/'): button.btn2 Home
+		if authenticated
+			a(href=`/users/${curUser.id}`): button.btn2 My Passports
+		a(href='/team'): button.btn2 Meet The Team
+	h1.myProfileHeader My Profile
+	.gridContainer
+		.leftSideColumn
+			.leftColumnTitleDecore
+				h2.leftSideColumnTitle Passports
+			.passportContainer
+				ul
+					.localPassport
+						each val, key in passportLocal
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
+					.goToPassport
+						each val, key in passportGoingTo
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
+					.visitedPassport
+						each val, key in passportVisited
+							li(class=key value=val) #{val}
+					ul.ImgContainer
+						li
+							img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg")
+							a(href="")
+		.profileBody
+			.myStampsHeader
+				h2 My Stamps
+			ul
+				each name, image in obj
+					.tripName: h3= name
+					li.imgLiTag
+						img(src=image class="stampImg mask1" name=name)
+		.rightSideColumn
+			.recentComments
+				.recentCommentsDecore
+					h2 Recent Comments

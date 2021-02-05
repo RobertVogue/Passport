@@ -134,7 +134,6 @@ const getStamps = async (userId) => {
 };
 
 const getUserPassports = async (id) => {
-  // returns users passport ID
   const passports = await Passport.findAll({
     where: {
       user_id: id,
@@ -142,21 +141,62 @@ const getUserPassports = async (id) => {
   });
   const results = passports.map((passport) => {
     const { dataValues } = passport;
-    return dataValues.id;
+    return dataValues;
   });
+  // console.log(results);
   return results;
 };
+const getVisitedPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Visited",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
+};
+const getGoingToPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Want to visit",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
+};
+const getLocalPassports = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+      passport_status: "Near By",
+    },
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues;
+  });
+  const [data] = results;
+  // console.log(data);
+  return data;
+};
 
-const getTenStamps = async (userId) => {
+const get100Stamps = async (userId) => {
   let user = await findUserById(userId);
   const myMap = user.Passports.map((passport) => passport.dataValues.id);
   const res = await Stamp.findAll({
-    where: {
-      passport_id: {
-        [Op.or]: [...myMap],
-      },
-    },
-    limit: 10,
+    limit: 100,
   });
   const results = res.map((result) => result.dataValues);
   return results;
@@ -170,13 +210,14 @@ const createTag = async (name) => {
     return Error("tag not created");
   }
 };
+
 const createStamp = async (
   name,
   detailed_location,
   passport_id,
   countries_id,
   tags_id,
-  dates,
+  dates, //"12-12-12:01-02-13"
   price,
   review,
   rating
@@ -200,7 +241,7 @@ const createStamp = async (
 };
 
 module.exports = {
-  getTenStamps,
+  get100Stamps,
   updateEmail,
   updatePassword,
   updateusername,
@@ -213,4 +254,7 @@ module.exports = {
   getUserPassports,
   createTag,
   createStamp,
+  getLocalPassports,
+  getGoingToPassports,
+  getVisitedPassports,
 };

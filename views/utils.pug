@@ -1,7 +1,7 @@
 mixin validationErrorSummary(errors)
     if errors
-        div(class='alert alert-danger' role='alert')
-            p The following errors(s) occurred:
-            ul
-                each error in errors
-                    li= error
+        div(class='error' role='alert')
+                ul.error_list
+                    h3#errTitle The following errors(s) occurred:
+                    each error in errors
+                        li#errLi= error
