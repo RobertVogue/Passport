@@ -1,14 +1,14 @@
 "use strict",
   (module.exports = {
     up: (queryInterface, Sequelize) => {
-      const randomBelow40 = () => Math.floor(Math.random() * 40);
+      const randomBelow40 = () => Math.floor(Math.random() * 39) + 1;
       return queryInterface.bulkInsert(
         "Stamps",
         [
           {
             name: "trip to Hogwarts",
             detailed_location: "Scotland - Northern Ireland",
-            dates: "01-05-2014:02-",
+            dates: "01-05-2014:02-15-20",
             price: "$$$",
             review: "Excillent views and efficient travel",
             rating: 8,
