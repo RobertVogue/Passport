@@ -31,8 +31,8 @@
     justify-content: center;
     background-image: url(../calibeach.JPG);
     background-size: cover;
-    height: 90vh;
-    width: 100vw;
+    /* height: 90vh;
+    width: 100vw; */
 }
 
 /* .outer_container::after {
@@ -68,7 +68,7 @@
     background-color: rgb(251 245 224 / 81%);
     position: absolute;
     border-radius: 20px;
-    padding: 4rem;
+    padding: 2rem;
     width: 40%;
     border: 3px solid black;
 }
@@ -91,7 +91,19 @@
     "rating rating rating rating rating rating"
     "imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label"
     "imgURL imgURL imgURL imgURL imgURL imgURL"
+    "error error error error error error"
     "btn btn btn btn btn btn";
+}
+
+/* .colorText {
+    color: red;
+    background-color: blue;
+} */
+.input_boxes {
+    color: gray;
+    border-radius: 5px 5px;
+    padding: 4px;
+    font-size: 14px;
 }
 
 .trip_name {
@@ -201,15 +213,104 @@
     width: 100%;
 }
 
+.errorHandling {
+    grid-area: error;
+}
+
 .rating {
     grid-area: rating;
     display: flex;
     margin-top: 10px;
-    justify-content: space-between;
-    /* grid-area: rating;
-    grid-row: 1/3; */
+    justify-content: space-around;
+    /* unicode-bidi: bidi-override;
+    direction: rtl; */
+    text-align: center;
 }
 
+/* stars with radio buttons that didn't work 
+
+.star-cb-group {
+    font-size: 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.star-cb-group * {
+    font-size: 1rem;
+}
+
+.star-cb-group > input {
+    display: none;
+}
+
+.star-cb-group > input + label {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 9999px;
+    width: 1em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.star-cb-group > input + label::before {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -9999px;
+    content: ✩;
+    color: #888;
+}
+
+.star-cb-group > input:checked ~ label::before, 
+.star-cb-group > input + label:hover ~ label::before,
+.star-cb-group > input + label:hover::before {
+    content: ★;
+    color: #e52;
+    text-shadow: 0 0 1px #333;
+}
+
+.star-cb-group > .star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+}
+
+.star-cb-group > .star-cb-clear + label::before {
+    width: .5em;
+}
+
+.star-cb-group:hover > input + label::before {
+    content: ✩;
+    color: #888;
+    text-shadow: none;
+}
+
+.star-cb-group:hover > input + label:hover ~ label::before,
+.star-cb-group:hover > input + label:hover:before {
+    content: ★;
+    color: #e52;
+    text-shadow: 0 0 1px #333;
+} */
+
+/* stars that worked */
+/* 
+.rating > span:hover::before,
+.rating > span:hover ~ span::before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: gold;
+}
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em
+}
+
+.rating > span:hover,
+.rating > span:hover ~ span {
+    color: transparent;
+} */
 
 .default {
     color: lightgrey;
