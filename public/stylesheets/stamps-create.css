@@ -205,7 +205,7 @@
     grid-area: rating;
     display: flex;
     margin-top: 10px;
-    /* justify-content: ; */
+    justify-content: space-between;
     /* grid-area: rating;
     grid-row: 1/3; */
 }

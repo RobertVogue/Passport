@@ -50,16 +50,16 @@ block content
 				.imgURL
 					input.imgURLInput(type="text" name="imgURL")
 				.rating
-					input#star5(type="radio" name="rating" value="5")
-					label(for="star5" title="text") 5
-					input#star4(type="radio" name="rating" value="4")
-					label(for="star4" title="text") 4
-					input#star3(type="radio" name="rating" value="3")
-					label(for="star3" title="text") 3
-					input#star2(type="radio" name="rating" value="2")
-					label(for="star2" title="text") 2
 					input#star1(type="radio" name="rating" value="1")
-					label(for="star1" title="text") 1
+					label(for="star1" title="text") 1 star
+					input#star2(type="radio" name="rating" value="2")
+					label(for="star2" title="text") 2 star
+					input#star3(type="radio" name="rating" value="3")
+					label(for="star3" title="text") 3 star
+					input#star4(type="radio" name="rating" value="4")
+					label(for="star4" title="text") 4 star
+					input#star5(type="radio" name="rating" value="5")
+					label(for="star5" title="text") 5 star
 				button.btn.stamp_btn(type="submit") Create Stamp!
 			+validationErrorSummary(errors)
 
