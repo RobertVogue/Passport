@@ -52,20 +52,11 @@
     justify-content: center;
 } */
 
-.paragraph {
-    border: 3px solid red;
-    max-width: 50%;
-    align-self: flex-start;
-    margin-top: 8px;
-    color: beige;
-    font-family: "Montserrat", sans-serif;
-}
-
 .content_container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(251 245 224 / 81%);
+    background-color: #aec5dce3;
     position: absolute;
     border-radius: 20px;
     padding: 2rem;
@@ -109,7 +100,7 @@
 .trip_name {
     grid-area: name;
     justify-self: center;
-    font-size: xx-large;
+    font-size: x-large;
     text-align: center;
 }
 
