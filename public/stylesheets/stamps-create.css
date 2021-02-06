@@ -98,6 +98,11 @@
     font-size: 14px;
 }
 
+.input_boxes:visited,
+.input_boxes:focus {
+    color: black;
+}
+
 .trip_name {
     grid-area: name;
     justify-self: center;
