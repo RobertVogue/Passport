@@ -40,12 +40,9 @@ router.post(
     newUser.hashedPassword = hashedPassword;
     await newUser.save();
     const newuserId = newUser.id;
-    const passportStatusLocal = 'Local'
-    const passportStatusVisited = 'Visited'
-    const passportStatusWill = 'Will Visit'
-    await db.Passport.create({ passportStatusLocal, newuserId});
-    await db.Passport.create({ passportStatusVisited, newuserId });
-    await db.Passport.create({ passportStatusWill, newuserId });
+    await db.Passport.create({ passport_status:'Local', user_id: newuserId});
+    await db.Passport.create({ passport_status:'Visited', user_id: newuserId});
+    await db.Passport.create({ passport_status:'Will Visit', user_id: newuserId});
     loginUser(req, res, newUser)
     return req.session.save((err) => {
       if (err) {
