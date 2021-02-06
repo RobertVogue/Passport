@@ -1,0 +1,9 @@
+extends layout
+include utils
+
+block content
+   .passportContainer
+      .innerContainer
+         ul.textDecore 
+         each value, index in passport
+            a(href='passports/'+index class=value.passport_status)=value.passport_status

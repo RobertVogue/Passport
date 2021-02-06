@@ -1,0 +1,79 @@
+a {
+   /* all: unset; */
+   text-decoration: none;
+   color: inherit;
+}
+
+.passportContainer {
+   background-image:url('https://i.etsystatic.com/12863722/r/il/4a4f82/1057965640/il_1588xN.1057965640_71ha.jpg');
+   margin: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    /* flex-direction: column; */
+   width: 100vw;
+   }
+   .innerContainer {
+   height: 90vh;
+   width: 100%;
+   display: grid;
+   grid-template-areas:
+      "visitedtop wantToVisittop nearBytop"
+      "visitedtop wantToVisittop nearBytop"
+      "visitedtop wantToVisittop nearBytop"
+      "visitedmiddle wantToVisitmiddle nearBymiddle"
+      "visitedmiddle wantToVisitmiddle nearBymiddle"
+      "visitedmiddle wantToVisitmiddle nearBymiddle"
+      "visitedbottom wantToVisitbottom nearBybottom"
+      "visitedbottom wantToVisitbottom nearBybottom"
+      "visitedbottom wantToVisitbottom nearBybottom";
+}
+.Visited {
+   color: black;
+   text-align: center;
+   padding: 2rem;
+   grid-area: visitedbottom;
+   background-color: #ebe0cc;
+   -webkit-mask-image: linear-gradient(to bottom, white 10%, rgba(0, 0, 0, 0.664) 90%);
+   mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 10%, rgba(0, 0, 0, 0.664) 90%);
+
+}
+.Want {
+   color: black;
+   text-align: center;
+   padding: 2rem;
+   grid-area: wantToVisitbottom;
+   background-color: #bc627c;
+   -webkit-mask-image: linear-gradient(to bottom, white 10%, rgba(0, 0, 0, 0.664) 90%);
+   mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 10%, rgba(0, 0, 0, 0.664) 90%);
+}
+.Near {
+   color: black;
+   text-align: center;
+   padding: 2rem;
+   grid-area: nearBybottom;
+   background-color: #444442;
+   -webkit-mask-image: linear-gradient(to bottom, white 10%, rgba(0, 0, 0, 0.664) 90%);
+   mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 10%, rgba(0, 0, 0, 0.664) 90%);
+}
+.Visited:hover {
+   padding: 3rem;
+   grid-area: visitedbottom;
+   background-color: #ebe0cc;
+   -webkit-mask-image: none;
+   mask-image: none;
+}
+.Want:hover {
+   padding: 3rem;
+   grid-area: wantToVisitbottom;
+   background-color: #bc627c;
+   -webkit-mask-image: none;
+   mask-image: none;
+}
+.Near:hover {
+   padding: 3rem;
+   grid-area: nearBybottom;
+   background-color: #444442;
+   -webkit-mask-image: none;
+   mask-image: none;
+}
