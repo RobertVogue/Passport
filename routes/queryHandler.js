@@ -16,23 +16,14 @@ const {
   findOwnerId,
   createTag,
   createStamp,
+  getTopCountries,
 } = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await createStamp(
-      "test",
-      "test location",
-      1,
-      1,
-      1,
-      "10-11-20:11-11-20",
-      "$$$",
-      "this was the best test.",
-      5
-    );
+    const results = await getTopCountries(1);
     console.log(results);
     return res.render("queryHandler", { results });
   })

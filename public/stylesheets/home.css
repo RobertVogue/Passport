@@ -77,8 +77,10 @@
 .btn2:hover {
     background: linear-gradient(-45deg, #60319e, #a100b6, #1100ff, #cc00ff);
     color: white;
+    outline: none;
+    border: none;
     background-size:400% 400%;
-    animation: medium 5s ease-in-out infinite;
+    animation: medium 4s ease-in-out infinite;
 
 }
 

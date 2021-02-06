@@ -52,6 +52,7 @@
     justify-content: center;
 } */
 
+
 .content_container {
     display: flex;
     align-items: center;
@@ -311,4 +312,3 @@
 select option[value=""] {
     color: #999999;
 } */
-

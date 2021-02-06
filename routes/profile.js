@@ -9,6 +9,8 @@ const {
   getGoingToPassports,
   getLocalPassports,
   getVisitedPassports,
+  getComments,
+  getTags,
 } = require("../data-access-layer/utils");
 
 router.get(
@@ -16,6 +18,8 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const userid = req.params.id;
+    const allTags = await getTags();
+    const comments = await getComments(userid);
     const passports = await getUserPassports(userid);
     const passportGoingTo = await getGoingToPassports(userid);
     const passportVisited = await getVisitedPassports(userid);
@@ -29,13 +33,14 @@ router.get(
       obj[cur] = names[index];
     });
 
-    console.log(obj);
     res.render("profile", {
       obj,
       passports,
       passportGoingTo,
       passportVisited,
       passportLocal,
+      comments,
+      allTags,
     });
   })
 );
