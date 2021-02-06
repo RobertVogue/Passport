@@ -1,10 +1,11 @@
 extends layout
-//- include background
+
 include utils
 
 block content
-	div.outer_container
-		div.content_container
+	.outer_container
+		.paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis nihil ea temporibus fuga unde saepe sunt itaque sint nemo vitae eveniet quaerat numquam molestiae velit similique, debitis omnis libero?
+		.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
 				.status_header STATUS
 				.country_header WHERE WAS YOUR TRIP?
@@ -47,7 +48,7 @@ block content
 				.imgURL_label
 					label(for="imgURL") Paste a URL Link to a Picture of Your Trip!
 				.imgURL
-					input(type="text" name="imgURL")
+					input.imgURLInput(type="text" name="imgURL")
 				.rating
 					input#star5(type="radio" name="rating" value="5")
 					label(for="star5" title="text") 5

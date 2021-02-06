@@ -52,6 +52,15 @@
     justify-content: center;
 } */
 
+.paragraph {
+    border: 3px solid red;
+    max-width: 50%;
+    align-self: flex-start;
+    margin-top: 8px;
+    color: beige;
+    font-family: "Montserrat", sans-serif;
+}
+
 .content_container {
     display: flex;
     align-items: center;
@@ -172,15 +181,6 @@
     margin-bottom: 5px;
 }
 
-/* #start {
-    grid-area: date_start;
-}
-
-
-#start {
-    grid-area: date_end;
-} */
-
 .stamp_btn {
     display: block;
     width: 100%;
@@ -195,6 +195,10 @@
 
 .imgURL {
     grid-area: imgURL;
+}
+
+.imgURLInput {
+    width: 100%;
 }
 
 .rating {
