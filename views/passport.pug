@@ -4,6 +4,11 @@ include utils
 block content
    .passportContainer
       .innerContainer
-         ul.textDecore 
-         each value, index in passport
-            a(href='passports/'+index class=value.passport_status)=value.passport_status
+         ul.textDecore
+         if passports
+            each value, index in passports
+               a(href='passports/'+index class=value.passport_status)=value.passport_status
+         else if stamps
+            ul
+            each stamp in stamps
+               a(href=`/stamp/`+stamp.id): button.btn2=stamp.name

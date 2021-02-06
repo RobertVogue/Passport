@@ -165,7 +165,7 @@ img[class^="stampImg"] {
    width: 90%;
 }
 
-.passportContainer {
+.passportContainer1 {
    display: flex;
    margin-left: 3rem;
 }
@@ -252,7 +252,7 @@ ul > a > li {
 } */
 
 a:hover {
-  background-color: rgba(128, 128, 128, 0.616);
+   background-color: rgba(128, 128, 128, 0.616);
 }
 
 .tagContainer:hover {

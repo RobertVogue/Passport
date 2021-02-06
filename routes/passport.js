@@ -12,15 +12,27 @@ const {
   getComments,
   getTags,
 } = require("../data-access-layer/utils");
+const stamp = require("../db/models/stamp");
 
 router.get(
   "/",
   requireAuth,
   asyncHandler(async (req, res) => {
     const { userId } = req.session.auth;
-    const passport = await getUserPassports(userId);
-    console.log(passport);
-    res.render("passport", { passport });
+    const passports = await getUserPassports(userId);
+    res.render("passport", { passports });
+  })
+);
+
+router.get(
+  "/:id(\\d+)",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { userId } = req.session.auth;
+    const passport = await getGoingToPassports(userId);
+    const stamps = passport.Stamps.map((stamp) => stamp.dataValues);
+    console.log(stamps);
+    res.render("passport", { stamps });
   })
 );
 

@@ -167,6 +167,7 @@ const getGoingToPassports = async (id) => {
       user_id: id,
       passport_status: "Want to visit",
     },
+    include: [Stamp],
   });
   const results = passports.map((passport) => {
     const { dataValues } = passport;
