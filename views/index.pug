@@ -44,8 +44,8 @@ block content
         h2.b2 Highest Rated Must Travel
           .sub_b3a
             ul
-              each tag in topTags
-                li=(tag.Country.id)= tag.Country.name
+              each topCountry in countriesArr
+                li= topCountry
         .sub_b3b
         .sub_b3c
       .sub_b4
