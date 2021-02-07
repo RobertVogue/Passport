@@ -21,7 +21,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       event.target.classList.remove("highlight_me");
       stamps.forEach((stamp) => {
         if (stamp.id !== myStamp) {
-          console.log(stamp.id);
           stamp.classList.remove("hidden_stamp");
         }
       });
