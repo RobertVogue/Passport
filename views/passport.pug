@@ -9,9 +9,10 @@ block content
             each value, index in passports
                a(href='/passports/'+index class=value.passport_status)=value.passport_status
    else if stamps
-      .passport_stamps
-         ul
-         each stamp in stamps
-            li.passport_stamps_image_container
-               a(href=`/stamps/`+stamp.id): img(src=stamp.imgURL class='stamp_images')
-               h2.passports_stamps_header=stamp.name
+      .passport_stamps_container
+         .passport_stamps
+            ul.scroll_stamps
+            each stamp in stamps
+               li.passport_stamps_image_container
+                  h2.passports_stamps_header=stamp.name
+                  a(href=`/stamps/`+stamp.id): img(src=stamp.imgURL class='stamp_images')

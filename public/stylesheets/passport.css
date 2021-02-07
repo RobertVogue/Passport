@@ -14,8 +14,8 @@ a {
    width: 100vw;
    }
    .innerContainer {
-   height: 90vh;
-   width: 100%;
+   height: 87vh;
+   width: 100vw;
    display: grid;
    grid-template-areas:
       "visitedtop wantToVisittop nearBytop"
@@ -82,27 +82,37 @@ a {
    position: relative;
    display: flex;
    list-style-type: none;
-   overflow: hidden;
-   overflow-x: scroll;
-   scroll-snap-type: none;
-   scroll-behavior: smooth;
 }
 .stamp_images {
-   width: 400px;
-   height: 400px;
+   width: 30rem;
+   height: 30rem;
 }
-
+.stamp_images:hover {
+   background-color: black;
+}
+.scroll_stamps {
+   align-self: center;
+   flex-wrap: wrap;
+}
 .passport_stamps_image_container {
+   display: flex;
+   flex-direction: row;
+   overflow-x: hidden;
    padding: 10px;
    text-align: center;
 }
 .passport_stamps_image_container:hover {
+   width: 100vw;
+   height: 87vh;
    background-color: black;
-}
-.passport_stamps_image_container:hover {
-color: white;
+   color: white;
 }
 
 .Stamps {
    display: none;
+}
+
+.passport_stamps_container {
+   width: 100vw;
+   height: 87vh;
 }

@@ -30,8 +30,11 @@ router.get(
   asyncHandler(async (req, res) => {
     const { userId } = req.session.auth;
     const passport = await getGoingToPassports(userId);
-    const stamps = passport.Stamps.map((stamp) => stamp.dataValues);
-    console.log(passport);
+    const stamps = [];
+    passport.Stamps.forEach((stamp) => {
+      if (stamp.dataValues.passport_id) stamps.push(stamp.dataValues);
+    });
+    console.log(stamps);
     res.render("passport", { stamps });
   })
 );
