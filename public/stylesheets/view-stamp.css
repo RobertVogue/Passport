@@ -16,6 +16,8 @@
 
  .vs {
     font-family: 'Rakkas', cursive;
+    font-size: 30px;
+    color: rgb(104, 0, 0);
 }
 
 
@@ -33,27 +35,27 @@
     height: 50px;
     /* bottom: 20px; */
     left: 20px;
-    top: 20px;
+    top: 35px;
     /* border: 5px solid black; */
     /* font-family: 'Rakkas', cursive; */
 }
 
 .dates {
     position: relative;
-    width: 323px;
+    width: 550px;
     height: 50px;
     /* bottom: 20px; */
     left: 20px;
-    top: 35px;
+    top: 20px;
     /* border: 5px solid black; */
 }
 
 .price {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     position: relative;
-    width: 100px;
+    width: 150px;
     height: 50px;
     /* bottom: 20px; */
     left: 20px;
@@ -72,10 +74,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 269px;
+    width: 400px;
     height: 100px;
-    left: 250px;
+    left: 265px;
     top: 65px;
+    /* border: 5px solid black; */
 }
 
 .review {
@@ -84,16 +87,31 @@
     position: relative;
     width: 450px;
     height: 283px;
-    left: 200px;
+    left: 250px;
     top: 70px;
+    /* border: 5px solid black; */
 }
 
 .rating {
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 269px;
     height: 51px;
-    left: 180px;
-    top: 70px;
+    left: 325px;
+    top: 90px;
+    /* border: 5px solid black; */
+}
+
+.created {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 51px;
+    left: 550px;
+    top: 190px;
+    /* border: 5px solid black; */
 }
 
 .country {
@@ -103,8 +121,9 @@
     position: relative;
     width: 323px;
     height: 50px;
-    left: 150px;
+    left: 325px;
     top: 20px;
+    /* border: 5px solid black; */
 }
 
 .stamp_name {
@@ -112,10 +131,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 323px;
+    width: 450px;
     height: 50px;
-    left: 150px;
+    left: 250px;
     top: 30px;
+    /* border: 5px solid black; */
 }
 
 .tag {
@@ -125,8 +145,9 @@
     position: relative;
     width: 323px;
     height: 50px;
-    left: 150px;
-    top: 5px;
+    left: 325px;
+    top: 90px;
+    /* border: 5px solid black; */
 }
 
 
@@ -134,10 +155,15 @@
     position: relative;
     width: 450px;
     height: 450px;
-    left: 80px;
-    top: 40px;
+    left: 250px;
+    top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border: 5px solid black; */
 }
 
+.stamp_img {
+    width: 450px;
+    height: 450px;
+}

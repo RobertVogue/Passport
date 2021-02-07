@@ -55,6 +55,8 @@ router.get(
       passportLocal,
       comments,
       tagsObj,
+      allTags
+
     });
   })
 );
