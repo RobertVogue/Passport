@@ -15,7 +15,6 @@ const {
 
 router.get(
   "/:id(\\d+)",
-  requireAuth,
   asyncHandler(async (req, res) => {
     const userid = req.params.id;
     const allTags = await getTags();

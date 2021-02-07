@@ -2,13 +2,16 @@ extends layout
 include utils
 
 block content
-   .passportContainer
-      .innerContainer
-         ul.textDecore
-         if passports
-            each value, index in passports
-               a(href='passports/'+index class=value.passport_status)=value.passport_status
-         else if stamps
-            ul
-            each stamp in stamps
-               a(href=`/stamp/`+stamp.id): button.btn2=stamp.name
+   if passports
+      .passportContainer
+            .innerContainer
+               ul.textDecore
+                  each value, index in passports
+                     a(href='passports/'+index class=value.passport_status)=value.passport_status
+   else if stamps
+      .passport_stamps
+         ul
+         each stamp in stamps
+            li.passport_stamps_image_container
+               a(href=`/stamp/`+stamp.id): img(src=stamp.imgURL class='stamp_images')
+               h2.passports_stamps_header=stamp.name

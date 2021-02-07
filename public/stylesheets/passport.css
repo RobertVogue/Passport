@@ -77,3 +77,28 @@ a {
    -webkit-mask-image: none;
    mask-image: none;
 }
+
+.passportContainer {
+   max-width: 4rem;
+}
+.passport_stamps {
+   display: flex;
+   list-style-type: none;
+   overflow-x: scroll;
+   scroll-snap-type: none;
+}
+.stamp_images {
+   width: 400px;
+   height: 400px;
+}
+
+.passport_stamps_image_container {
+   padding: 10px;
+   text-align: center;
+}
+.passport_stamps_image_container:hover {
+   background-color: black;
+}
+.passport_stamps_image_container:hover {
+   color: white;
+}
