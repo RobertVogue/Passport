@@ -196,11 +196,13 @@ const getLocalPassports = async (id) => {
 
 const get100Stamps = async (userId) => {
   let user = await findUserById(userId);
+  let passportIds = await getUserPassports(userId);
   const myMap = user.Passports.map((passport) => passport.dataValues.id);
   const res = await Stamp.findAll({
     limit: 100,
   });
   const results = res.map((result) => result.dataValues);
+  console.log(passportIds)
   return results;
 };
 
@@ -354,14 +356,13 @@ const topWantToVisit = async () => {
 const topVisited = async () => {
   const topCountries = await Stamp.findAll({
     where: { rating: 10 },
-    include: [
-      {
-        model: Passport,
-        where: { passport_status: "visited" },
-      },
-      {
-        model: Country,
-      },
+    include: [{
+      model: Passport,
+      where: { passport_status: "Visited" },
+    },
+    {
+      model: Country
+    }
     ],
   });
   const countryObj = {};

@@ -1,280 +1,165 @@
-body {
-   background-color: gray;
-}
-.title {
-   margin: 0;
-   padding-top: 5px;
-   padding-bottom: 10px;
-   background-color: plum;
-   display: flex;
-   justify-content: center;
-}
-
 .gridContainer {
-   font-family: Arial, Helvetica, sans-serif;
-   display: grid;
-   grid-template-columns:1fr 2fr 1fr;
-   grid-template-areas:
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn"
-   "leftSideColumn profileBody rightSideColumn";
+  display: flex;
+  width: 100vw;
+  height: 81vh;
+  background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
+  background-size:400% 400%;
+  animation: extreme 20s ease-in-out infinite;
+}
+@keyframes extreme {
+   0% {
+       background-position: 0 0;
+   }
+   50% {
+       background-position: 100% 100%;
+   }
+   100% {
+       background-position: 0 0;
+   }
 }
 .myProfileHeader {
-   /* z-index: 1; */
-   /* position: fixed; */
    width: 100%;
    background-color: bisque;
    margin: 0px;
    padding: 35px;
    text-align: center;
-   color: brown;
+   color: black;
 }
 .myStampsHeader {
-   background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
    margin: 10px;
-   /* margin-top: 0; */
    padding: 10px;
    text-align: center;
-   color: brown;
-   border-radius: 2rem;
    margin-bottom: 20px;
-   /* height: 100%; */
 }
-
 .leftSideColumn {
    padding-top: 20px;
-   grid-area: leftSideColumn;
-   background-color: pink;
+   display: flex;
+   width: 20vw;
+   flex-direction: column;
 }
 .rightSideColumn {
    padding-top: 20px;
-   grid-area: rightSideColumn;
-   background-color: lightblue;
+   display: flex;
+   width: 20vw;
+   flex-direction: column;
 }
-
 .profileBody {
-   background-color: beige;
-   display: grid;
-   grid-area: profileBody;
-   border-bottom: 2px solid black;
-   width: 100%;
-   background: linear-gradient(45deg, #fba119e8, lightgoldenrodyellow);
-   z-index: 4;
+   display: flex;
+   width: 60vw;
+   flex-direction: column;
 }
-
+.easy {
+   display: flex;
+   flex-wrap: wrap;
+}
+.medium {
+   display: flex;
+   flex-direction: column;
+   margin-left: 3rem;
+}
 img[class^="stampImg"] {
    max-width: 100%;
    box-sizing: border-box;
 }
-
 .mask1 {
-   -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0, 0, 0, 0.664) 80%);
-   mask-image: linear-gradient(to bottom, rgba(245, 245, 220, 0.527) 20%, rgba(0, 0, 0, 0.664) 80%);
-
+   border-radius: 25%;
+   width: 150px;
+   height: 100px;
 }
-
 .mask2 {
-   -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.637) 20%, black 80%);
-   mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.472) 20%, black 80%);
+   max-width: 25vw;
+   border: 3px solid white
 }
-
 .tripName {
    text-align: center;
    display: flex;
    justify-content: center;
-   font-size: 300%;
-   text-transform: capitalize;
+   padding-bottom: 20px;
 }
 .tripName > h3 {
-   width: 100%;
-   padding: 10px;
-   background-color: lightgoldenrodyellow;
-   border-top: 2rem solid rgba(151, 151, 24, 0.719);
-   color: brown;
-   border-top-left-radius: 1rem;
-   border-top-right-radius: 1rem;
+   margin-left: 60px;
+   color: white;
+   font-size: 20px;
+   border: 2px solid white;
+   width: 300px;
+   text-transform: uppercase;
 }
-
 .imgLiTag {
    display: flex;
    align-items: center;
    justify-content: center;
    list-style-type: none;
-   background: #fafad2;
-   margin-bottom: 5rem;
-   border-bottom: 2rem double black;
-   border-bottom-left-radius: 1rem;
-   border-bottom-right-radius: 1rem;
 }
-
-
 .id {
    display: none;
 }
 .user_id {
    display: none;
 }
-
 .updatedAt {
    display: none;
 }
-
 .createdAt {
    display: none;
 }
-
 .passport_status {
    margin: 0;
    padding: 5px;
    text-indent: 2px;
    font-weight: bold;
 }
-
+.need {
+   width: 10vw;
+   margin-top: 10px;
+}
 .localPassport {
    display: flex;
    justify-content: space-around;
    list-style-type: none;
-   /* margin-left: 5px; */
-   margin-top: 2rem;
-   background-color:rgba(102, 51, 153, 0.548);
+   margin-top: 1rem;
    width: 90%;
 }
 .goToPassport {
    display: flex;
    justify-content: space-around;
    list-style-type: none;
-   /* margin-left: 5px; */
-   margin-top: 3rem;
-   background-color:rgba(102, 51, 153, 0.548);
+   margin-top: 1rem;
    width: 90%;
 }
 .visitedPassport {
    display: flex;
    justify-content: space-around;
    list-style-type: none;
-   /* margin-left: 5px; */
-   margin-top: 3rem;
-   background-color:rgba(102, 51, 153, 0.548);
+   margin-top: 1rem;
    width: 90%;
-}
-
-.passportContainer1 {
-   display: flex;
-   margin-left: 3rem;
 }
 .ImgContainer {
    display: flex;
    justify-content: space-around;
    list-style-type: none;
-   /* margin-left: 5px; */
    padding: auto;
    border: none;
-   background-color: rgba(100, 148, 237, 0.589);
    max-width: 90%;
-
 }
 .localImg {
    height: 95%;
    width: 98%;
 }
-
 .leftSideColumnTitle {
    text-align: center;
    font-weight: bold;
+   font-size: 50px;
+   color: white;
+   border-bottom: 5px solid white;
 }
 .Comments {
-   margin-top: 2rem;
-   text-align: center;
-   font-weight: bold;
+   margin: 10px;
+   padding: 10px;
+   text-align: left;
+   margin-bottom: 20px;
 }
 .leftColumnTitleDecore {
    margin-left: 3rem;
    margin-right: 2rem;
-   border: 4px solid black;
    margin-bottom: 0;
-}
-
-.CommentsDecore {
-   margin-left: 3rem;
-   margin-right: 2rem;
-   border: 4px solid black;
-   margin-bottom: 0;
-}
-
-p {
-   padding: 10px;
-}
-
-a {
-   text-decoration: none;
-}
-ul > a > li {
-   list-style-type: none;
-}
-.exploreHeader {
-   text-align: center;
-}
-.exploreHeaderDecore {
-   margin-left: 3rem;
-   margin-right: 2rem;
-   border: 4px solid black;
-   margin-bottom: 10px;
-}
-
-
-.intrestTags {
-   display: flex;
-   /* align-items: center; */
-   justify-content: center;
-   list-style-type: none;
-}
-.tagContainer {
-   text-align: center;
-   list-style-type: none;
-   box-sizing: border-box;
-   margin-top: 2px;
-   border-top: 4px steelblue solid;
-   border-bottom: 4px steelblue solid;
-   border-radius: 2rem;
-}
-.tag {
-   text-align: center;
-   /* box-sizing: border-box; */
-   padding: 2px;
-}
-/* .Family.Friendly:hover {
-   background-color: #ebf8e1;
-} */
-
-a:hover {
-   background-color: rgba(128, 128, 128, 0.616);
-}
-
-.tagContainer:hover {
-   background-color: rgba(128, 128, 128, 0.616);
-}
-
-.ImgContainer:hover {
-   background-color: rgba(128, 128, 128, 0.616);
-}
-
-.mask1:hover {
-   -webkit-mask-image: none;
-   mask-image: none;
-}
-
-.hidden_stamp {
-   display: none;
-}
-.highlight_me {
-   font-weight: bolder;
-   background-color: red;
-   border-radius: 2rem;
 }

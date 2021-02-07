@@ -1,8 +1,7 @@
 .stamp_container {
     background-image: url('../background-passport.png');
+    background-size: cover;
     display: flex;
-    /* background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad); */
-    align-items: center;
     justify-content: space-evenly;
     /* flex-direction: row; */
     width: 100vw;
@@ -74,10 +73,9 @@
     justify-content: center;
     position: relative;
     width: 269px;
-    height: 51px;
-    left: 180px;
+    height: 100px;
+    left: 250px;
     top: 65px;
-    /* border: 5px solid black; */
 }
 
 .review {
@@ -86,9 +84,8 @@
     position: relative;
     width: 450px;
     height: 283px;
-    left: 90px;
+    left: 200px;
     top: 70px;
-    /* border: 5px solid black; */
 }
 
 .rating {
@@ -97,7 +94,6 @@
     height: 51px;
     left: 180px;
     top: 70px;
-    /* border: 5px solid black; */
 }
 
 .country {
@@ -107,10 +103,8 @@
     position: relative;
     width: 323px;
     height: 50px;
-    /* bottom: 20px; */
     left: 150px;
     top: 20px;
-    /* border: 5px solid black; */
 }
 
 .stamp_name {
@@ -120,10 +114,8 @@
     position: relative;
     width: 323px;
     height: 50px;
-    /* bottom: 20px; */
     left: 150px;
     top: 30px;
-    /* border: 5px solid black; */
 }
 
 .tag {
@@ -133,10 +125,8 @@
     position: relative;
     width: 323px;
     height: 50px;
-    /* bottom: 20px; */
     left: 150px;
     top: 5px;
-    /* border: 5px solid black; */
 }
 
 
@@ -144,17 +134,10 @@
     position: relative;
     width: 450px;
     height: 450px;
-    /* bottom: 20px; */
     left: 80px;
     top: 40px;
-    /* border: 5px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.stamp_img {
-
-    /* width: 450px;
-    height: 500px; */
-}
