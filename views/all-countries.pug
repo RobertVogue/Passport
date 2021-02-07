@@ -8,5 +8,14 @@ block content
         if authenticated
             a(href=`/passports`): button.btn2 My Passports
         a(href='/team'): button.btn2 Meet The Team
-    .countries
-        h1 welcome to countries
+    .gridContainer2
+        .countries
+            .countriesBody
+                .myCountriesHeader
+                    h2.middle2 Countries
+                ul.omg2
+                    each country in countries
+                        a(href="/countries/").tripName2
+                            h3=country.name
+                                li.imgLiTag2
+                                    img(src=country.flagUrl class="countryImg maskCountry")

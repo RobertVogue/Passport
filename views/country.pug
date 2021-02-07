@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	.sub_a
+		a(href='/'): button.btn2 Home
+		if authenticated
+			a(href=`/passports`): button.btn2 My Passports
+		a(href='/team'): button.btn2 Meet The Team
+    .gridContainer
+        .profileBody
+                .myStampsHeader
+                    h2.middle My Stamps
+                ul.omg
+                    each id, name in resObj
+                        if (name!=='undefined')
+                            a(href="/stamps/"+id id=id+'_stamp').tripName
+                                h3=name
+                                    li.imgLiTag
+                                        img(src=obj[name] class="stampImg mask1" name=name)
