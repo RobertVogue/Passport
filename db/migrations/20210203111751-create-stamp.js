@@ -60,6 +60,7 @@ module.exports = {
           defaultValue: Sequelize.fn("now"),
         },
         imgURL: {
+          allowNull: false,
           type: Sequelize.STRING,
         },
       },

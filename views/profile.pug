@@ -35,20 +35,19 @@ block content
 				h2.leftSideColumnTitle My Stamps
 			.easy
 				each id, name in resObj
-					a(href="/stamps/"+id).tripName
-					a(href="/stamps/"+id id=id+'_stamp').tripName
-						h3=name
-							li.imgLiTag
-								img(src=obj[name] class="stampImg mask1" name=name)
+					if (name!=='undefined')
+						a(href="/stamps/"+id id=id+'_stamp').tripName
+							h3=name
+								li.imgLiTag
+									img(src=obj[name] class="stampImg mask1" name=name)
+
 		.rightSideColumn
 			.explore
 				h2.leftSideColumnTitle Explore
-			form(action='/users/' method="get")
+
 				select.need
-					each tag, index in allTags
+					each value, key in tagsObj
 						option.default(value="default" selected disabled hidden) Filter by Tag
-						option(value=tag.name) #{tag.name}
-							a(href="" class=tag.name class=tags)
-				button.int(type="submit") Filter
+						option(id=`${value}` class='tags' value=`${value}`)=key
 	block scripts
 		script(src='../javascripts/profile.js')
