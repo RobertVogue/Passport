@@ -2,7 +2,10 @@
 .team_main {
     display: flex;
     /* flex-direction: row; */
-    background-color: black;
+    background: black;
+    background: linear-gradient(150deg,black,black, black,black,black,black, black, black,black,black,rgb(12, 31, 7), green, rgb(12, 31, 7), black, black,black,black,black,black,black,rgb(34, 6, 6), rgb(163, 0, 0), rgb(34, 6, 6), black, black,black,black,black,black,black,rgb(12, 30, 70), blue, rgb(12, 30, 70), black, black,black,black,black,black,black,rgb(97, 57, 8), orange, rgb(97, 57, 8),black,black,black,black,black, black, black,black,black,black,black,black,black);
+    background-size:400% 400%;
+    animation: large 100s ease-in-out infinite;
     align-items: center;
     /* justify-content: center; */
     text-align: center;
@@ -11,20 +14,22 @@
     height: 81vh;
     color: white;
 }
+.wikiStuff p {
+    cursor: pointer;
+}
 
 .team_container {
     display: flex;
     /* flex-direction: row; */
-    background-color: black;
     justify-content: space-evenly;
     align-items: inherit;
     padding-right: 250px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-left: 100px;
     /* justify-content: center; */
     /* flex-direction: column; */
     width: 100vw;
-    height: 81vh;
+    height: 35vh;
     color: white;
 }
 
@@ -43,6 +48,63 @@
     /* overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden; */
+}
+.project_container {
+    width: 100vw;
+    height: 46vh;
+    align-items: inherit;
+    color: white;
+}
+.project_slaps {
+    width: 1200px;
+    height: 260px;
+    margin: auto;
+    margin-top: 30px;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, green 0%, blue 33%, red 66%, orange 100%);
+    border-image-slice: 1;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 15px;
+}
+@keyframes large {
+    0% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: 20% 20%;
+    }
+    20% {
+        background-position: 40% 40%;
+    }
+    30% {
+        background-position: 60% 60%;
+    }
+    40% {
+        background-position: 80% 80%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    60% {
+        background-position: 80% 80%;
+    }
+    70% {
+        background-position: 60% 60%;
+    }
+    80% {
+        background-position: 40% 40%;
+    }
+    90% {
+        background-position: 20% 20%;
+    }
+    100% {
+        background-position: 0 0;
+    }
+
+}
+.top {
+    font-size: 20px;;
 }
 
 .headshot_container > img {
@@ -101,7 +163,9 @@
 padding-top: 70px;
 font-size: 16px;
 }
-
+.pn {
+    background-color: transparent!important;
+}
 .pos {
     padding-right: 20px;
     background-color: transparent!important;

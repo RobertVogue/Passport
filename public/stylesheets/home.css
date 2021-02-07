@@ -19,11 +19,11 @@
 .form_sub {
     background-color: white;
     padding: 5%;
-
+    margin-left: 424px;
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 29vh;
+    height: 27vh;
     border: 1px solid black;
     justify-content: center;
     align-items: left;
