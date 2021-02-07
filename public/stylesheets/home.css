@@ -38,7 +38,9 @@
 
 .sub_a {
     display: flex;
-    background-color: darkblue;
+    background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
+    background-size:400% 400%;
+    animation: medium 20s ease-in-out infinite;
     height: 6vh;
     width: 100vw;
     justify-content: center;
@@ -51,7 +53,7 @@
     min-width: 140px;
     max-width: 160px;
     background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
-    border: none;
+    border: 1px solid black;
     border-radius: 0px;
     cursor: pointer;
     /* transition: all 0.3s ease 0s; */
@@ -90,21 +92,22 @@
 }
 
 .sub_b {
+    color: white;
     display: flex;
     width: 100vw;
     height: 55vh;
     justify-content: space-between;
-    background: linear-gradient(-45deg, #868686, #c5c5c5);
+    background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
     background-size:400% 400%;
-    animation: medium 12s ease-in-out infinite;
+    animation: medium 20s ease-in-out infinite;
     border-top: 2px solid black;
 }
 .b2 {
     height: 3.2vh;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
 .print {
-
+    padding-top: 10px;
 }
 .rem {
     list-style-type: none;

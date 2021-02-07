@@ -30,7 +30,7 @@ button {
     background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
     background-size:400% 400%;
     animation: medium 20s ease-in-out infinite;
-    overflow-x: hidden
+    overflow-x: hidden;
 
 }
 .trim {
@@ -91,7 +91,7 @@ button {
 
 }
 .name {
-    color:black;
+    color:white;
     font-size: 20px;
     font-weight: 700;
 }
@@ -111,12 +111,12 @@ button {
 }
 .search {
     font-size: 20px;
-    width: 400px;
+    width: 418px;
     height: 4vh;
     text-align: center;
     text-decoration: none;
     outline: none;
-    margin-left: 170px;
+    margin-left: 148px;
 
 }
 
@@ -132,7 +132,6 @@ button {
     background-size:400% 400%;
     position: relative;
     animation: medium 20s ease-in-out infinite;
-    border-bottom: 2px solid black;
     overflow-x: hidden;
 
 
