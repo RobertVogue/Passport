@@ -1,0 +1,12 @@
+extends layout
+
+include utils.pug
+
+block content
+    .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/passports`): button.btn2 My Passports
+        a(href='/team'): button.btn2 Meet The Team
+    .countries
+        h1 welcome to countries

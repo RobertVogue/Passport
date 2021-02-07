@@ -19,6 +19,7 @@ const queryHandlerRouter = require("./routes/queryHandler");
 const profileRouter = require("./routes/profile");
 const { secret } = require("./config");
 const teamRouter = require("./routes/team");
+const countriesRouter = require("./routes/all-countries");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use("/team", teamRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
 app.use("/stamps", viewStamps);
+app.use("/countries", countriesRouter);
 app.use(requireAuth);
 app.use("/passports", passportRouter);
 app.use("/stamps", createStamps);
