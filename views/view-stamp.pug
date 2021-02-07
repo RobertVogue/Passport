@@ -3,5 +3,16 @@ extends layout
 include utils.pug
 
 block content
-    .main_stamp
-        h1 Welcome to a stamp
+    .stamp_container
+        .stamp_left
+            .status
+                h3 #{passport.passport_status}
+            .dates
+                h3 #{}
+            .price
+            .detailed_location
+            .review
+            .rating
+        .stamp_right
+            .country
+            .stamp_img

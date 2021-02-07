@@ -1,3 +1,100 @@
-.main_stamp {
-    /* background-image: url(../background-passport.jpg) */
+.stamp_container {
+    background-image: url('../background-passport.png');
+    display: flex;
+    /* background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad); */
+    align-items: center;
+    justify-content: space-evenly;
+    /* flex-direction: row; */
+    width: 100vw;
+    height: 87vh;
+}
+
+.stamp_left {
+    border: 5px solid black;
+    width: 49vw;
+    height: 87vh
+}
+
+
+.stamp_right {
+    border: 5px solid black;
+    width: 49vw;
+    height: 87vh;
+}
+
+.status {
+    position: relative;
+    width: 323px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 20px;
+    border: 5px solid black;
+}
+
+.dates {
+    position: relative;
+    width: 323px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 35px;
+    border: 5px solid black;
+}
+
+.price {
+    position: relative;
+    width: 75px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 50px;
+    border: 5px solid black;
+}
+
+.detailed_location {
+    position: relative;
+    width: 269px;
+    height: 51px;
+    left: 180px;
+    top: 65px;
+    border: 5px solid black;
+}
+
+.review {
+    position: relative;
+    width: 450px;
+    height: 283px;
+    left: 90px;
+    top: 70px;
+    border: 5px solid black;
+}
+
+.rating {
+    position: relative;
+    width: 269px;
+    height: 51px;
+    left: 180px;
+    top: 70px;
+    border: 5px solid black;
+}
+
+.country {
+    position: relative;
+    width: 323px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 150px;
+    top: 20px;
+    border: 5px solid black;
+}
+
+.stamp_img {
+    position: relative;
+    width: 450px;
+    height: 500px;
+    /* bottom: 20px; */
+    left: 80px;
+    top: 40px;
+    border: 5px solid black;
 }
