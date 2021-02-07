@@ -41,10 +41,11 @@ block content
 			.myStampsHeader
 				h2 My Stamps
 			ul
-				each name, image in obj
-					.tripName: h3= name
-					li.imgLiTag
-						img(src=image class="stampImg mask1" name=name)
+				each id, name in resObj
+					a(href="/stamps/"+id).tripName
+						h3=name
+							li.imgLiTag
+								img(src=obj[name] class="stampImg mask1" name=name)
 		.rightSideColumn
 			.explore
 				.exploreHeader

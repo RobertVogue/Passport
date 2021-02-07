@@ -29,9 +29,15 @@ router.get(
     const names = stamps.map((stamp) => stamp.name);
     const obj = {};
     images.forEach((cur, index) => {
-      obj[cur] = names[index];
+      obj[names[index]] = cur;
     });
+    const resObj = {};
+    stampIds.forEach((cur, index) => {
+      resObj[names[index]] = cur;
+    });
+    console.log(obj);
     res.render("profile", {
+      resObj,
       obj,
       passports,
       passportGoingTo,
