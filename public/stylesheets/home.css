@@ -9,6 +9,7 @@
 }
 .sub_abc {
     background-image: url("../perfectFinal.png");
+    background-size: cover;
     width: 100vw;
     height: 30vh;
 }
@@ -46,6 +47,7 @@
     justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
+    border-bottom: 2px solid black;
 }
 
 .btn2 {
