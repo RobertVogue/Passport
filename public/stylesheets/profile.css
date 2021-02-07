@@ -231,11 +231,12 @@ ul > a > li {
 
 .intrestTags {
    display: flex;
-   align-items: center;
+   /* align-items: center; */
    justify-content: center;
    list-style-type: none;
 }
 .tagContainer {
+   text-align: center;
    list-style-type: none;
    box-sizing: border-box;
    margin-top: 2px;
@@ -243,8 +244,9 @@ ul > a > li {
    border-bottom: 4px steelblue solid;
    border-radius: 2rem;
 }
-.tags {
-   box-sizing: border-box;
+.tag {
+   text-align: center;
+   /* box-sizing: border-box; */
    padding: 2px;
 }
 /* .Family.Friendly:hover {
@@ -266,4 +268,13 @@ a:hover {
 .mask1:hover {
    -webkit-mask-image: none;
    mask-image: none;
+}
+
+.hidden_stamp {
+   display: none;
+}
+.highlight_me {
+   font-weight: bolder;
+   background-color: red;
+   border-radius: 2rem;
 }

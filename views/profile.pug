@@ -42,7 +42,7 @@ block content
 				h2 My Stamps
 			ul
 				each id, name in resObj
-					a(href="/stamps/"+id).tripName
+					a(href="/stamps/"+id id=id+'_stamp').tripName
 						h3=name
 							li.imgLiTag
 								img(src=obj[name] class="stampImg mask1" name=name)
@@ -53,9 +53,9 @@ block content
 						h2 Explore by Interest
 					.intrestTags
 					ul
-						each tag, index in allTags
-							li.tagContainer
-								a(href="" class=tag.name class=tags )=tag.name
+					each value, key in tagsObj
+						li.tagContainer
+							div(id=`${value}` class='tags' )=key
 			.Comments
 				.CommentsDecore
 					h2 Search by review
@@ -64,3 +64,5 @@ block content
 					each comment, index in comments
 						a(href="")
 							li(value=comment class=comment+index): p= comment
+	block scripts
+		script(src='../javascripts/profile.js')

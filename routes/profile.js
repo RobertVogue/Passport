@@ -11,6 +11,7 @@ const {
   getVisitedPassports,
   getComments,
   getTags,
+  getUsersTags,
 } = require("../data-access-layer/utils");
 
 router.get(
@@ -20,6 +21,7 @@ router.get(
     const allTags = await getTags();
     const comments = await getComments(userid);
     const passports = await getUserPassports(userid);
+    const tags = await getUsersTags(userid);
     const passportGoingTo = await getGoingToPassports(userid);
     const passportVisited = await getVisitedPassports(userid);
     const passportLocal = await getLocalPassports(userid);
@@ -35,7 +37,12 @@ router.get(
     stampIds.forEach((cur, index) => {
       resObj[names[index]] = cur;
     });
-    console.log(obj);
+    const tagsObj = {};
+    tags.forEach((tag) => {
+      const { name } = tag;
+      tagsObj[name] = stampIds[tag.id];
+    });
+    console.log(tagsObj);
     res.render("profile", {
       resObj,
       obj,
@@ -44,7 +51,7 @@ router.get(
       passportVisited,
       passportLocal,
       comments,
-      allTags,
+      tagsObj,
     });
   })
 );
