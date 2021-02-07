@@ -3,7 +3,14 @@ a {
    text-decoration: none;
    color: inherit;
 }
-
+.ptitle {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Rakkas', cursive;
+      font-size: 100px;
+      /* color: rgb(104, 0, 0); */
+}
 .passportContainer {
    background-image:url('https://i.etsystatic.com/12863722/r/il/4a4f82/1057965640/il_1588xN.1057965640_71ha.jpg');
    margin: 0;

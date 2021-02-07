@@ -2,12 +2,17 @@ extends layout
 include utils
 
 block content
+   .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/passports`): button.btn2 My Passports
+        a(href='/team'): button.btn2 Meet The Team
    if passports
       .passportContainer
          .innerContainer
             ul.textDecore
             each value, index in passports
-               a(href='/passports/'+index class=value.passport_status)=value.passport_status
+               a.ptitle(href='/passports/'+index class=value.passport_status)=value.passport_status
    else if stamps
       .passport_stamps_container
          .passport_stamps

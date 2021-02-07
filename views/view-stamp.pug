@@ -5,10 +5,10 @@ include utils.pug
 block content
     .stamp_container
         .stamp_left
-            .status
-                h3.vs STATUS: #{passport.passport_status}
             .dates
                 p.vs DATES: #{stamp.dates}
+            .status
+                h3.vs STATUS: #{passport.passport_status}
             .price
                 h3.vs PRICE:
                     h2.vs#price #{stamp.price}
@@ -17,7 +17,7 @@ block content
             .review
                 h2.vs #{stamp.review}
             .rating
-                h2.vs #{stamp.rating} / 10
+                h2.vs Rating: #{stamp.rating} / 10
         .stamp_right
             .country
                 h1.vs Country: #{country.name}
@@ -27,3 +27,5 @@ block content
                 img.stamp_img(src=`${stamp.imgURL}`)
             .tag
                 h2.vs Tag: #{tag.name}
+            .created
+                h2.vs Created By: #{user.displayName}
