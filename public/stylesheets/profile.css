@@ -49,6 +49,12 @@
    width: 60vw;
    flex-direction: column;
 }
+.omg {
+   color: white;
+   display: flex;
+   flex-wrap: wrap;
+   width: 60vw;
+}
 .easy {
    display: flex;
    flex-wrap: wrap;
@@ -90,6 +96,13 @@ img[class^="stampImg"] {
    align-items: center;
    justify-content: center;
    list-style-type: none;
+}
+.middle {
+   text-align: center;
+   font-weight: bold;
+   font-size: 50px;
+   color: white;
+   border-bottom: 5px solid white;
 }
 .id {
    display: none;
@@ -153,18 +166,6 @@ img[class^="stampImg"] {
    color: white;
    border-bottom: 5px solid white;
 }
-.Comments {
-   margin: 10px;
-   padding: 10px;
-   text-align: left;
-   margin-bottom: 20px;
-}
-.leftColumnTitleDecore {
-   margin-left: 3rem;
-   margin-right: 2rem;
-   margin-bottom: 0;
-}
 .hidden_stamp {
    display: none;
 }
-
