@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
 :root {
     --primary-color: #313131;
     --secondary-color: #585858;
@@ -8,312 +7,177 @@
     --success-color: rgba(0, 136, 169, 1);
     --error-color: #d9534f;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
 }
-
-/* .outer_container {
-    background-image: url(../calibeach.JPG);
-    background-size: cover;
-    opacity: .9;
-} */
-
 .outer_container {
-    position: relative;
-    height: 100vh;
+    height: 87vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url(../calibeach.JPG);
     background-size: cover;
-    /* height: 90vh;
-    width: 100vw; */
 }
-
-/* .outer_container::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    z-index: -1;
-    opacity: 0.75;
-} */
-
-/* .outer_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-
 .content_container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-top: 20px;
+    flex-direction: column;
     background-color: #aec5dce3;
     position: absolute;
     border-radius: 20px;
-    padding: 2rem;
-    width: 40%;
+    width: 40vw;
     border: 3px solid black;
+    height: 83vh;
 }
-
-#create_stamp_form {
-    display: grid;
-    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
-    grid-gap: 10px;
-    grid-template-areas:
-    "name name name name name name"
-    "trip_name trip_name trip_name trip_name trip_name trip_name"
-    "header_status header_country header_country header_country header_country header_cost"
-    "status countries countries countries countries cost"
-    "det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text det_loc_text"
-    "det_loc det_loc det_loc det_loc det_loc det_loc"
-    "date date date date date date"
-    "det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text det_desc_text"
-    "det_desc det_desc det_desc det_desc det_desc det_desc"
-    "tag tag tag tag tag tag"
-    "rating rating rating rating rating rating"
-    "imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label imgURL_label"
-    "imgURL imgURL imgURL imgURL imgURL imgURL"
-    "error error error error error error"
-    "btn btn btn btn btn btn";
-}
-
-/* .colorText {
-    color: red;
-    background-color: blue;
-} */
-.input_boxes {
-    color: gray;
-    border-radius: 5px 5px;
-    padding: 4px;
-    font-size: 14px;
-}
-
-.input_boxes:visited,
-.input_boxes:focus {
-    color: black;
-}
-
-.trip_name {
-    grid-area: name;
-    justify-self: center;
-    font-size: x-large;
-    text-align: center;
-}
-
-.trip_name_box {
-    grid-area: trip_name;
-}
-
-
-.detailed_location, #description {
-    width: 100%;
-}
-
 .status_header {
-    grid-area: header_status;
-    text-align: left;
-    font-size: large;
-    align-self: flex-end;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
 }
-
 .country_header {
-    grid-area: header_country;
-    text-align: center;
-    font-weight: 900;
-    font-size: large;
-    align-self: flex-end;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
 }
-
 .cost_header {
-    grid-area: header_cost;
-    font-size: large;
-    text-align: right;
-    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 10vw;
 
 }
-
-.status {
-    grid-area: status;
+.toprow {
+    display: flex;
+    width: 6vw;
 }
-
-#countries {
-    grid-area: countries;
+.toprow2 {
+    display: flex;
+    width: 15vw;
 }
-
-.price {
-    grid-area: cost;
+.row1 {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 40vw;
 }
-
+.trip_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
+}
+.trip_name_box {
+    display: flex;
+    width: 15vw;
+}
 .det_loc_text {
-    grid-area: det_loc_text;
-}
-
-.det_desc {
-    grid-area: det_desc;
-}
-
-.det_loc {
-    grid-area: det_loc;
-}
-
-.det_desc_text {
-    grid-area: det_desc_text;
-}
-
-.tags {
-    grid-area: tag;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-#tags_label {
-    margin-bottom: 10px;
-}
-
-.date {
-    grid-area: date;
+.det_box {
     display: flex;
-    flex-direction: column;
+    width: 15vw;
 }
-
+.start_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
+}
 .start {
-    margin-bottom: 5px;
-}
-
-.stamp_btn {
-    display: block;
-    width: 100%;
-    margin: 0;
-    grid-area: btn;
-    justify-self: flex-end;
-}
-
-.imgURL_label {
-    grid-area: imgURL_label;
-}
-
-.imgURL {
-    grid-area: imgURL;
-}
-
-.imgURLInput {
-    width: 100%;
-}
-
-.errorHandling {
-    grid-area: error;
-}
-
-.rating {
-    grid-area: rating;
     display: flex;
-    margin-top: 10px;
-    justify-content: space-around;
-    /* unicode-bidi: bidi-override;
-    direction: rtl; */
-    text-align: center;
+    width: 15vw;
 }
-
-/* stars with radio buttons that didn't work 
-
-.star-cb-group {
-    font-size: 0;
-    unicode-bidi: bidi-override;
-    direction: rtl;
+.end_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-.star-cb-group * {
-    font-size: 1rem;
+.end {
+    display: flex;
+    width: 15vw;
 }
-
-.star-cb-group > input {
-    display: none;
+.det_desc_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 250px;
+    width: 40vw;
 }
-
-.star-cb-group > input + label {
-    display: inline-block;
-    overflow: hidden;
-    text-indent: 9999px;
-    width: 1em;
-    white-space: nowrap;
-    cursor: pointer;
+.det_big_box {
+    display: flex;
+    width: 15vw;
+    height: 200px;
 }
-
-.star-cb-group > input + label::before {
-    display: inline-block;
-    overflow: hidden;
-    text-indent: -9999px;
-    content: ✩;
-    color: #888;
+.tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-.star-cb-group > input:checked ~ label::before, 
-.star-cb-group > input + label:hover ~ label::before,
-.star-cb-group > input + label:hover::before {
-    content: ★;
-    color: #e52;
-    text-shadow: 0 0 1px #333;
+.botrow {
+    display: flex;
+    width: 15vw;
 }
-
-.star-cb-group > .star-cb-clear + label {
-    text-indent: -9999px;
-    width: .5em;
-    margin-left: -.5em;
+.imgURL_label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-.star-cb-group > .star-cb-clear + label::before {
-    width: .5em;
+.imgURL {
+    display: flex;
+    width: 15vw;
 }
-
-.star-cb-group:hover > input + label::before {
-    content: ✩;
-    color: #888;
-    text-shadow: none;
+.row {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 50px;
 }
+.star {
+    display: flex;
+    width: 2vw;
 
-.star-cb-group:hover > input + label:hover ~ label::before,
-.star-cb-group:hover > input + label:hover:before {
-    content: ★;
-    color: #e52;
-    text-shadow: 0 0 1px #333;
-} */
-
-/* stars that worked */
-/* 
-.rating > span:hover::before,
-.rating > span:hover ~ span::before {
-    content: "\2605";
-    position: absolute;
-    left: 0;
-    color: gold;
 }
-
-.rating > span {
-    display: inline-block;
-    position: relative;
-    width: 1.1em
+.buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-.rating > span:hover,
-.rating > span:hover ~ span {
-    color: transparent;
-} */
-
-.default {
-    color: lightgrey;
+.errorHandling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 40vw;
 }
-
-/* select:invalid,
-select option[value=""] {
-    color: #999999;
-} */
