@@ -19,7 +19,7 @@ block content
 								li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							a(href="")
+							a(href='/passports/'+passportLocal.id)
 								img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg" class="mask2")
 					.goToPassport
 						if passportGoingTo
@@ -27,7 +27,7 @@ block content
 								li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							a(href="")
+							a(href='/passports/'+passportGoingTo.id)
 								img.localImg(src="https://handluggageonly.co.uk/wp-content/uploads/2016/03/Positano-Weather.jpg" class="mask2")
 					.visitedPassport
 						if passportVisited
@@ -35,7 +35,7 @@ block content
 								li(class=key value=val) #{val}
 					ul.ImgContainer
 						li
-							a(href="")
+							a(href='/passports/'+passportVisited.id)
 								img.localImg(src="https://i.ytimg.com/vi/x8gB3zoATaw/maxresdefault.jpg" class="mask2")
 		.profileBody
 			.myStampsHeader

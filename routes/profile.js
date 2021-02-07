@@ -31,7 +31,7 @@ router.get(
     images.forEach((cur, index) => {
       obj[cur] = names[index];
     });
-
+    console.log(passportGoingTo);
     res.render("profile", {
       obj,
       passports,
