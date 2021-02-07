@@ -32,8 +32,8 @@ block content
 							img.localImg(src="/Local.png" class="mask2")
 		.profileBody
 			.myStampsHeader
-				h2.leftSideColumnTitle My Stamps
-			.easy
+				h2 My Stamps
+			ul
 				each id, name in resObj
 					if (name!=='undefined')
 						a(href="/stamps/"+id id=id+'_stamp').tripName

@@ -1,3 +1,4 @@
+
 .gridContainer {
   display: flex;
   width: 100vw;
@@ -166,8 +167,4 @@ img[class^="stampImg"] {
 .hidden_stamp {
    display: none;
 }
-.highlight_me {
-   font-weight: bolder;
-   background-color: red;
-   border-radius: 2rem;
-}
+
