@@ -292,7 +292,7 @@ const getTopCountriesIds = async (user_id) => {
 
 const topWantToVisit = async () => {
   const topCountries = await Stamp.findAll({
-    where: { rating: 5 },
+    where: { rating: 10 },
     include: [{
       model: Passport,
       where: { passport_status: "Want to visit" },
@@ -322,7 +322,7 @@ const topWantToVisit = async () => {
 
 const topVisited = async () => {
   const topCountries = await Stamp.findAll({
-    where: { rating: 5 },
+    where: { rating: 10 },
     include: [{
       model: Passport,
       where: { passport_status: "visited" },
@@ -352,7 +352,7 @@ const topVisited = async () => {
 
 const topNearBy = async () => {
   const topCountries = await Stamp.findAll({
-    where: { rating: 5 },
+    where: { rating: 10 },
     include: [{
       model: Passport,
       where: { passport_status: "Near By" },
