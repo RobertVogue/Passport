@@ -48,7 +48,7 @@ router.post(
         user_id: newuserId,
       });
       await db.Passport.create({
-        passport_status: "Will Visit",
+        passport_status: "Want to visit",
         user_id: newuserId,
       });
       loginUser(req, res, newUser);
