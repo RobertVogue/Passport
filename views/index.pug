@@ -6,7 +6,9 @@ block content
     .sub_a
       a(href='/'): button.btn2 Home
       if authenticated
+
         a(href=`/passports`): button.btn2 My Passports
+
       a(href='/team'): button.btn2 Meet The Team
     .sub_abc
       .sub_form
@@ -37,28 +39,26 @@ block content
     .sub_b
       .sub_b2
         h2.b2 Highest Rated Visited
-        .sub_b2a
-        .sub_b2b
-        .sub_b2c
+          .sub_b2a
+            ul.rem
+                each topCountry in countriesArrV
+                  li.print= topCountry
+
       .sub_b3
         h2.b2 Highest Rated Must Travel
           .sub_b3a
-            ul
-              each topCountry in countriesArr
-                li= topCountry
-        .sub_b3b
-        .sub_b3c
+            ul.rem
+              each topCountry in countriesArrW
+                li.print= topCountry
+
       .sub_b4
         h2.b2 Highest Rated Local Location
-        .sub_b4a
-        .sub_b4b
-        .sub_b4c
+          .sub_b4a
+            ul.rem
+                each topCountry in countriesArrN
+                  li.print= topCountry
 
-    .sub_c
-      .sub_c2
-        h2.b2 Most Recent Stamps
-      .sub_c3
-        h2.b2 Highest Rated Stamps
+
 
 
 

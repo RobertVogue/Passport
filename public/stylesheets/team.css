@@ -1,24 +1,31 @@
+
 .team_main {
     display: flex;
     /* flex-direction: row; */
-    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
+    background-color: black;
     align-items: center;
     /* justify-content: center; */
     text-align: center;
     flex-direction: column;
     width: 100vw;
-    height: 90vh;
+    height: 81vh;
+    color: white;
 }
 
 .team_container {
     display: flex;
     /* flex-direction: row; */
-    background: linear-gradient(-45deg, #adadad, #dbdbdb, #8fb2be, #c2c2c2, #adadad, #8fb2be, #adadad);
-    align-items: center;
+    background-color: black;
+    justify-content: space-evenly;
+    align-items: inherit;
+    padding-right: 250px;
+    padding-top: 100px;
+    padding-left: 100px;
     /* justify-content: center; */
     /* flex-direction: column; */
     width: 100vw;
-    height: 90vh;
+    height: 81vh;
+    color: white;
 }
 
 .headshot_container {
@@ -32,7 +39,7 @@
     border-radius: 100%;
     /* background: url(../veer.jpg); */
     background-size: 9vw 19vh;
-    border: 2px solid black;
+    border: 2px solid white;
     /* overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden; */
@@ -62,6 +69,43 @@
     align-items: center;
 }
 
-.member {
+.H1a{
     margin-left: 100px;
+    border: 2px solid green;
+    height: 260px;
+    width: 400px;
+    padding-top: 20px;
+}
+.H2a{
+    margin-left: 100px;
+    border: 2px solid red;
+    height: 260px;
+    width: 400px;
+    padding-top: 20px;
+}
+.H3a{
+    margin-left: 100px;
+    border: 2px solid blue;
+    height: 260px;
+    width: 400px;
+    padding-top: 20px;
+}
+.H4a{
+    margin-left: 100px;
+    border: 2px solid orange;
+    height: 260px;
+    width: 400px;
+    padding-top: 20px;
+}
+.beta {
+padding-top: 70px;
+font-size: 16px;
+}
+
+.pos {
+    padding-right: 20px;
+    background-color: transparent!important;
+}
+.neg {
+    background-color: transparent!important;
 }
