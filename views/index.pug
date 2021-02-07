@@ -42,7 +42,10 @@ block content
         .sub_b2c
       .sub_b3
         h2.b2 Highest Rated Must Travel
-        .sub_b3a
+          .sub_b3a
+            ul
+              each topCountry in countriesArr
+                li= topCountry
         .sub_b3b
         .sub_b3c
       .sub_b4
