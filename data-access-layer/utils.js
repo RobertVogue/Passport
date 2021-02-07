@@ -327,7 +327,7 @@ const topVisited = async () => {
     where: { rating: 10 },
     include: [{
       model: Passport,
-      where: { passport_status: "visited" },
+      where: { passport_status: "Visited" },
     },
     {
       model: Country

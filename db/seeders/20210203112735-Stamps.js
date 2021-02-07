@@ -11,7 +11,7 @@
             dates: "01-05-2014:02-15-20",
             price: "$$$",
             review: "Excillent views and efficient travel",
-            rating: 8,
+            rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/profile/photos/hogwarts_seed_img.jpg?raw=true",
             passport_id: 1,
@@ -25,7 +25,7 @@
             price: "$$$",
             review:
               "Was only there for work and stayed close to the airport but enjoyed everything the hotel had to offer.",
-            rating: 9,
+            rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/profile/photos/germany_seed_img.jpg?raw=true",
             passport_id: 2,
@@ -39,7 +39,7 @@
             price: "$$",
             review:
               "Amazing views in some segments. Couldn't get through others quick enough.",
-            rating: 7,
+            rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/profile/photos/route_66_seed_img.jpg?raw=true",
             passport_id: 3,
