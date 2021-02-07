@@ -31,7 +31,7 @@ router.get(
     const { userId } = req.session.auth;
     const passport = await getGoingToPassports(userId);
     const stamps = passport.Stamps.map((stamp) => stamp.dataValues);
-    console.log(stamps);
+    console.log(passport);
     res.render("passport", { stamps });
   })
 );
