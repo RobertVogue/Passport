@@ -1,9 +1,10 @@
 const express = require("express");
 const queryHandlerRouter = express.Router();
 const { asyncHandler } = require("../routes/utils");
+const { Stamp, Country } = require("../db/models");
 
 const {
-  getTenStamps,
+  get100Stamps,
   updateEmail, // (userid, [email], newEmail)
   updatePassword, // (id, [email], oldPassword, newPassword)
   updateusername, // (userid, [name], newName)
@@ -16,14 +17,15 @@ const {
   findOwnerId,
   createTag,
   createStamp,
-  getTopCountries,
+  getTopCountriesIds,
+  getCountries,
 } = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await getTopCountries(1);
+    const results = await getTopCountriesIds(1);
     console.log(results);
     return res.render("queryHandler", { results });
   })
