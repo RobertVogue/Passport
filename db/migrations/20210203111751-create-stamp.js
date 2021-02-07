@@ -34,19 +34,19 @@ module.exports = {
           references: { model: "Tags" },
         },
         dates: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.STRING,
         },
         price: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.STRING(3),
         },
         review: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.STRING,
         },
         rating: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.INTEGER,
         },
         createdAt: {

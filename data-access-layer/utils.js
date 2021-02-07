@@ -168,6 +168,7 @@ const getGoingToPassports = async (id) => {
       user_id: id,
       passport_status: "Want to visit",
     },
+    include: [Stamp],
   });
   const results = passports.map((passport) => {
     const { dataValues } = passport;
@@ -254,21 +255,39 @@ const getTags = async () => {
   return data;
 };
 
-const getTopCountries = async (user_id) => {
+const getCountries = async (id) => {
+  const countries = await Country.findByPk(id);
+
+  return countries;
+};
+
+const getTopCountriesIds = async (user_id) => {
   let arr = [];
+  const countryIds = [];
+
   const passports = await getUserPassports(user_id);
   const ids = passports.map((passport) => passport.id);
+
   for (let i = 1; i < 196; i++) {
     let stamps = await Stamp.findAll({
       where: {
         countries_id: i,
         passport_id: ids,
       },
+      include: [Country],
     });
     arr.push(stamps);
   }
 
-  return arr;
+  arr.forEach(async (stamps) => {
+    // const stamp = stamp;
+    if (stamps.length) {
+      let [Stamp] = stamps;
+      let id = Stamp.countries_id;
+      countryIds.push(id);
+    }
+  });
+  return countryIds;
 };
 
 const topWantToVisit = async () => {
@@ -384,4 +403,5 @@ module.exports = {
   topWantToVisit,
   topVisited,
   topNearBy,
+
 };

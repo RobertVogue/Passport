@@ -3,48 +3,52 @@ block content
     .sub_a
         a(href='/'): button.btn2 Home
         if authenticated
-            a(href=`/users/${curUser.id}`): button.btn2 My Passports
+            a(href=`/user/passport`): button.btn2 My Passports
         a(href='/team'): button.btn2 Meet The Team
     .team_main
-        h1 Meet the Team
+        h1 Developers
             .team_container
-                .member
+                .member.H1a
                     h5.team1 Peter Anderson
                         .headshot_container
                             img(src="/headshots/peter.jpg" alt="headshot")
                             h5.team1_title Developer
                                 .icon_container
-                                    a(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
+                                    a.pos(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
                                         img(src="/icons/linkedin-icon.svg")
-                                    a(href="https://github.com/pantheman1")
+                                    a.neg(href="https://github.com/pantheman1")
                                         img(src="/icons/github-icon.svg")
-                .member
+                    h5.beta Top Skill: Frontend/Pug
+                .member.H2a
                     h5.team1 Robert Vogtritter
                         .headshot_container
                             img(src="/headshots/bo.jpg" alt="headshot")
                             h5 Developer
                                 .icon_container
-                                    a(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
+                                    a.pos(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
                                         img(src="/icons/linkedin-icon.svg")
-                                    a(href="https://github.com/RobertVogue")
+                                    a.neg(href="https://github.com/RobertVogue")
                                         img(src="/icons/github-icon.svg")
-                .member
+                    h5.beta Top Skill: Frontend/CSS
+                .member.H3a
                     h5.team1 Raymond May
                         .headshot_container
                             img(src="/headshots/ray.jpg" alt="headshot")
                             h5 Developer
                                 .icon_container
-                                    a(href="https://www.linkedin.com/in/coderay/")
+                                    a.pos(href="https://www.linkedin.com/in/coderay/")
                                         img(src="/icons/linkedin-icon.svg")
-                                    a(href="https://github.com/raymondmay95")
+                                    a.neg(href="https://github.com/raymondmay95")
                                         img(src="/icons/github-icon.svg")
-                .member
+                    h5.beta Top Skill: Backend/Queries
+                .member.H4a
                     h5.team1 Veer Singh
                         .headshot_container
                             img(src="/headshots/veer.jpg" alt="headshot")
                             h5 Developer
                                 .icon_container
-                                    a(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
+                                    a.pos(href="https://www.linkedin.com/in/veerkaran-singh-45b4a9190/")
                                         img(src="/icons/linkedin-icon.svg")
-                                    a(href="https://github.com/V3RS")
+                                    a.neg(href="https://github.com/V3RS")
                                         img(src="/icons/github-icon.svg")
+                    h5.beta Top Skill: Backend/Routes

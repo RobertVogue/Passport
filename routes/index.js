@@ -20,6 +20,7 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
   const visited = await topVisited();
   const nearby = await topNearBy();
   res.render('index', { csrfToken: req.csrfToken(), wantToVisit, visited, nearby });
+
 }));
 
 module.exports = router;
