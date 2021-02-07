@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100vw;
-    height: 90vh;
+    height: 87vh;
 }
 .sub_abc {
     background-image: url("../perfectFinal.png");
@@ -18,11 +18,11 @@
 .form_sub {
     background-color: white;
     padding: 5%;
-    margin: auto;
+
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 30vh;
+    height: 29vh;
     border: 1px solid black;
     justify-content: center;
     align-items: left;
@@ -42,25 +42,30 @@
     height: 6vh;
     width: 100vw;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .btn2 {
-    height: 4.5vh;
+    height: 6vh;
     min-width: 140px;
     max-width: 160px;
-    padding: 9px 25px;
     background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
     border: none;
     border-radius: 0px;
     cursor: pointer;
     /* transition: all 0.3s ease 0s; */
-    margin: 5px;
     outline: none;
     color:white;
     background-size:400% 400%;
     animation: medium 20s ease-in-out infinite;
+    overflow: hidden;
     /* box-sizing: border-box; */
     /* border appears when the button is being clicked. Needs to be fixed. */
+}
+.etc {
+
+    padding-right: 10px;
 }
 @keyframes medium {
     0% {
@@ -87,10 +92,22 @@
 .sub_b {
     display: flex;
     width: 100vw;
-    height: 29vh;
+    height: 55vh;
     justify-content: space-between;
-    background-color: rgb(186, 169, 202);
+    background: linear-gradient(-45deg, #868686, #c5c5c5);
+    background-size:400% 400%;
+    animation: medium 12s ease-in-out infinite;
     border-top: 2px solid black;
+}
+.b2 {
+    height: 3.2vh;
+    border-bottom: 2px solid black;
+}
+.print {
+
+}
+.rem {
+    list-style-type: none;
 }
 .sub_b2 {
     display: flex;
@@ -109,26 +126,8 @@
     justify-content: center;
     width: 33vw;
 }
-.sub_c2 {
-    display: flex;
-    justify-content: center;
-    width: 50vw;
-}
-.sub_c3 {
-    display: flex;
-    justify-content: center;
-    width: 50vw;
-    border-left: 2px solid black;
-}
 
-.sub_c {
-    display: flex;
-    width: 100vw;
-    height: 25vh;
-    justify-content: center;
-    background-color: rgb(186, 169, 202);
-    border-top: 2px solid black;
-}
+
 
 
 .box2 {
