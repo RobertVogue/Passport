@@ -8,17 +8,17 @@ block content
 			form#create_stamp_form(action="/stamps/create" method="post")
 				input(type="hidden" name="_csrf" value=csrfToken)
 				.row1
-					.status_header STATUS
+					.status_header Status
 						select.toprow(name="passport_id" value=passport_id)
 							option.default(value="default" selected disabled hidden) -Status-
 							each passport in passports
 								option(value=passport.id)= passport.passport_status
-					.country_header WHERE WAS YOUR TRIP?
+					.country_header Which Country?
 						select.toprow2(name="countries_id" placeholder="Select Country" value=countries_id)
 							each country in countries
 								option.default(value="default" selected disabled hidden) -Choose the country you visited!-
 								option(value=country.id)= country.name
-					.cost_header COST
+					.cost_header Cost
 						select.toprow(type="text" name="price" value=price)
 							option.default(value="Pick One" selected disabled hidden) -Pick!-
 							option(value="$") $
