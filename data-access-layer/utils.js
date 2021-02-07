@@ -399,7 +399,6 @@ module.exports = {
   getVisitedPassports,
   getComments,
   getTags,
-  getTopCountries,
   topWantToVisit,
   topVisited,
   topNearBy,
