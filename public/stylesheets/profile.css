@@ -163,3 +163,81 @@ img[class^="stampImg"] {
    margin-right: 2rem;
    margin-bottom: 0;
 }
+
+.CommentsDecore {
+   margin-left: 3rem;
+   margin-right: 2rem;
+   border: 4px solid black;
+   margin-bottom: 0;
+}
+
+p {
+   padding: 10px;
+}
+
+a {
+   text-decoration: none;
+}
+ul > a > li {
+   list-style-type: none;
+}
+.exploreHeader {
+   text-align: center;
+}
+.exploreHeaderDecore {
+   margin-left: 3rem;
+   margin-right: 2rem;
+   border: 4px solid black;
+   margin-bottom: 10px;
+}
+
+
+.intrestTags {
+   display: flex;
+   /* align-items: center; */
+   justify-content: center;
+   list-style-type: none;
+}
+.tagContainer {
+   text-align: center;
+   list-style-type: none;
+   box-sizing: border-box;
+   margin-top: 2px;
+   border-top: 4px steelblue solid;
+   border-bottom: 4px steelblue solid;
+   border-radius: 2rem;
+}
+.tag {
+   text-align: center;
+   /* box-sizing: border-box; */
+   padding: 2px;
+}
+/* .Family.Friendly:hover {
+   background-color: #ebf8e1;
+} */
+
+a:hover {
+   background-color: rgba(128, 128, 128, 0.616);
+}
+
+.tagContainer:hover {
+   background-color: rgba(128, 128, 128, 0.616);
+}
+
+.ImgContainer:hover {
+   background-color: rgba(128, 128, 128, 0.616);
+}
+
+.mask1:hover {
+   -webkit-mask-image: none;
+   mask-image: none;
+}
+
+.hidden_stamp {
+   display: none;
+}
+.highlight_me {
+   font-weight: bolder;
+   background-color: red;
+   border-radius: 2rem;
+}
