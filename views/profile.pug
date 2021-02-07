@@ -34,10 +34,12 @@ block content
 			.myStampsHeader
 				h2.leftSideColumnTitle My Stamps
 			.easy
-				each name, image in obj
-					.tripName: h3= name
-						li.imgLiTag
-							img(src=image class="stampImg mask1" name=name)
+				each id, name in resObj
+					a(href="/stamps/"+id).tripName
+					a(href="/stamps/"+id id=id+'_stamp').tripName
+						h3=name
+							li.imgLiTag
+								img(src=obj[name] class="stampImg mask1" name=name)
 		.rightSideColumn
 			.explore
 				h2.leftSideColumnTitle Explore
@@ -48,3 +50,5 @@ block content
 						option(value=tag.name) #{tag.name}
 							a(href="" class=tag.name class=tags)
 				button.int(type="submit") Filter
+	block scripts
+		script(src='../javascripts/profile.js')
