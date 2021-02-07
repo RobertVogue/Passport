@@ -12,7 +12,9 @@ router.get( "/:id(\\d+)", asyncHandler(async (req, res) => {
 
     const country = await db.Country.findByPk(stamp.countries_id)
 
-    res.render("view-stamp", { stamp, passport, country });
+    const tag = await db.Tag.findByPk(stamp.tags_id)
+
+    res.render("view-stamp", { stamp, passport, country, tag });
   })
 );
 

@@ -6,19 +6,24 @@ block content
     .stamp_container
         .stamp_left
             .status
-                h3 #{passport.passport_status}
+                h3.vs STATUS: #{passport.passport_status}
             .dates
-                p #{stamp.dates}
+                p.vs DATES: #{stamp.dates}
             .price
-                h2 #{stamp.price}
+                h3.vs PRICE:
+                    h2.vs#price #{stamp.price}
             .detailed_location
-                h2 #{stamp.detailed_location}
+                h2.vs #{stamp.detailed_location}
             .review
-                h2 #{stamp.review}
+                h2.vs #{stamp.review}
             .rating
-                h2 #{stamp.rating} / 10
+                h2.vs #{stamp.rating} / 10
         .stamp_right
             .country
-                h1 #{country.name}
-            .stamp_img
-                img(src=`${stamp.imgURL}`)
+                h1.vs Country: #{country.name}
+            .stamp_name
+                h2.vs Name: #{stamp.name}
+            .stamp_img_div
+                img.stamp_img(src=`${stamp.imgURL}`)
+            .tag
+                h2.vs Tag: #{tag.name}
