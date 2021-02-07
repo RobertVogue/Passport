@@ -23,6 +23,8 @@
 }
 
 .status {
+    display: flex;
+    align-items: center;
     position: relative;
     width: 323px;
     height: 50px;
@@ -50,9 +52,13 @@
     left: 20px;
     top: 50px;
     border: 5px solid black;
+    color: green;
 }
 
 .detailed_location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 269px;
     height: 51px;
@@ -62,6 +68,8 @@
 }
 
 .review {
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 450px;
     height: 283px;
@@ -80,6 +88,9 @@
 }
 
 .country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 323px;
     height: 50px;

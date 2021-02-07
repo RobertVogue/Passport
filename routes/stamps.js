@@ -10,7 +10,9 @@ router.get( "/:id(\\d+)", asyncHandler(async (req, res) => {
 
     const passport = await db.Passport.findByPk(stamp.passport_id);
 
-    res.render("view-stamp", { stamp, passport });
+    const country = await db.Country.findByPk(stamp.countries_id)
+
+    res.render("view-stamp", { stamp, passport, country });
   })
 );
 

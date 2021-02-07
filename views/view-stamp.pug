@@ -8,11 +8,17 @@ block content
             .status
                 h3 #{passport.passport_status}
             .dates
-                h3 #{}
+                p #{stamp.dates}
             .price
+                h2 #{stamp.price}
             .detailed_location
+                h2 #{stamp.detailed_location}
             .review
+                h2 #{stamp.review}
             .rating
+                h2 #{stamp.rating} / 10
         .stamp_right
             .country
+                h1 #{country.name}
             .stamp_img
+                img(src=`${stamp.imgURL}`)
