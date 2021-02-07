@@ -4,10 +4,10 @@ include utils
 block content
    if passports
       .passportContainer
-            .innerContainer
-               ul.textDecore
-                  each value, index in passports
-                     a(href='passports/'+index class=value.passport_status)=value.passport_status
+         .innerContainer
+            ul.textDecore
+            each value, index in passports
+               a(href='/passports/'+index class=value.passport_status)=value.passport_status
    else if stamps
       .passport_stamps
          ul

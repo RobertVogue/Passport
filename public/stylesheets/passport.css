@@ -78,14 +78,14 @@ a {
    mask-image: none;
 }
 
-.passportContainer {
-   max-width: 4rem;
-}
 .passport_stamps {
+   position: relative;
    display: flex;
    list-style-type: none;
+   overflow: hidden;
    overflow-x: scroll;
    scroll-snap-type: none;
+   scroll-behavior: smooth;
 }
 .stamp_images {
    width: 400px;
@@ -100,5 +100,9 @@ a {
    background-color: black;
 }
 .passport_stamps_image_container:hover {
-   color: white;
+color: white;
+}
+
+.Stamps {
+   display: none;
 }
