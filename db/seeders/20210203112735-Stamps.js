@@ -61,7 +61,7 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to the cost in Italy",
+            name: "Trip to the coast in Italy",
             detailed_location: "",
             dates: "02-15-12:03-01-12",
             price: "$$$",
@@ -127,19 +127,6 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to China",
-            detailed_location: "Ricepatties, Chaina",
-            dates: "02-30-16:05-12-16",
-            price: "$$",
-            review: "This was a life changing experience",
-            rating: 10,
-            imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/chaina_seed_img.jpg?raw=true",
-            passport_id: 3,
-            countries_id: 37,
-            tags_id: randomBelow40(),
-          },
-          {
             name: "Trip to the cost in Italy",
             detailed_location: "",
             dates: "02-15-12:03-01-12",
@@ -194,7 +181,7 @@
           },
 
           {
-            name: "Trip to the cost",
+            name: "Trip to the coast",
             detailed_location: "PCH",
             dates: "02-30-10:03-12-10",
             price: "$$",
@@ -208,7 +195,7 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to the cost",
+            name: "Trip to the coast",
             detailed_location: "PCH",
             dates: "02-30-10:03-12-10",
             price: "$$",
@@ -222,7 +209,7 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to the cost",
+            name: "Trip to the coast",
             detailed_location: "PCH",
             dates: "02-30-10:03-12-10",
             price: "$$",
@@ -236,7 +223,7 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to the cost",
+            name: "Trip to the coast",
             detailed_location: "PCH",
             dates: "02-30-10:03-12-10",
             price: "$$",
@@ -250,7 +237,7 @@
             tags_id: randomBelow40(),
           },
           {
-            name: "Trip to the cost",
+            name: "Trip to the coast",
             detailed_location: "PCH",
             dates: "02-30-10:03-12-10",
             price: "$$",
@@ -326,77 +313,6 @@
               "https://media.timeout.com/images/105672700/image.jpg?raw=true",
             passport_id: 5,
             countries_id: 60,
-            tags_id: randomBelow40(),
-          },
-
-          {
-            name: "Swimming in Mexico",
-            detailed_location: "Chichen Itza, Yucatan, Mexico",
-            dates: "01-25-08:02-10-08",
-            price: "$$",
-            review:
-              "This was an amzing experience. The water was warm and clear. The people and food was amazing.",
-            rating: 10,
-            imgURL:
-              "https://twitter.com/travel/status/827005215140376576/photo/1",
-            passport_id: 1,
-            countries_id: 112,
-            tags_id: randomBelow40(),
-          },
-          {
-            name: "Swimming in Mexico",
-            detailed_location: "Chichen Itza, Yucatan, Mexico",
-            dates: "01-25-08:02-10-08",
-            price: "$$",
-            review:
-              "This was an amzing experience. The water was warm and clear. The people and food was amazing.",
-            rating: 10,
-            imgURL:
-              "https://twitter.com/travel/status/827005215140376576/photo/1",
-            passport_id: 2,
-            countries_id: 112,
-            tags_id: randomBelow40(),
-          },
-          {
-            name: "Swimming in Mexico",
-            detailed_location: "Chichen Itza, Yucatan, Mexico",
-            dates: "01-25-08:02-10-08",
-            price: "$$",
-            review:
-              "This was an amzing experience. The water was warm and clear. The people and food was amazing.",
-            rating: 10,
-            imgURL:
-              "https://twitter.com/travel/status/827005215140376576/photo/1",
-            passport_id: 3,
-            countries_id: 112,
-            tags_id: randomBelow40(),
-          },
-          {
-            name: "Swimming in Mexico",
-            detailed_location: "Chichen Itza, Yucatan, Mexico",
-            dates: "01-25-08:02-10-08",
-            price: "$$",
-            review:
-              "This was an amzing experience. The water was warm and clear. The people and food was amazing.",
-            rating: 10,
-            imgURL:
-              "https://twitter.com/travel/status/827005215140376576/photo/1",
-            passport_id: 4,
-            countries_id: 112,
-            tags_id: randomBelow40(),
-          },
-          {
-            name: "Swimming in Mexico",
-            detailed_location: "Chichen Itza, Yucatan, Mexico",
-            dates: "01-25-08:02-10-08",
-            price: "$$",
-            review:
-              "This was an amzing experience. The water was warm and clear. The people and food was amazing.",
-            rating: 10,
-            imgURL:
-              "https://twitter.com/travel/status/827005215140376576/photo/1",
-            passport_id: 5,
-            countries_id: 112,
             tags_id: randomBelow40(),
           },
         ],

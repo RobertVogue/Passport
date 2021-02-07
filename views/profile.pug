@@ -35,27 +35,19 @@ block content
 				h2 My Stamps
 			ul
 				each id, name in resObj
-					a(href="/stamps/"+id id=id+'_stamp').tripName
-						h3=name
-							li.imgLiTag
-								img(src=obj[name] class="stampImg mask1" name=name)
+					if (name!=='undefined')
+						a(href="/stamps/"+id id=id+'_stamp').tripName
+							h3=name
+								li.imgLiTag
+									img(src=obj[name] class="stampImg mask1" name=name)
+
 		.rightSideColumn
 			.explore
-				.exploreHeader
-					.exploreHeaderDecore
-						h2 Explore by Interest
-					.intrestTags
-					ul
+				h2.leftSideColumnTitle Explore
+
+				select.need
 					each value, key in tagsObj
-						li.tagContainer
-							div(id=`${value}` class='tags' )=key
-			.Comments
-				.CommentsDecore
-					h2 Search by review
-				.commentsContainer
-				ul
-					each comment, index in comments
-						a(href="")
-							li(value=comment class=comment+index): p= comment
+						option.default(value="default" selected disabled hidden) Filter by Tag
+						option(id=`${value}` class='tags' value=`${value}`)=key
 	block scripts
 		script(src='../javascripts/profile.js')

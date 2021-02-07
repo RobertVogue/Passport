@@ -164,13 +164,7 @@ img[class^="stampImg"] {
    margin-right: 2rem;
    margin-bottom: 0;
 }
-
 .hidden_stamp {
    display: none;
-}
-.highlight_me {
-   font-weight: bolder;
-   background-color: red;
-   border-radius: 2rem;
 }
 

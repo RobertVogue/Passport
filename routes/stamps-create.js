@@ -16,6 +16,9 @@ const stampFormValidators = [
   check("countries_id")
     .exists({ checkFalsy: true })
     .withMessage("Please select a country."),
+  check("imgURL")
+    .exists({ checkFalsy: true })
+    .withMessage("Please add a URL"),
 ];
 
 router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
@@ -27,13 +30,13 @@ router.get("/create", csrfProtection, asyncHandler(async (req, res) => {
 
 router.post("/create", csrfProtection, stampFormValidators, asyncHandler(async (req, res) => {
   const { name, passport_id, countries_id, detailed_location, start, end, review, price, tags_id, rating, imgURL } = req.body
-  
+
   const dates = `${start}:${end}`;
   const passportIdInt = parseInt(passport_id); /////double check this
   const countriesIdInt = parseInt(countries_id);
   const tagsIdInt = parseInt(tags_id);
   //for passport status I need to do a query to access it through the Stamps table
-  
+
   const newStamp = await db.Stamp.build({ name, passport_id: passportIdInt, countries_id: countriesIdInt, detailed_location, dates, review, rating, price, tags_id: tagsIdInt, imgURL });
 
   const validationErrors = validationResult(req); //if there are any messages from stampFormValidators, this will put the messages in an object
