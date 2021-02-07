@@ -38,22 +38,21 @@ block content
       .sub_b2
         h2.b2 Highest Rated Visited
         .sub_b2a
-        .sub_b2b
-        .sub_b2c
+          ul
+            each topCountry in visited
+              li= topCountry
       .sub_b3
         h2.b2 Highest Rated Must Travel
           .sub_b3a
             ul
-              each topCountry in countriesArr
+              each topCountry in wantToVisit
                 li= topCountry
-        .sub_b3b
-        .sub_b3c
       .sub_b4
         h2.b2 Highest Rated Local Location
         .sub_b4a
-        .sub_b4b
-        .sub_b4c
-
+          ul
+            each topCountry in nearby
+              li= topCountry
     .sub_c
       .sub_c2
         h2.b2 Most Recent Stamps
