@@ -125,14 +125,18 @@
     width: 33vw;
     border-left: 2px solid black;
     border-right: 2px solid black;
+    color: white;
 }
 .sub_b4 {
     display: flex;
     justify-content: center;
     width: 33vw;
+    color: white;
 }
 
-
+.print {
+    color: white;
+}
 
 
 .box2 {

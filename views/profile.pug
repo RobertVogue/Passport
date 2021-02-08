@@ -4,7 +4,7 @@ block content
 	.sub_a
 		a(href='/'): button.btn2 Home
 		if authenticated
-			a(href=`/passports`): button.btn2 My Passports
+			a(href=`/users/${curUser.id}`): button.btn2 My Profile
 		a(href='/countries'): button.btn2 Countries
 		a(href='/team'): button.btn2 Meet The Team
 
@@ -17,19 +17,19 @@ block content
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportLocal.id)
+						a(class= "passport_btn")
 							img.localImg(src="/Visited.png" class="mask2")
 				.goToPassport
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportGoingTo.id)
+						a(class= "passport_btn")
 							img.localImg(src="/WantTo.png" class="mask2")
 				.visitedPassport
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportVisited.id)
+						a(class= "passport_btn")
 							img.localImg(src="/Local.png" class="mask2")
 		.profileBody
 			.myStampsHeader
