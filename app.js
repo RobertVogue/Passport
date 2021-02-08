@@ -11,7 +11,6 @@ const { restoreUser, requireAuth } = require("./auth");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
-const passportRouter = require("./routes/passport");
 
 const createStamps = require("./routes/stamps-create");
 const viewStamps = require("./routes/stamps");
@@ -54,7 +53,6 @@ app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
 app.use("/stamps", viewStamps);
 app.use(requireAuth);
-app.use("/passports", passportRouter);
 app.use("/stamps", createStamps);
 app.use("/users", profileRouter);
 

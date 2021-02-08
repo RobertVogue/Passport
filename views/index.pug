@@ -7,7 +7,7 @@ block content
       a(href='/'): button.btn2 Home
       if authenticated
 
-        a(href=`/passports`): button.btn2 My Passports
+        a(href=`/users/${curUser.id}`): button.btn2 My Stamps
 
       a(href='/team'): button.btn2 Meet The Team
     .sub_abc
@@ -55,20 +55,3 @@ block content
             ul.rem
               each topCountry in nearby
                 li.print= topCountry
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
