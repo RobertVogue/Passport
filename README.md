@@ -1,2 +1,5 @@
 # Passport
-Our project clones the popular website, goodreads. With our travel themed twist. Our web application will provide users with the ability to create places they would like to rate. The travel locations will be sorted by highest rating, but will have filters to customize the sort to fit the user's needs. 
+Passport Global, cloned from GoodReads, is a collections of countries.
+These countries have the same attributes of a book. The countries are stored
+in passports like bookshelves and have a series of stamps like reviews. Countries and their stamps
+are publically available. There is also an option for users to see their own stamps easily via a profile page.
