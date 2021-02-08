@@ -25,7 +25,6 @@ queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
     const results = await getLocalPassportsStamps(1);
-    // console.log(results);
     return res.render("queryHandler", { results });
   })
 );
