@@ -3,10 +3,11 @@ include utils
 
 block content
    .sub_a
-        a(href='/'): button.btn2 Home
-        if authenticated
-            a(href=`/passports`): button.btn2 My Passports
-        a(href='/team'): button.btn2 Meet The Team
+      a(href='/'): button.btn2 Home
+      if authenticated
+         a(href=`/passports`): button.btn2 My Passports
+      a(href='countries'): button.btn2 Countries
+      a(href='/team'): button.btn2 Meet The Team
    if passports
       .passportContainer
          .innerContainer
