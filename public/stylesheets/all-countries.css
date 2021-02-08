@@ -77,6 +77,10 @@
      color: white;
      border-bottom: 5px solid white;
   }
+
+.hidden_country {
+    display: none;
+ }
   /* .id {
      display: none;
   }
