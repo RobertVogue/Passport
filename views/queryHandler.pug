@@ -2,5 +2,6 @@ extends layout
 
 block content
   h1= message
-    each values in results
+    each value, key in results
       h2= values
+      h3=key

@@ -178,6 +178,23 @@ const getGoingToPassports = async (id) => {
   // console.log(data);
   return data;
 };
+const getLocalPassportsStamps = async (id) => {
+  const stamps = await Passport.findAll({
+    where: {
+      user_id: id,
+    },
+    include: [Stamp],
+  });
+  const almostDone = stamps.map((stamp) => stamp.dataValues.Stamps);
+  const resMap = almostDone.map((ele, i) => {
+    const res = [];
+    ele.forEach((ele) => {
+      res.push(ele.dataValues.id);
+    });
+    return res.flat();
+  });
+  return resMap; // order: visited,wanttovisit,nearby
+};
 const getLocalPassports = async (id) => {
   const passports = await Passport.findAll({
     where: {
@@ -202,7 +219,7 @@ const get100Stamps = async (userId) => {
     limit: 100,
   });
   const results = res.map((result) => result.dataValues);
-  console.log(passportIds)
+  console.log(passportIds);
   return results;
 };
 
@@ -356,13 +373,14 @@ const topWantToVisit = async () => {
 const topVisited = async () => {
   const topCountries = await Stamp.findAll({
     where: { rating: 10 },
-    include: [{
-      model: Passport,
-      where: { passport_status: "Visited" },
-    },
-    {
-      model: Country
-    }
+    include: [
+      {
+        model: Passport,
+        where: { passport_status: "Visited" },
+      },
+      {
+        model: Country,
+      },
     ],
   });
   const countryObj = {};
@@ -441,4 +459,5 @@ module.exports = {
   topWantToVisit,
   topVisited,
   topNearBy,
+  getLocalPassportsStamps,
 };
