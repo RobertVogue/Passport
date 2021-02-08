@@ -21,7 +21,7 @@ a {
    width: 100vw;
    }
    .innerContainer {
-   height: 87vh;
+   height: 81vh;
    width: 100vw;
    display: grid;
    grid-template-areas:
