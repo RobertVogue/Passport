@@ -43,16 +43,19 @@ block content
           .sub_b2a
             ul.rem
               each topCountry in visited
-                li.print= topCountry
+                a(href="/countries/")
+                  li.print= topCountry
       .sub_b3
         h2.b2 Highest Rated Must Travel
           .sub_b3a
             ul.rem
               each topCountry in wantToVisit
-                li.print= topCountry
+                a(href="/countries/")
+                  li.print= topCountry
       .sub_b4
         h2.b2 Highest Rated Local Location
           .sub_b4a
             ul.rem
               each topCountry in nearby
-                li.print= topCountry
+                a(href="/countries/")
+                  li.print= topCountry
