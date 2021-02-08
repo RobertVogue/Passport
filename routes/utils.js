@@ -88,7 +88,18 @@ const userValidators = [
   const loginValidators = [
     check("email")
       .exists({ checkFalsy: true })
-      .withMessage("Email field cannot be empty"),
+      .withMessage("Email field cannot be empty")
+      .isEmail()
+      .withMessage("Email Address is not a valid email")
+      .custom((value) => {
+        return db.User.findOne({ where: { email: value } }).then((user) => {
+          if (!user) {
+            return Promise.reject(
+              "Invalid email or password."
+            );
+          }
+        });
+      }),
     check("password")
       .exists({ checkFalsy: true })
       .withMessage("Password field cannot be empty"),
