@@ -60,7 +60,7 @@
      margin-left: 60px;
      color: white;
      font-size: 20px;
-     border: 2px solid white;
+     /* border: 2px solid white; */
      width: 300px;
      text-transform: uppercase;
   }
