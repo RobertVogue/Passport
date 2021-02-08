@@ -25,7 +25,7 @@ const handleValidationErrors = (req, res, next) => {
 }
 
 
-
+//sign up checkers
 const userValidators = [
     check("username")
       .exists({ checkFalsy: true })
@@ -84,7 +84,7 @@ const userValidators = [
       }),
 
   ];
-
+// log in checkers
   const loginValidators = [
     check("email")
       .exists({ checkFalsy: true })

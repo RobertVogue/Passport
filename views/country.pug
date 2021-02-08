@@ -13,9 +13,9 @@ block content
                 img(src=country.flagUrl)
                 h2.middle3=country.name
             ul.omg3
-                //- if !stamps
+                //- if !stampObj
                 //-     h2 No Stamps Currently!
-                //-     a(href='/stamps/create'): button.btn Create Stamp
+                //-     a(href='/stamps/create'): button.btn Create Stamp // working on adding create a stamp if no countries exist
                 each id, name in stampObj
                     if (name!=='undefined')
                         a(href="/stamps/"+id id=id+'_stamp').tripName3
