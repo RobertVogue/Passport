@@ -13,7 +13,7 @@
             review: "Excillent views and efficient travel",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/hogwarts_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/hogwarts_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 83,
             tags_id: randomBelow40(),
@@ -27,7 +27,7 @@
               "Was only there for work and stayed close to the airport but enjoyed everything the hotel had to offer.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/germany_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/germany_seed_img.jpg?raw=true",
             passport_id: 2,
             countries_id: 66,
             tags_id: randomBelow40(),
@@ -41,7 +41,7 @@
               "Amazing views in some segments. Couldn't get through others quick enough.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/route_66_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/route_66_seed_img.jpg?raw=true",
             passport_id: 3,
             countries_id: 185,
             tags_id: randomBelow40(),
@@ -55,7 +55,7 @@
               "It was greate to finally relax and disconnect from the modern world.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/hungary_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/hungary_seed_img.jpg?raw=true",
             passport_id: 4,
             countries_id: 77,
             tags_id: randomBelow40(),
@@ -68,7 +68,7 @@
             review: "This was the trip of a lifetime.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/italy_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/italy_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 85,
             tags_id: randomBelow40(),
@@ -82,7 +82,7 @@
               "I always enjoy this ride. Seeing the harsh landscape and silica water is amazing.",
             rating: 9,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
             passport_id: 2,
             countries_id: 78,
             tags_id: randomBelow40(),
@@ -95,7 +95,7 @@
             review: "I love our quick trips down to the beach.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/miami_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/miami_seed_img.jpg?raw=true",
             passport_id: 3,
             countries_id: 185,
             tags_id: randomBelow40(),
@@ -108,7 +108,7 @@
             review: "I love the approtunities we have to spend as family.",
             rating: 8,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/grandmas_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/grandmas_seed_img.jpg?raw=true",
             passport_id: 4,
             countries_id: 185,
             tags_id: randomBelow40(),
@@ -121,7 +121,7 @@
             review: "This was a life changing experience",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/chaina_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/chaina_seed_img.jpg?raw=true",
             passport_id: 5,
             countries_id: 37,
             tags_id: randomBelow40(),
@@ -134,7 +134,7 @@
             review: "This was the trip of a lifetime.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/italy_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/italy_seed_img.jpg?raw=true",
             passport_id: 5,
             countries_id: 85,
             tags_id: randomBelow40(),
@@ -148,7 +148,7 @@
               "I always enjoy this ride. Seeing the harsh landscape and silica water is amazing.",
             rating: 9,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
             passport_id: 4,
             countries_id: 78,
             tags_id: randomBelow40(),
@@ -161,7 +161,7 @@
             review: "I love our quick trips down to the beach.",
             rating: 10,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/miami_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/miami_seed_img.jpg?raw=true",
             passport_id: 2,
             countries_id: 185,
             tags_id: randomBelow40(),
@@ -174,7 +174,7 @@
             review: "I love the approtunities we have to spend as family.",
             rating: 8,
             imgURL:
-              "https://github.com/RobertVogue/Passport/blob/profile/photos/grandmas_seed_img.jpg?raw=true",
+              "https://github.com/RobertVogue/Passport/blob/master/photos/grandmas_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 185,
             tags_id: randomBelow40(),
