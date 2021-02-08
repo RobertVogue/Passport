@@ -18,21 +18,23 @@ router.get( "/:id(\\d+)", asyncHandler(async (req, res) => {
             countries_id: countryId
         }
     });
-    const stampObj = {};
-    const stampIds = stamps.map((stamp) => stamp.id);
-    const names = stamps.map((stamp) => stamp.name);
-    const images = stamps.map((stamp) => stamp.imgURL);
-    const obj = {};
-    images.forEach((cur, index) => {
-      obj[names[index]] = cur;
-    });
-    stampIds.forEach((cur, index) => {
-      stampObj[names[index]] = cur;
-    });
+    res.render('country', { country, stamps, })
+  }));
+  // raymond's way
+  // const stampObj = {};
+  // const stampIds = stamps.map((stamp) => stamp.id);
+  // const names = stamps.map((stamp) => stamp.name);
+  // const images = stamps.map((stamp) => stamp.imgURL);
+  // const obj = {};
+  // images.forEach((cur, index) => {
+  //   obj[names[index]] = cur;
+  // });
+  // stampIds.forEach((cur, index) => {
+  //   stampObj[names[index]] = cur;
+  // });
 
-    console.log(stamps);
+  // console.log(stamps);
 
-    res.render('country', { stampObj, country, stamps, obj })
-}));
+  // res.render('country', { stampObj, country, stamps, obj })
 
 module.exports = router;
