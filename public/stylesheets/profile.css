@@ -7,6 +7,9 @@
   background-size:400% 400%;
   animation: extreme 20s ease-in-out infinite;
 }
+.passport_btn:hover {
+   cursor: pointer;
+}
 @keyframes extreme {
    0% {
        background-position: 0 0;
