@@ -1,3 +1,170 @@
-.main_stamp {
-    /* background-image: url(../background-passport.jpg) */
+.stamp_container {
+    background-image: url('../background-passport.png');
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    /* flex-direction: row; */
+    width: 100vw;
+    height: 87vh;
+}
+
+.stamp_left {
+    /* border: 5px solid black; */
+    width: 49vw;
+    height: 87vh;
+}
+
+ .vs {
+    font-family: 'Rakkas', cursive;
+    font-size: 30px;
+    color: rgb(104, 0, 0);
+}
+
+
+.stamp_right {
+    /* border: 5px solid black; */
+    width: 49vw;
+    height: 87vh;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 323px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 35px;
+    /* border: 5px solid black; */
+    /* font-family: 'Rakkas', cursive; */
+}
+
+.dates {
+    position: relative;
+    width: 550px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 20px;
+    /* border: 5px solid black; */
+}
+
+.price {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    position: relative;
+    width: 150px;
+    height: 50px;
+    /* bottom: 20px; */
+    left: 20px;
+    top: 50px;
+    /* border: 5px solid black; */
+    color: black;
+}
+
+#price {
+    margin-left: 5px;
+    color:green;
+}
+
+.detailed_location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 100px;
+    left: 265px;
+    top: 65px;
+    /* border: 5px solid black; */
+}
+
+.review {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 450px;
+    height: 283px;
+    left: 250px;
+    top: 70px;
+    /* border: 5px solid black; */
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 269px;
+    height: 51px;
+    left: 325px;
+    top: 90px;
+    /* border: 5px solid black; */
+}
+
+.created {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 51px;
+    left: 550px;
+    top: 190px;
+    /* border: 5px solid black; */
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 323px;
+    height: 50px;
+    left: 325px;
+    top: 20px;
+    /* border: 5px solid black; */
+}
+
+.stamp_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 450px;
+    height: 50px;
+    left: 250px;
+    top: 30px;
+    /* border: 5px solid black; */
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 323px;
+    height: 50px;
+    left: 325px;
+    top: 90px;
+    /* border: 5px solid black; */
+}
+
+
+.stamp_img_div {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    left: 250px;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+
+.stamp_img {
+    width: 450px;
+    height: 450px;
+    border-radius: 25%;
 }

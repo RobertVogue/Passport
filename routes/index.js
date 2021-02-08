@@ -3,6 +3,7 @@ var router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
 const db = require('../db/models');
 const { Passport, Country } = require('../db/models')
+const { topWantToVisit, topVisited, topNearBy } = require('../data-access-layer/utils')
 
 /* GET home page. */
 // router.get('/', csrfProtection, function(req, res, next) {
@@ -14,59 +15,12 @@ const { Passport, Country } = require('../db/models')
 // Take the array, if present, add 1 to the count value
 // turn object into an array and sort array. Take the last 3 results and render them
 
-const topRatedCountries = async () => {
-  const countryObj = {};
-  // query Stamp include Country and rating
-  const topCountries = await db.Stamp.findAll({
-    where: { rating: 5 },
-    include: {
-      model: Country
-    },
-  });
-  topCountries.forEach(country => {
-    if (countryObj[country]) {
-      countryObj[country]++;
-    } else {
-      countryObj[country] = 1;
-    };
-  });
-};
-
-topRatedCountries();
-
 router.get('/', csrfProtection, asyncHandler(async (req, res) => {
-  const topCountries = await db.Stamp.findAll({
-    where: { rating: 5 },
-    include: [{
-      model: Passport,
-      where: { passport_status: "Want to visit" },
-    },
-    {
-      model: Country
-    }
-    ],
-  });
-  const countryObj = {};
+  const wantToVisit = await topWantToVisit();
+  const visited = await topVisited();
+  const nearby = await topNearBy();
+  res.render('index', { csrfToken: req.csrfToken(), wantToVisit, visited, nearby });
 
-  const countryNames = topCountries.map(data => {
-    return data.Country.dataValues.name
-  });
-  console.log(countryNames);
-
-  countryNames.forEach(country => {
-    if (countryObj[country]) {
-      countryObj[country]++;
-    } else {
-      countryObj[country] = 1;
-    };
-  });
-
-  let countriesArr = Object.entries(countryObj).sort((a,b)=> b[1] - a[1]).map(el => el[0])
-  countriesArr = countriesArr.splice(0, 10)
-  console.log("countriesArr------------->>>>>>", countriesArr)
-  // Iterate through object
-  // console.log(countryArr);
-  res.render('index', { csrfToken: req.csrfToken(), countriesArr });
 }));
 
 module.exports = router;

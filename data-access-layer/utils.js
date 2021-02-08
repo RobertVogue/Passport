@@ -1,4 +1,5 @@
 const { User, Passport, Stamp, Country, Tag } = require("../db/models");
+const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { Op } = require("sequelize");
 const updateEmail = async (id, email, newEmail) => {
@@ -167,6 +168,7 @@ const getGoingToPassports = async (id) => {
       user_id: id,
       passport_status: "Want to visit",
     },
+    include: [Stamp],
   });
   const results = passports.map((passport) => {
     const { dataValues } = passport;
@@ -194,11 +196,13 @@ const getLocalPassports = async (id) => {
 
 const get100Stamps = async (userId) => {
   let user = await findUserById(userId);
+  let passportIds = await getUserPassports(userId);
   const myMap = user.Passports.map((passport) => passport.dataValues.id);
   const res = await Stamp.findAll({
     limit: 100,
   });
   const results = res.map((result) => result.dataValues);
+  console.log(passportIds)
   return results;
 };
 
@@ -243,7 +247,7 @@ const createStamp = async (
 const getComments = async (userId) => {
   const stamps = await getStamps(userId);
   const res = stamps.map((data) => data.dataValues.review);
-  console.log(res);
+  // console.log(res);
   return res;
 };
 
@@ -252,22 +256,166 @@ const getTags = async () => {
   const data = tags.map((tag) => tag.dataValues);
   return data;
 };
+const getUsersTags = async (id) => {
+  const passports = await Passport.findAll({
+    where: {
+      user_id: id,
+    },
+    include: [Stamp],
+  });
+  const results = passports.map((passport) => {
+    const { dataValues } = passport;
+    return dataValues.Stamps;
+  });
+  // console.log(results);
 
-const getTopCountries = async (user_id) => {
+  let stamps = results.flat();
+  const tagsIds = stamps.map((stamp) => {
+    const data = stamp.dataValues;
+    const { tags_id } = data;
+    return tags_id;
+  });
+  const tags = await Tag.findAll({
+    where: {
+      [Op.and]: [{ id: tagsIds }],
+    },
+  });
+  const tagData = tags.map((tag) => tag.dataValues);
+  console.log(tagData);
+  return tagData;
+};
+
+const getCountries = async (id) => {
+  const countries = await Country.findByPk(id);
+
+  return countries;
+};
+
+const getTopCountriesIds = async (user_id) => {
   let arr = [];
+  const countryIds = [];
+
   const passports = await getUserPassports(user_id);
   const ids = passports.map((passport) => passport.id);
+
   for (let i = 1; i < 196; i++) {
     let stamps = await Stamp.findAll({
       where: {
         countries_id: i,
         passport_id: ids,
       },
+      include: [Country],
     });
     arr.push(stamps);
   }
 
-  return arr;
+  arr.forEach(async (stamps) => {
+    // const stamp = stamp;
+    if (stamps.length) {
+      let [Stamp] = stamps;
+      let id = Stamp.countries_id;
+      countryIds.push(id);
+    }
+  });
+  return countryIds;
+};
+
+const topWantToVisit = async () => {
+  const topCountries = await Stamp.findAll({
+    where: { rating: 10 },
+    include: [
+      {
+        model: Passport,
+        where: { passport_status: "Want to visit" },
+      },
+      {
+        model: Country,
+      },
+    ],
+  });
+  const countryObj = {};
+
+  const countryNames = topCountries.map((data) => {
+    return data.Country.dataValues.name;
+  });
+
+  countryNames.forEach((country) => {
+    if (countryObj[country]) {
+      countryObj[country]++;
+    } else {
+      countryObj[country] = 1;
+    }
+  });
+
+  let countriesArr = Object.entries(countryObj)
+    .sort((a, b) => b[1] - a[1])
+    .map((el) => el[0]);
+  return countriesArr.splice(0, 10);
+};
+
+const topVisited = async () => {
+  const topCountries = await Stamp.findAll({
+    where: { rating: 10 },
+    include: [{
+      model: Passport,
+      where: { passport_status: "Visited" },
+    },
+    {
+      model: Country
+    }
+    ],
+  });
+  const countryObj = {};
+
+  const countryNames = topCountries.map((data) => {
+    return data.Country.dataValues.name;
+  });
+
+  countryNames.forEach((country) => {
+    if (countryObj[country]) {
+      countryObj[country]++;
+    } else {
+      countryObj[country] = 1;
+    }
+  });
+
+  let countriesArr = Object.entries(countryObj)
+    .sort((a, b) => b[1] - a[1])
+    .map((el) => el[0]);
+  return countriesArr.splice(0, 10);
+};
+
+const topNearBy = async () => {
+  const topCountries = await Stamp.findAll({
+    where: { rating: 10 },
+    include: [
+      {
+        model: Passport,
+        where: { passport_status: "Near By" },
+      },
+      {
+        model: Country,
+      },
+    ],
+  });
+  const countryObj = {};
+
+  const countryNames = topCountries.map((data) => {
+    return data.Country.dataValues.name;
+  });
+
+  countryNames.forEach((country) => {
+    if (countryObj[country]) {
+      countryObj[country]++;
+    } else {
+      countryObj[country] = 1;
+    }
+  });
+
+  let countriesArr = Object.entries(countryObj)
+    .sort((a, b) => b[1] - a[1])
+    .map((el) => el[0]);
+  return countriesArr.splice(0, 10);
 };
 
 module.exports = {
@@ -282,6 +430,7 @@ module.exports = {
   findOwnerId,
   getStamps,
   getUserPassports,
+  getUsersTags,
   createTag,
   createStamp,
   getLocalPassports,
@@ -289,5 +438,7 @@ module.exports = {
   getVisitedPassports,
   getComments,
   getTags,
-  getTopCountries,
+  topWantToVisit,
+  topVisited,
+  topNearBy,
 };

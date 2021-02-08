@@ -1,0 +1,82 @@
+
+.gridContainer3 {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 81vh;
+    background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
+    background-size:400% 400%;
+    animation: extreme 20s ease-in-out infinite;
+  }
+  @keyframes extreme {
+     0% {
+         background-position: 0 0;
+     }
+     50% {
+         background-position: 100% 100%;
+     }
+     100% {
+         background-position: 0 0;
+     }
+  }
+
+  .countryHeader {
+    /* display: flex; */
+
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .countryBody {
+     /* display: flex;
+     align-items: center;
+     justify-content: center; */
+     width: 60vw;
+     flex-direction: column;
+  }
+
+  .omg3 {
+     color: white;
+     display: flex;
+     flex-wrap: wrap;
+     width: 60vw;
+  }
+
+  img[class^="stampImg"] {
+     max-width: 100%;
+     box-sizing: border-box;
+  }
+  .mask1 {
+     border-radius: 25%;
+     width: 150px;
+     height: 100px;
+  }
+
+  .tripName3 {
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     padding-bottom: 20px;
+  }
+  .tripName3 > h3 {
+     margin-left: 60px;
+     color: white;
+     font-size: 20px;
+     width: 300px;
+     text-transform: uppercase;
+  }
+  .imgLiTag3 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     list-style-type: none;
+  }
+  .middle3 {
+     text-align: center;
+     font-weight: bold;
+     font-size: 50px;
+     color: white;
+     border-bottom: 5px solid white;
+  }

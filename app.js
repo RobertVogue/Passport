@@ -10,12 +10,15 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const { restoreUser, requireAuth } = require("./auth");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const homeRouter = require("./routes/home");
+
 const createStamps = require("./routes/stamps-create");
 const viewStamps = require("./routes/stamps");
 const queryHandlerRouter = require("./routes/queryHandler");
 const profileRouter = require("./routes/profile");
 const { secret } = require("./config");
 const teamRouter = require("./routes/team");
+const countriesRouter = require("./routes/all-countries");
 
 const app = express();
 
@@ -50,6 +53,7 @@ app.use("/team", teamRouter);
 app.use("/handler", queryHandlerRouter);
 app.use("/users", usersRouter);
 app.use("/stamps", viewStamps);
+app.use("/countries", countriesRouter);
 app.use(requireAuth);
 app.use("/stamps", createStamps);
 app.use("/users", profileRouter);

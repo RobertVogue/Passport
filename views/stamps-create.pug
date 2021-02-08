@@ -6,73 +6,62 @@ block content
 	.outer_container
 		.content_container
 			form#create_stamp_form(action="/stamps/create" method="post")
-				.status_header STATUS
-				.country_header WHERE WAS YOUR TRIP?
-				.cost_header COST
 				input(type="hidden" name="_csrf" value=csrfToken)
-				label.trip_name(for="name") Select a Name For Your Vacation Stamp!
-				input.trip_name_box.input_boxes(type="text" name="name" placeholder="What are you going to call this trip?" value=name)
-				select.input_boxes.colorText.status.dropdown(name="passport_id" value=passport_id)
-					option.default(value="default" selected disabled hidden) -Status-
-					each passport in passports
-						option(value=passport.id)= passport.passport_status
-				select.input_boxes#countries.dropdown(name="countries_id" placeholder="Select Country" value=countries_id)
-					each country in countries
-						option.default(value="default" selected disabled hidden) -Choose the country you visited!-
-						option(value=country.id)= country.name
-				label.price(for="price")
-				select.input_boxes.price.dropdown(type="text" name="price" value=price)
-					option.default(value="Pick One" selected disabled hidden) -Pick!-
-					option(value="$") $
-					option(value="$$") $$
-					option(value="$$$") $$$
-				.det_loc_text
-					label.detailed_location_label(for="detailed_location") Detailed Location
-				.det_loc
-					input.input_boxes.detailed_location(type="text" name="detailed_location" value=detailed_location placeholder="Now where exactly was this place...?")
-				.date
-					label.start(for="start") Trip Start
-					input.input_boxes.start(type="date" name="start" value=start)
-					label.start(for="start") Trip End
-					input.input_boxes.end(type="date" name="end" value=end)
-				.det_desc_text
-					label.description_label(for="review") Detailed Description
-				.det_desc
-					textarea.input_boxes#description(name="review" value=review placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10")
-				.tags
-					label#tags_label(for="tags_id") Tag your trip!
-					select.input_boxes.dropdown(name="tags_id" placeholder="Tag your trip!") 
+				.row1
+					.status_header Status
+						select.toprow(name="passport_id" value=passport_id)
+							option.default(value="default" selected disabled hidden) -Status-
+							each passport in passports
+								option(value=passport.id)= passport.passport_status
+					.country_header Which Country?
+						select.toprow2(name="countries_id" placeholder="Select Country" value=countries_id)
+							each country in countries
+								option.default(value="default" selected disabled hidden) -Choose the country you visited!-
+								option(value=country.id)= country.name
+					.cost_header Cost
+						select.toprow(type="text" name="price" value=price)
+							option.default(value="Pick One" selected disabled hidden) -Pick!-
+							option(value="$") $
+							option(value="$$") $$
+							option(value="$$$") $$$
+				.trip_name Select a Name For Your Vacation Stamp!
+					input.trip_name_box(type="text" name="name" placeholder="What are you going to call this trip?" value=name)
+				.det_loc_text Detailed Location
+					input.det_box(type="text" name="detailed_location" value=detailed_location placeholder="Now where exactly was this place...?")
+				.start_date Trip Start
+					input.start(type="date" name="start" value=start)
+				.end_date Trip End
+					input.end(type="date" name="end" value=end)
+				.det_desc_text Detailed Description
+					textarea.det_big_box(name="review" value=review placeholder="Best trip ever!\nThe food was...!\nYou have to go to the...\nThis trip would be so good for...\nLost the little one...again." cols="30", rows="10")
+				.tags Tag your trip!
+					select.botrow(name="tags_id" placeholder="Tag your trip!")
 						each tag in tags
 							option(value=tag.id)= tag.name
-				.imgURL_label
-					label(for="imgURL") Paste a URL Link to a Picture of Your Trip!
-				.imgURL
-					input.input_boxes.imgURLInput(type="text" name="imgURL")
-				.rating
-					//- span.star-cb-group ️
-					//- 	input#rating-5(type="radio" name="rating" value="5")
-					//- 	label(for="rating-5") 5
-					//- 	input#rating-4(type="radio" name="rating" value="4" checked)
-					//- 	label(for="rating-4") 4
-					//- 	input#rating-3(type="radio" name="rating" value="3")
-					//- 	label(for="rating-3") 3
-					//- 	input#rating-2(type="radio" name="rating" value="2")
-					//- 	label(for="rating-2") 2
-					//- 	input#rating-1(type="radio" name="rating" value="1")
-					//- 	label(for="rating-1") 1
-					//- 	input#rating-0.star-cb-clear(type="radio" name="rating" value="0")
-					//- 	label(for="rating-0") 0
-					input#star1(type="radio" name="rating" value="1")
-					label(for="star1" title="text") 1 star
-					input#star2(type="radio" name="rating" value="2")
-					label(for="star3" title="text") 2 star
-					input#star3(type="radio" name="rating" value="3")
-					label(for="star4" title="text") 3 star
-					input#star4(type="radio" name="rating" value="4")
-					label(for="star1" title="text") 4 star
-					input#star5(type="radio" name="rating" value="5")
-					label(for="star1" title="text") 5 star
+				.imgURL_label Paste a URL Link to a Picture of Your Trip!
+					input.imgURL(type="text" name="imgURL")
+				.row
+					label.star1(for="star5") 10🌟
+					input.star(type="radio" name="rating" value="10")
+					label.star1(for="star4") 9⭐
+					input.star(type="radio" name="rating" value="9")
+					label.star1(for="star3") 8⭐
+					input.star(type="radio" name="rating" value="8")
+					label.star1(for="star2") 7⭐
+					input.star(type="radio" name="rating" value="7")
+					label.star1(for="star1") 6⭐
+					input.star(type="radio" name="rating" value="6")
+					label.star1(for="star5") 5⭐
+					input.star(type="radio" name="rating" value="5")
+					label.star1(for="star4") 4⭐
+					input.star(type="radio" name="rating" value="4")
+					label.star1(for="star3") 3⭐
+					input.star(type="radio" name="rating" value="3")
+					label.star1(for="star2") 2⭐
+					input.star(type="radio" name="rating" value="2")
+					label.star1(for="star1") 1⭐
+					input.star(type="radio" name="rating" value="1")
+				.buttonBox
+					button.btn.stamp_btn(type="submit") Create Stamp!
 				.errorHandling
 					+validationErrorSummary(errors)
-				button.btn.stamp_btn(type="submit") Create Stamp!
-

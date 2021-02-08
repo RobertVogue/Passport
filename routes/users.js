@@ -29,32 +29,46 @@ router.post(
   asyncHandler(async (req, res) => {
     const { username, displayName, email, password } = req.body;
 
+    const newUser = db.User.build({ username, displayName, email });
+    // const newUser = db.User.create({ username, displayName, email})
 
-  const newUser = db.User.build({ username, displayName, email})
-  // const newUser = db.User.create({ username, displayName, email})
+    const validatorErrors = validationResult(req);
 
-  const validatorErrors = validationResult(req);
-
-  if (validatorErrors.isEmpty()) {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    newUser.hashedPassword = hashedPassword;
-    await newUser.save();
-    const newuserId = newUser.id;
-    await db.Passport.create({ passport_status:'Local', user_id: newuserId});
-    await db.Passport.create({ passport_status:'Visited', user_id: newuserId});
-    await db.Passport.create({ passport_status:'Will Visit', user_id: newuserId});
-    loginUser(req, res, newUser)
-    return req.session.save((err) => {
-      if (err) {
-        next(err);
-      } else {
-        res.redirect(`/users/${newUser.id}`);
-      }
-    });
-  } else {
-    const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('signup', { username, email, displayName, errors, csrfToken: req.csrfToken() });
-  }
+    if (validatorErrors.isEmpty()) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      newUser.hashedPassword = hashedPassword;
+      await newUser.save();
+      const newuserId = newUser.id;
+      await db.Passport.create({
+        passport_status: "Near By",
+        user_id: newuserId,
+      });
+      await db.Passport.create({
+        passport_status: "Visited",
+        user_id: newuserId,
+      });
+      await db.Passport.create({
+        passport_status: "Want to visit",
+        user_id: newuserId,
+      });
+      loginUser(req, res, newUser);
+      return req.session.save((err) => {
+        if (err) {
+          next(err);
+        } else {
+          res.redirect(`/users/${newUser.id}`);
+        }
+      });
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("signup", {
+        username,
+        email,
+        displayName,
+        errors,
+        csrfToken: req.csrfToken(),
+      });
+    }
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -142,7 +156,5 @@ router.post(
     });
   })
 );
-
-
 
 module.exports = router;

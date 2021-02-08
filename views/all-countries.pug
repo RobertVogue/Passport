@@ -1,0 +1,22 @@
+extends layout
+
+include utils.pug
+
+block content
+    .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/users/${curUser.id}`): button.btn2 My Profile
+        a(href='countries'): button.btn2 Countries
+        a(href='/team'): button.btn2 Meet The Team
+    .gridContainer2
+        .countries
+            .countriesBody
+                .myCountriesHeader
+                    h2.middle2 Countries
+                ul.omg2
+                    each country in countries
+                        a(href="/countries/"+country.id).tripName2
+                            h3=country.name
+                                li.imgLiTag2
+                                    img(src=country.flagUrl class="countryImg maskCountry")

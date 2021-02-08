@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .sub_a
+        a(href='/'): button.btn2 Home
+        if authenticated
+            a(href=`/users/${curUser.id}`): button.btn2 My Profile
+        a(href='/countries'): button.btn2 Countries
+        a(href='/team'): button.btn2 Meet The Team
+    .gridContainer3
+        .countryBody
+            .countryHeader
+                img(src=country.flagUrl)
+                h2.middle3=country.name
+            ul.omg3
+                //- if !stamps
+                //-     h2 No Stamps Currently!
+                //-     a(href='/stamps/create'): button.btn Create Stamp
+                each id, name in stampObj
+                    if (name!=='undefined')
+                        a(href="/stamps/"+id id=id+'_stamp').tripName3
+                            h3=name
+                                li.imgLiTag3
+                                    img(src=obj[name] class="stampImg mask1" name=name)

@@ -4,62 +4,51 @@ block content
 	.sub_a
 		a(href='/'): button.btn2 Home
 		if authenticated
-			a(href=`/users/${curUser.id}`): button.btn2 My Passports
+			a(href=`/users/${curUser.id}`): button.btn2 My Profile
+		a(href='/countries'): button.btn2 Countries
 		a(href='/team'): button.btn2 Meet The Team
-	h1.myProfileHeader My Profile
+
 	.gridContainer
 		.leftSideColumn
 			.leftColumnTitleDecore
 				h2.leftSideColumnTitle Passports
-			.passportContainer
-				ul
-					.localPassport
-						if passportLocal
-							each val, key in passportLocal
-								li(class=key value=val) #{val}
-					ul.ImgContainer
-						li
-							a(href="")
-								img.localImg(src="https://i.ytimg.com/vi/NgDdwl67qNY/maxresdefault.jpg" class="mask2")
-					.goToPassport
-						if passportGoingTo
-							each val, key in passportGoingTo
-								li(class=key value=val) #{val}
-					ul.ImgContainer
-						li
-							a(href="")
-								img.localImg(src="https://handluggageonly.co.uk/wp-content/uploads/2016/03/Positano-Weather.jpg" class="mask2")
-					.visitedPassport
-						if passportVisited
-							each val, key in passportVisited
-								li(class=key value=val) #{val}
-					ul.ImgContainer
-						li
-							a(href="")
-								img.localImg(src="https://i.ytimg.com/vi/x8gB3zoATaw/maxresdefault.jpg" class="mask2")
+			.medium
+				.localPassport
+
+				ul.ImgContainer
+					li
+						a(class= "passport_btn")
+							img.localImg(src="/Visited.png" class="mask2")
+				.goToPassport
+
+				ul.ImgContainer
+					li
+						a(class= "passport_btn")
+							img.localImg(src="/WantTo.png" class="mask2")
+				.visitedPassport
+
+				ul.ImgContainer
+					li
+						a(class= "passport_btn")
+							img.localImg(src="/Local.png" class="mask2")
 		.profileBody
 			.myStampsHeader
-				h2 My Stamps
-			ul
-				each name, image in obj
-					.tripName: h3= name
-					li.imgLiTag
-						img(src=image class="stampImg mask1" name=name)
+				h2.middle My Stamps
+			ul.omg
+				each id, name in resObj
+					if (name!=='undefined')
+						a(href="/stamps/"+id id=id+'_stamp').tripName
+							h3=name
+								li.imgLiTag
+									img(src=obj[name] class="stampImg mask1" name=name)
+
 		.rightSideColumn
 			.explore
-				.exploreHeader
-					.exploreHeaderDecore
-						h2 Explore by Interest
-					.intrestTags
-					ul
-						each tag, index in allTags
-							li.tagContainer
-								a(href="" class=tag.name class=tags )=tag.name
-			.Comments
-				.CommentsDecore
-					h2 Search by review
-				.commentsContainer
-				ul
-					each comment, index in comments
-						a(href="")
-							li(value=comment class=comment+index): p= comment
+				h2.leftSideColumnTitle Explore
+
+				select.need
+					each value, key in tagsObj
+						option.default(value="default" selected disabled hidden) Filter by Tag
+						option(id=`${value}` class='tags' value=`${value}`)=key
+	block scripts
+		script(src='../javascripts/profile.js')

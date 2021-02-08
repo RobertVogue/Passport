@@ -24,12 +24,17 @@ button {
     position: relative; /*if absolute then the form on create stamps will overflow into it. If it is relative, the footer won't stick to the bottom*/
     bottom: 0;
     grid-template-areas: 'person1 person2 person3 person4';
-    width: 100%;
+    width: 100vw;
     height: 8vh;
     border-top: 2px solid black;
     background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
     background-size:400% 400%;
     animation: medium 20s ease-in-out infinite;
+    overflow-x: hidden;
+
+}
+.trim {
+    background-color: transparent!important;
 }
 .footer_container div {
     text-align: center;
@@ -86,7 +91,7 @@ button {
 
 }
 .name {
-    color:black;
+    color:white;
     font-size: 20px;
     font-weight: 700;
 }
@@ -106,12 +111,12 @@ button {
 }
 .search {
     font-size: 20px;
-    width: 400px;
+    width: 418px;
     height: 4vh;
     text-align: center;
     text-decoration: none;
     outline: none;
-    margin-left: 170px;
+    margin-left: 148px;
 
 }
 
@@ -123,10 +128,12 @@ button {
     background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
     font-family: "Montserrat", sans-serif;
     height: 5vh;
+    width: 100vw;
     background-size:400% 400%;
     position: relative;
     animation: medium 20s ease-in-out infinite;
-    border-bottom: 2px solid black;
+    overflow-x: hidden;
+
 
 }
 @keyframes medium {
@@ -157,6 +164,7 @@ button {
     justify-content: center;
     max-width: 300px;
     max-height: 300px;
+    background-color: transparent!important;
 }
 
 .container__logo:hover, #logo:hover, #lg:hover {
@@ -220,12 +228,16 @@ button {
     color:black;
     /* box-sizing: border-box; */
     /* border appears when the button is being clicked. Needs to be fixed. */
+
 }
 
 .btn:hover {
     background-color: black;
     color: white;
     transform: translateY(1px);
+}
+a {
+    text-decoration: none;
 }
 
 .btn:active {
