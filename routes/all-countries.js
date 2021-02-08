@@ -33,7 +33,6 @@ router.get( "/:id(\\d+)", asyncHandler(async (req, res) => {
   //   stampObj[names[index]] = cur;
   // });
 
-  // console.log(stamps);
 
   // res.render('country', { stampObj, country, stamps, obj })
 

@@ -144,7 +144,6 @@ const getUserPassports = async (id) => {
     const { dataValues } = passport;
     return dataValues;
   });
-  // console.log(results);
   return results;
 };
 const getVisitedPassports = async (id) => {
@@ -159,7 +158,6 @@ const getVisitedPassports = async (id) => {
     return dataValues;
   });
   const [data] = results;
-  // console.log(data);
   return data;
 };
 const getGoingToPassports = async (id) => {
@@ -175,7 +173,6 @@ const getGoingToPassports = async (id) => {
     return dataValues;
   });
   const [data] = results;
-  // console.log(data);
   return data;
 };
 const getLocalPassportsStamps = async (id) => {
@@ -207,7 +204,6 @@ const getLocalPassports = async (id) => {
     return dataValues;
   });
   const [data] = results;
-  // console.log(data);
   return data;
 };
 
@@ -219,7 +215,6 @@ const get100Stamps = async (userId) => {
     limit: 100,
   });
   const results = res.map((result) => result.dataValues);
-  console.log(passportIds);
   return results;
 };
 
@@ -264,7 +259,6 @@ const createStamp = async (
 const getComments = async (userId) => {
   const stamps = await getStamps(userId);
   const res = stamps.map((data) => data.dataValues.review);
-  // console.log(res);
   return res;
 };
 
@@ -284,7 +278,7 @@ const getUsersTags = async (id) => {
     const { dataValues } = passport;
     return dataValues.Stamps;
   });
-  // console.log(results);
+
 
   let stamps = results.flat();
   const tagsIds = stamps.map((stamp) => {
@@ -298,7 +292,6 @@ const getUsersTags = async (id) => {
     },
   });
   const tagData = tags.map((tag) => tag.dataValues);
-  console.log(tagData);
   return tagData;
 };
 

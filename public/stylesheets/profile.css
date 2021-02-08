@@ -73,6 +73,7 @@ img[class^="stampImg"] {
 }
 .mask1 {
    border-radius: 25%;
+   border: 1px transparent solid;
    width: 150px;
    height: 100px;
 }
