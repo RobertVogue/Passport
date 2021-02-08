@@ -28,7 +28,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/germany_seed_img.jpg?raw=true",
-            passport_id: 2,
+            passport_id: 1,
             countries_id: 66,
             tags_id: randomBelow40(),
           },
@@ -42,7 +42,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/route_66_seed_img.jpg?raw=true",
-            passport_id: 3,
+            passport_id: 1,
             countries_id: 185,
             tags_id: randomBelow40(),
           },
@@ -56,7 +56,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/hungary_seed_img.jpg?raw=true",
-            passport_id: 4,
+            passport_id: 1,
             countries_id: 77,
             tags_id: randomBelow40(),
           },
@@ -69,7 +69,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/chaina_seed_img.jpg?raw=true",
-            passport_id: 5,
+            passport_id: 1,
             countries_id: 37,
             tags_id: randomBelow40(),
           },
@@ -82,7 +82,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/italy_seed_img.jpg?raw=true",
-            passport_id: 5,
+            passport_id: 1,
             countries_id: 85,
             tags_id: randomBelow40(),
           },
@@ -96,7 +96,7 @@
             rating: 9,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
-            passport_id: 4,
+            passport_id: 1,
             countries_id: 78,
             tags_id: randomBelow40(),
           },
@@ -109,7 +109,7 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/miami_seed_img.jpg?raw=true",
-            passport_id: 2,
+            passport_id: 1,
             countries_id: 185,
             tags_id: randomBelow40(),
           },
@@ -136,7 +136,7 @@
             rating: 9,
             imgURL:
               "https://www.nationalgeographic.com/content/dam/travel/2019-digital/best-travel-photos-2019/33-best-travel-photos-2019190916-32.jpg?raw=true",
-            passport_id: 5,
+            passport_id: 1,
             countries_id: 185,
             tags_id: randomBelow40(),
           },
@@ -149,7 +149,7 @@
             rating: 10,
             imgURL:
               "https://media.timeout.com/images/105672700/image.jpg?raw=true",
-            passport_id: 5,
+            passport_id: 1,
             countries_id: 60,
             tags_id: randomBelow40(),
           },
