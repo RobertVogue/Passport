@@ -18,19 +18,19 @@ block content
 				ul.ImgContainer
 					li
 						a(class= "passport_btn")
-							img.localImg(src="/Visited.png" class="mask2")
+							img.localImg(src="/Visited.png"  value=passportstampids[0])
 				.goToPassport
 
 				ul.ImgContainer
 					li
 						a(class= "passport_btn")
-							img.localImg(src="/WantTo.png" class="mask2")
+							img.localImg(src="/WantTo.png" value=passportstampids[1])
 				.visitedPassport
 
 				ul.ImgContainer
 					li
 						a(class= "passport_btn")
-							img.localImg(src="/Local.png" class="mask2")
+							img.localImg(src="/Local.png" value=passportstampids[2])
 		.profileBody
 			.myStampsHeader
 				h2.middle My Stamps
@@ -40,7 +40,7 @@ block content
 						a(href="/stamps/"+id id=id+'_stamp').tripName
 							h3=name
 								li.imgLiTag
-									img(src=obj[name] class="stampImg mask1" name=name)
+									img(src=obj[name] class="stampImg" name=name)
 
 		.rightSideColumn
 			.explore

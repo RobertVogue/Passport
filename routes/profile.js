@@ -13,6 +13,7 @@ const {
   getComments,
   getTags,
   getUsersTags,
+  getLocalPassportsStamps,
 } = require("../data-access-layer/utils");
 
 router.get(
@@ -32,6 +33,7 @@ router.get(
     const stampIds = stamps.map((stamp) => stamp.id);
     const names = getStamps2.map((stamp) => stamp.name);
     const obj = {};
+    const passportstampids = await getLocalPassportsStamps(userid);
     images.forEach((cur, index) => {
       obj[names[index]] = cur;
     });
@@ -39,12 +41,13 @@ router.get(
     stampIds.forEach((cur, index) => {
       resObj[names[index]] = cur;
     });
+    const resClone = {};
+
     const tagsObj = {};
     tags.forEach((tag) => {
       const { name } = tag;
       tagsObj[name] = stampIds[tag.id];
     });
-    console.log(tagsObj);
     res.render("profile", {
       resObj,
       obj,
@@ -55,8 +58,8 @@ router.get(
       passportLocal,
       comments,
       tagsObj,
-      allTags
-
+      allTags,
+      passportstampids,
     });
   })
 );

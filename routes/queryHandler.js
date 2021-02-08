@@ -17,16 +17,15 @@ const {
   findOwnerId,
   createTag,
   createStamp,
-  getTopCountriesIds,
-  getCountries,
+  getLocalPassportsStamps,
 } = require("../data-access-layer/utils");
 
 /* GET home page. */
 queryHandlerRouter.get(
   "/",
   asyncHandler(async function (req, res, next) {
-    const results = await getTopCountriesIds(1);
-    console.log(results);
+    const results = await getLocalPassportsStamps(1);
+    // console.log(results);
     return res.render("queryHandler", { results });
   })
 );
