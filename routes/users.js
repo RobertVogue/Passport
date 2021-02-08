@@ -108,11 +108,7 @@ router.get("/login", csrfProtection, (req, res) => {
   res.render("login", { csrfToken: req.csrfToken() });
 });
 
-router.post(
-  "/login",
-  csrfProtection,
-  loginValidators,
-  asyncHandler(async (req, res) => {
+router.post( "/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     let errors = [];
     const validatorErrors = validationResult(req);
@@ -132,11 +128,15 @@ router.post(
             if (err) next(err);
             else res.redirect(`/users/${user.id}`);
           });
+        } else {
+          errors = validatorErrors.array().map((error) => error.msg);
+          errors.push("Invalid email or password.");
+          res.render("login", { email, errors, csrfToken: req.csrfToken() });
         }
       }
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
-      errors.push("No users exist with given email/password");
+      // errors.push("No users exist with given email/password");
       res.render("login", { email, errors, csrfToken: req.csrfToken() });
     }
   })
