@@ -236,6 +236,9 @@ button {
     color: white;
     transform: translateY(1px);
 }
+a {
+    text-decoration: none;
+}
 
 .btn:active {
     /* transform: translateY(1px); */

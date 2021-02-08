@@ -7,7 +7,7 @@ block content
       a(href='/'): button.btn2 Home
       if authenticated
 
-        a(href=`/passports`): button.btn2 My Passports
+        a(href=`/users/${curUser.id}`): button.btn2 My Stamps
 
       a(href='countries'): button.btn2 Countries
       a(href='/team'): button.btn2 Meet The Team

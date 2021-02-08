@@ -3,7 +3,7 @@ block content
     .sub_a
         a(href='/'): button.btn2 Home
         if authenticated
-            a(href=`/passports`): button.btn2 My Passports
+            a(href=`/users/${curUser.id}`): button.btn2 My Profile
         a(href='countries'): button.btn2 Countries
         a(href='/team'): button.btn2 Meet The Team
     .team_main
@@ -66,10 +66,16 @@ block content
                                     li.top Database Schema
                                 a.pn(href="https://github.com/RobertVogue/Passport/wiki/production-readme")
                                     li.top Production README
+                                a.pn(href="https://github.com/RobertVogue/Passport/wiki/front-end-routes")
+                                    li.top Front End Routes
 
                         .secondBox
                             ul.hey Applications
                                 li.top Express
                                 li.top PUG
                                 li.top CSS
-                                li.top Node.js
+                                li.top NodeJS
+                                li.top Sequelize
+                                li.top Postgres
+                                li.top Git
+                                li.top Heroku

@@ -21,6 +21,7 @@
     justify-content: center;
     background-image: url(../calibeach.JPG);
     background-size: cover;
+    overflow: scroll;
 }
 .content_container {
     display: flex;
@@ -174,6 +175,8 @@
     width: 40vw;
 }
 .errorHandling {
+    padding-left: 70px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

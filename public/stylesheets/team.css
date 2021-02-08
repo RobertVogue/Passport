@@ -63,9 +63,11 @@
     display: flex;
     justify-content: space-evenly;
     padding-top: 15px;
+    color: white;
 }
 .hey {
     list-style-type: none;
+    color: white;
 }
 @keyframes large {
     0% {
@@ -104,7 +106,8 @@
 
 }
 .top {
-    font-size: 20px;;
+    font-size: 20px;
+    color: white;
 }
 
 .headshot_container > img {
