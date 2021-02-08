@@ -202,7 +202,6 @@ const get100Stamps = async (userId) => {
     limit: 100,
   });
   const results = res.map((result) => result.dataValues);
-  console.log(passportIds)
   return results;
 };
 
@@ -356,13 +355,14 @@ const topWantToVisit = async () => {
 const topVisited = async () => {
   const topCountries = await Stamp.findAll({
     where: { rating: 10 },
-    include: [{
-      model: Passport,
-      where: { passport_status: "Visited" },
-    },
-    {
-      model: Country
-    }
+    include: [
+      {
+        model: Passport,
+        where: { passport_status: "Visited" },
+      },
+      {
+        model: Country,
+      },
     ],
   });
   const countryObj = {};

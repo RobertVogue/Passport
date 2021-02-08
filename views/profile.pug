@@ -16,27 +16,27 @@ block content
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportLocal.id)
-							img.localImg(src="/Visited.png" class="mask2")
+						a(class="passportLocal_btn")
+							img.localImg(src="/Visited.png")
 				.goToPassport
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportGoingTo.id)
-							img.localImg(src="/WantTo.png" class="mask2")
+						a(class='passportGoingTo_btn')
+							img.localImg(src="/WantTo.png")
 				.visitedPassport
 
 				ul.ImgContainer
 					li
-						a(href='/passports/'+passportVisited.id)
-							img.localImg(src="/Local.png" class="mask2")
+						a(class='passportVisited_btn')
+							img.localImg(src="/Local.png")
 		.profileBody
 			.myStampsHeader
 				h2.middle My Stamps
 			ul.omg
-				each id, name in resObj
+				each value, name in resObj
 					if (name!=='undefined')
-						a(href="/stamps/"+id id=id+'_stamp').tripName
+						a(href=("/stamps/"+value[0]) id=(value[0]+'_stamp') value=(value[1])).tripName
 							h3=name
 								li.imgLiTag
 									img(src=obj[name] class="stampImg mask1" name=name)
@@ -49,5 +49,4 @@ block content
 					each value, key in tagsObj
 						option.default(value="default" selected disabled hidden) Filter by Tag
 						option(id=`${value}` class='tags' value=`${value}`)=key
-	block scripts
-		script(src='../javascripts/profile.js')
+	script(src='../javascripts/profile.js')

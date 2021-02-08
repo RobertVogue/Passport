@@ -8,16 +8,16 @@ block content
             a(href=`/passports`): button.btn2 My Passports
         a(href='/team'): button.btn2 Meet The Team
    if passports
-      .passportContainer
-         .innerContainer
-            ul.textDecore
-            each value, index in passports
-               a.ptitle(href='/passports/'+index class=value.passport_status)=value.passport_status
+      .gridContainer
+         .profileBody
+            .myStampsHeader
+               ul.omg
+               each value, index in passports
+                  a.tripName(href="") (href='/passports/'+index class=value.passport_status)=value.passport_status
    else if stamps
-      .passport_stamps_container
-         .passport_stamps
-            ul.scroll_stamps
+      .profileBody
+         .myStampsHeader
+         ul.middle
             each stamp in stamps
-               li.passport_stamps_image_container
-                  h2.passports_stamps_header=stamp.name
-                  a(href=`/stamps/`+stamp.id): img(src=stamp.imgURL class='stamp_images')
+               li.imgLiTag
+                  a(href=`/stamps/`+stamp.id): img(src=stamp.imgURL class='stampImg')

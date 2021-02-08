@@ -34,7 +34,6 @@ router.get(
     passport.Stamps.forEach((stamp) => {
       if (stamp.dataValues.passport_id) stamps.push(stamp.dataValues);
     });
-    console.log(stamps);
     res.render("passport", { stamps });
   })
 );

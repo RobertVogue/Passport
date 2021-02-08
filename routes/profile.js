@@ -29,7 +29,7 @@ router.get(
     const passportLocal = await getLocalPassports(userid);
     const stamps = await get100Stamps(userid);
     const images = getStamps2.map((stamp) => stamp.imgURL);
-    const stampIds = stamps.map((stamp) => stamp.id);
+    const stampIds = stamps.map((stamp) => [stamp.id, stamp.countries_id]);
     const names = getStamps2.map((stamp) => stamp.name);
     const obj = {};
     images.forEach((cur, index) => {
@@ -39,12 +39,12 @@ router.get(
     stampIds.forEach((cur, index) => {
       resObj[names[index]] = cur;
     });
+    console.log(resObj);
     const tagsObj = {};
     tags.forEach((tag) => {
       const { name } = tag;
       tagsObj[name] = stampIds[tag.id];
     });
-    console.log(tagsObj);
     res.render("profile", {
       resObj,
       obj,
@@ -55,8 +55,7 @@ router.get(
       passportLocal,
       comments,
       tagsObj,
-      allTags
-
+      allTags,
     });
   })
 );
