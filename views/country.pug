@@ -16,9 +16,9 @@ block content
                 //- if !stampObj
                 //-     h2 No Stamps Currently!
                 //-     a(href='/stamps/create'): button.btn Create Stamp // working on adding create a stamp if no countries exist
-                each id, name in stampObj
-                    if (name!=='undefined')
-                        a(href="/stamps/"+id id=id+'_stamp').tripName3
-                            h3=name
+                each stamp in stamps
+                    if (stamp.name!=='undefined')
+                        a(href="/stamps/"+stamp.id id=id+'_stamp').tripName3
+                            h3=stamp.name
                                 li.imgLiTag3
-                                    img(src=obj[name] class="stampImg mask1" name=name)
+                                    img(src=stamp.imgURL class="stampImg mask1" name=stamp.name)
