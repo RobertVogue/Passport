@@ -3,14 +3,6 @@ include utils.pug
 
 block content
   .main
-    .sub_a
-      a(href='/'): button.btn2 Home
-      if authenticated
-
-        a(href=`/users/${curUser.id}`): button.btn2 My Stamps
-
-      a(href='countries'): button.btn2 Countries
-      a(href='/team'): button.btn2 Meet The Team
     .sub_abc
       .sub_form
         if !authenticated
@@ -43,19 +35,16 @@ block content
           .sub_b2a
             ul.rem
               each topCountry in visited
-                a(href="/countries/")
-                  li.print= topCountry
+                li.print= topCountry
       .sub_b3
         h2.b2 Highest Rated Must Travel
           .sub_b3a
             ul.rem
               each topCountry in wantToVisit
-                a(href="/countries/")
-                  li.print= topCountry
+                li.print= topCountry
       .sub_b4
         h2.b2 Highest Rated Local Location
           .sub_b4a
             ul.rem
               each topCountry in nearby
-                a(href="/countries/")
-                  li.print= topCountry
+                li.print= topCountry

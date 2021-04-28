@@ -1,24 +1,14 @@
 extends layout
 
 block content
-    .sub_a
-        a(href='/'): button.btn2 Home
-        if authenticated
-            a(href=`/users/${curUser.id}`): button.btn2 My Profile
-        a(href='/countries'): button.btn2 Countries
-        a(href='/team'): button.btn2 Meet The Team
     .gridContainer3
         .countryBody
             .countryHeader
                 img(src=country.flagUrl)
                 h2.middle3=country.name
             ul.omg3
-                //- if !stampObj
-                //-     h2 No Stamps Currently!
-                //-     a(href='/stamps/create'): button.btn Create Stamp // working on adding create a stamp if no countries exist
                 each stamp in stamps
                     if (stamp.name!=='undefined')
                         a(href="/stamps/"+stamp.id id=id+'_stamp').tripName3
+                            img(src=stamp.imgURL class="stampImg mask1" name=stamp.name)
                             h3=stamp.name
-                                li.imgLiTag3
-                                    img(src=stamp.imgURL class="stampImg mask1" name=stamp.name)

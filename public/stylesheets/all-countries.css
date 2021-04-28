@@ -3,24 +3,13 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 100vw;
-    height: 81vh;
-    background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
-    background-size:400% 400%;
-    animation: extreme 20s ease-in-out infinite;
+    height: 89vh;
   }
-  @keyframes extreme {
-     0% {
-         background-position: 0 0;
-     }
-     50% {
-         background-position: 100% 100%;
-     }
-     100% {
-         background-position: 0 0;
-     }
-  }
+.gridContainer2::-webkit-scrollbar {
+   display: none;
+}
   .myCountriesHeader {
      margin: 10px;
      padding: 10px;
@@ -34,7 +23,7 @@
      flex-direction: column;
   }
   .omg2 {
-     color: white;
+     color: black;
      display: flex;
      flex-wrap: wrap;
      width: 60vw;
@@ -45,104 +34,47 @@
      box-sizing: border-box;
   }
   .maskCountry {
-     border-radius: 25%;
-     width: 150px;
-     height: 100px;
+     border-radius: 25px;
+     width: 200px;
+     height: 150px;
+     position: relative;
   }
   .tripName2 {
      text-align: center;
      display: flex;
      justify-content: center;
      padding-bottom: 20px;
+     padding-right: 10px;
+     align-items: center;
+     list-style-type: none;
+     position: relative;
+  }
+  .tripName2:hover .maskCountry {
+     opacity: 0.2;
   }
 
+
   .tripName2 > h3 {
-     margin-left: 60px;
-     color: white;
-     font-size: 20px;
-     /* border: 2px solid white; */
+     display: none;
+     color: black;
+     font-size: 15px;
      width: 300px;
      text-transform: uppercase;
+     position: absolute;
+     font-weight: 800;
   }
-  .imgLiTag2 {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     list-style-type: none;
+
+  .tripName2:hover > h3 {
+     display: block;
   }
   .middle2 {
      text-align: center;
      font-weight: bold;
      font-size: 50px;
-     color: white;
+     color: black;
      border-bottom: 5px solid white;
   }
 
 .hidden_country {
     display: none;
  }
-  /* .id {
-     display: none;
-  }
-  .user_id {
-     display: none;
-  }
-  .updatedAt {
-     display: none;
-  }
-  .createdAt {
-     display: none;
-  }
-  .passport_status {
-     margin: 0;
-     padding: 5px;
-     text-indent: 2px;
-     font-weight: bold;
-  }
-  .need {
-     width: 10vw;
-     margin-top: 10px;
-  }
-  .localPassport {
-     display: flex;
-     justify-content: space-around;
-     list-style-type: none;
-     margin-top: 1rem;
-     width: 90%;
-  }
-  .goToPassport {
-     display: flex;
-     justify-content: space-around;
-     list-style-type: none;
-     margin-top: 1rem;
-     width: 90%;
-  }
-  .visitedPassport {
-     display: flex;
-     justify-content: space-around;
-     list-style-type: none;
-     margin-top: 1rem;
-     width: 90%;
-  }
-  .ImgContainer {
-     display: flex;
-     justify-content: space-around;
-     list-style-type: none;
-     padding: auto;
-     border: none;
-     max-width: 90%;
-  }
-  .localImg {
-     height: 95%;
-     width: 98%;
-  }
-  .leftSideColumnTitle {
-     text-align: center;
-     font-weight: bold;
-     font-size: 50px;
-     color: white;
-     border-bottom: 5px solid white;
-  }
-  .hidden_stamp {
-     display: none;
-  } */

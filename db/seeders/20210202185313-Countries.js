@@ -733,15 +733,15 @@ module.exports = {
           flagUrl : "https://www.worldometers.info/img/flags/small/tn_tv-flag.gif"
       },
       {
-        name : "U.A.E.",
+        name : "United Arab Emirates",
           flagUrl : "https://www.worldometers.info/img/flags/small/tn_ae-flag.gif"
       },
       {
-        name : "U.K.",
+        name : "United Kingdom",
           flagUrl : "https://www.worldometers.info/img/flags/small/tn_uk-flag.gif"
       },
       {
-        name : "U.S.",
+        name : "United States",
           flagUrl : "https://www.worldometers.info/img/flags/small/tn_us-flag.gif"
       },
       {

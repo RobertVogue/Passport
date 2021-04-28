@@ -1,7 +1,6 @@
 "use strict",
   (module.exports = {
     up: (queryInterface, Sequelize) => {
-      const randomBelow40 = () => Math.floor(Math.random() * 39) + 1;
       return queryInterface.bulkInsert(
         "Stamps",
         [
@@ -16,7 +15,7 @@
               "https://github.com/RobertVogue/Passport/blob/master/photos/hogwarts_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 83,
-            tags_id: randomBelow40(),
+            tags_id: 1,
           },
           {
             name: "Work trip in Germany",
@@ -28,9 +27,9 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/germany_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 2,
             countries_id: 66,
-            tags_id: randomBelow40(),
+            tags_id: 23,
           },
           {
             name: "Road trip on Route 66",
@@ -42,9 +41,9 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/route_66_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 3,
             countries_id: 185,
-            tags_id: randomBelow40(),
+            tags_id: 18,
           },
           {
             name: "Holidays in Hungary",
@@ -58,7 +57,7 @@
               "https://github.com/RobertVogue/Passport/blob/master/photos/hungary_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 77,
-            tags_id: randomBelow40(),
+            tags_id: 2,
           },
           {
             name: "Trip to China",
@@ -69,22 +68,22 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/chaina_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 2,
             countries_id: 37,
-            tags_id: randomBelow40(),
+            tags_id: 7,
           },
           {
-            name: "Trip to the cost in Italy",
-            detailed_location: "",
+            name: "Trip Italy's Coast",
+            detailed_location: "Italy",
             dates: "02-15-12:03-01-12",
             price: "$$$",
             review: "This was the trip of a lifetime.",
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/italy_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 3,
             countries_id: 85,
-            tags_id: randomBelow40(),
+            tags_id: 3,
           },
           {
             name: "Our trip to Iceland",
@@ -93,12 +92,12 @@
             price: "$$",
             review:
               "I always enjoy this ride. Seeing the harsh landscape and silica water is amazing.",
-            rating: 9,
+            rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/iceland_blue_lagoon_seed_img.jpg?raw=true",
             passport_id: 1,
             countries_id: 78,
-            tags_id: randomBelow40(),
+            tags_id: 4,
           },
           {
             name: "Trip to Miami",
@@ -109,9 +108,9 @@
             rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/miami_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 2,
             countries_id: 185,
-            tags_id: randomBelow40(),
+            tags_id: 1,
           },
           {
             name: "Visiting Grandparents",
@@ -119,12 +118,12 @@
             dates: "05-08-09:05-16-09",
             price: "$",
             review: "I love the approtunities we have to spend as family.",
-            rating: 8,
+            rating: 10,
             imgURL:
               "https://github.com/RobertVogue/Passport/blob/master/photos/grandmas_seed_img.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 3,
             countries_id: 185,
-            tags_id: randomBelow40(),
+            tags_id: 5,
           },
           {
             name: "Trip to the coast",
@@ -133,12 +132,12 @@
             price: "$$",
             review:
               "This was an amazing drive. We covered three states and many changes in climate",
-            rating: 9,
+            rating: 10,
             imgURL:
-              "https://www.nationalgeographic.com/content/dam/travel/2019-digital/best-travel-photos-2019/33-best-travel-photos-2019190916-32.jpg?raw=true",
+              "https://www.theblondeabroad.com/wp-content/uploads/2015/01/IMG_5195-360x263.jpg",
             passport_id: 1,
             countries_id: 185,
-            tags_id: randomBelow40(),
+            tags_id: 3,
           },
           {
             name: "Trip to Fiji",
@@ -149,9 +148,9 @@
             rating: 10,
             imgURL:
               "https://media.timeout.com/images/105672700/image.jpg?raw=true",
-            passport_id: 1,
+            passport_id: 2,
             countries_id: 60,
-            tags_id: randomBelow40(),
+            tags_id: 3,
           },
         ],
         {}
