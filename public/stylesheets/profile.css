@@ -1,45 +1,20 @@
 
 .gridContainer {
   display: flex;
-  width: 100vw;
-  height: 81vh;
-  background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
-  background-size:400% 400%;
-  animation: extreme 20s ease-in-out infinite;
+  width: 100%;
+  background-color: white;
+
 }
-.passport_btn:hover {
-   cursor: pointer;
-}
-@keyframes extreme {
-   0% {
-       background-position: 0 0;
-   }
-   50% {
-       background-position: 100% 100%;
-   }
-   100% {
-       background-position: 0 0;
-   }
-}
-.myProfileHeader {
-   width: 100%;
-   background-color: bisque;
-   margin: 0px;
-   padding: 35px;
-   text-align: center;
-   color: black;
-}
+
 .myStampsHeader {
-   margin: 10px;
-   padding: 10px;
    text-align: center;
-   margin-bottom: 20px;
 }
 .leftSideColumn {
    padding-top: 20px;
    display: flex;
    width: 20vw;
    flex-direction: column;
+
 }
 .rightSideColumn {
    padding-top: 20px;
@@ -48,16 +23,28 @@
    flex-direction: column;
 }
 .profileBody {
+   padding-top: 20px;
    display: flex;
    width: 60vw;
    flex-direction: column;
+   height: 900px;
+
+
 }
 .omg {
-   color: white;
+   color: black;
    display: flex;
    flex-wrap: wrap;
+   align-items: center;
    width: 60vw;
+   background-color: white;
+   margin-top: 1rem;
+   overflow-y: scroll;
 }
+.omg::-webkit-scrollbar {
+   display: none;
+}
+
 .easy {
    display: flex;
    flex-wrap: wrap;
@@ -65,34 +52,43 @@
 .medium {
    display: flex;
    flex-direction: column;
-   margin-left: 3rem;
+   align-items: center;
 }
-img[class^="stampImg"] {
-   max-width: 100%;
-   box-sizing: border-box;
+.mask7 {
+   background-color: white;
+   border-radius: 0px;
+   outline: none;
+   border: none;
+   width: 283px;
+   height: 250px;
+   padding-right: 5px;
 }
-.mask1 {
-   border-radius: 25%;
-   border: 1px transparent solid;
-   width: 150px;
-   height: 100px;
-}
-.mask2 {
-   max-width: 25vw;
-   border: 3px solid white
-}
+
 .tripName {
    text-align: center;
    display: flex;
    justify-content: center;
-   padding-bottom: 20px;
+   position: relative;
+}
+.tripName:hover .mask7 {
+   opacity: 0.2;
+}
+.tripName:hover > h3 {
+   display: block;
 }
 .tripName > h3 {
-   margin-left: 60px;
-   color: white;
+   display: none;
+   color: black;
+   text-decoration: none;
    font-size: 20px;
-   width: 300px;
+   font-weight: 600;
+   width: 150px;
    text-transform: uppercase;
+   position: absolute;
+   top: 110px;
+
+
+
 }
 .imgLiTag {
    display: flex;
@@ -104,8 +100,7 @@ img[class^="stampImg"] {
    text-align: center;
    font-weight: bold;
    font-size: 50px;
-   color: white;
-   border-bottom: 5px solid white;
+   color: black;
 }
 .id {
    display: none;
@@ -130,12 +125,17 @@ img[class^="stampImg"] {
    width: 20vw;
    margin-top: 10px;
 }
+
+.passport_btn:hover {
+   cursor: pointer;
+}
 .localPassport {
    display: flex;
    justify-content: space-around;
    list-style-type: none;
    margin-top: 1rem;
    width: 90%;
+
 }
 .goToPassport {
    display: flex;
@@ -143,6 +143,7 @@ img[class^="stampImg"] {
    list-style-type: none;
    margin-top: 1rem;
    width: 90%;
+
 }
 .visitedPassport {
    display: flex;
@@ -150,6 +151,7 @@ img[class^="stampImg"] {
    list-style-type: none;
    margin-top: 1rem;
    width: 90%;
+
 }
 .ImgContainer {
    display: flex;
@@ -157,19 +159,66 @@ img[class^="stampImg"] {
    list-style-type: none;
    padding: auto;
    border: none;
-   max-width: 90%;
+   height: 250px;
+   width: 250px;
 }
 .localImg {
-   height: 95%;
-   width: 98%;
+   height: 250px;
+   width: 250px;
+   cursor: pointer;
+   border: 2px solid black;
+}
+.localImg:hover {
+   opacity: 0.2;
 }
 .leftSideColumnTitle {
    text-align: center;
    font-weight: bold;
    font-size: 50px;
-   color: white;
-   border-bottom: 5px solid white;
+   color: black;
+
 }
 .hidden_stamp {
    display: none;
+}
+.passport_btn {
+   position: relative;
+
+
+}
+.words1 {
+   display: none;
+   color: black;
+   position: absolute;
+   top: 115px;
+   left: 75px;
+   font-weight: 600;
+   font-size: 25px;
+}
+.words2 {
+   display: none;
+   color: black;
+   position: absolute;
+   top: 115px;
+   left: 55px;
+   font-weight: 600;
+   font-size: 25px;
+}
+.words3 {
+   display: none;
+   color: black;
+   position: absolute;
+   top: 115px;
+   left: 95px;
+   font-weight: 600;
+   font-size: 25px;
+}
+.ImgContainer:hover .words1 {
+   display: block;
+}
+.ImgContainer:hover .words2 {
+   display: block;
+}
+.ImgContainer:hover .words3 {
+   display: block;
 }

@@ -1,50 +1,45 @@
 extends layout
 
 block content
-	.sub_a
-		a(href='/'): button.btn2 Home
-		if authenticated
-			a(href=`/users/${curUser.id}`): button.btn2 My Profile
-		a(href='/countries'): button.btn2 Countries
-		a(href='/team'): button.btn2 Meet The Team
-
 	.gridContainer
 		.leftSideColumn
 			.leftColumnTitleDecore
-				h2.leftSideColumnTitle Passports
+
 			.medium
 				.localPassport
 
 				ul.ImgContainer
 					li
-						a(class= "passport_btn")
-							img.localImg(src="/Visited.png"  value=passportstampids[0])
+						.passport_btn(class= "passport_btn")
+							a.words1 Been To
+							img.localImg(src="/beento.jpg"  value=passportstampids[0])
 				.goToPassport
 
 				ul.ImgContainer
 					li
-						a(class= "passport_btn")
-							img.localImg(src="/WantTo.png" value=passportstampids[1])
+						.passport_btn(class= "passport_btn")
+							a.words2 Want To Go
+							img.localImg(src="/want.jpg" value=passportstampids[1])
 				.visitedPassport
 
 				ul.ImgContainer
 					li
-						a(class= "passport_btn")
-							img.localImg(src="/Local.png" value=passportstampids[2])
+						.passport_btn(class= "passport_btn")
+							a.words3 Local
+							img.localImg(src="/local.jpg" value=passportstampids[2])
 		.profileBody
 			.myStampsHeader
-				h2.middle My Stamps
+
 			ul.omg
 				each id, name in resObj
 					if (name!=='undefined')
 						a(href="/stamps/"+id id=id+'_stamp').tripName
+							img(src=obj[name] class= 'mask7')
 							h3=name
-								li.imgLiTag
-									img(src=obj[name] class= 'mask1' class="stampImg" name=name)
 
 		.rightSideColumn
 			.explore
-				h2.leftSideColumnTitle Explore
+
 
 				select.need
 					each value, key in tagsObj

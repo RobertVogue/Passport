@@ -21,7 +21,7 @@ module.exports = {
       { name: "Amazing views" },
       { name: "Culture" },
       { name: "History" },
-      { name: "luxary" },
+      { name: "luxury" },
       { name: "Seafood" },
       { name: "Live Events" },
       { name: "Easy transportation" },

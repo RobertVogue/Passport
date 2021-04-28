@@ -2,30 +2,17 @@
 .gridContainer3 {
     display: flex;
     justify-content: center;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 100vw;
-    height: 81vh;
-    background: linear-gradient(-45deg, #60319e, #1c368b, #3677ee, #0a1cbe);
-    background-size:400% 400%;
-    animation: extreme 20s ease-in-out infinite;
+    height: 89vh;
+
   }
-  @keyframes extreme {
-     0% {
-         background-position: 0 0;
-     }
-     50% {
-         background-position: 100% 100%;
-     }
-     100% {
-         background-position: 0 0;
-     }
-  }
+.gridContainer3::-webkit-scrollbar {
+   display: none;
+}
 
   .countryHeader {
     /* display: flex; */
-
-    margin: 10px;
-    padding: 10px;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -39,10 +26,11 @@
   }
 
   .omg3 {
-     color: white;
+     color: black;
      display: flex;
      flex-wrap: wrap;
      width: 60vw;
+     align-items: center;
   }
 
   img[class^="stampImg"] {
@@ -50,9 +38,12 @@
      box-sizing: border-box;
   }
   .mask1 {
-     border-radius: 25%;
-     width: 150px;
-     height: 100px;
+      border-radius: 0px;
+      width: 278px;
+      height: 250px;
+      outline: none;
+      border: none;
+      background-color: white;
   }
 
   .tripName3 {
@@ -60,14 +51,26 @@
      display: flex;
      justify-content: center;
      padding-bottom: 20px;
+     padding-right: 10px;
+     align-items: center;
+     list-style-type: none;
+     position: relative;
   }
   .tripName3 > h3 {
-     margin-left: 60px;
-     color: white;
-     font-size: 20px;
-     width: 300px;
-     text-transform: uppercase;
+   display: none;
+   color: black;
+   font-size: 15px;
+   width: 300px;
+   text-transform: uppercase;
+   position: absolute;
+   font-weight: 800;
   }
+  .tripName3:hover .mask1 {
+   opacity: 0.2;
+}
+  .tripName3:hover > h3 {
+   display: block;
+}
   .imgLiTag3 {
      display: flex;
      align-items: center;
@@ -78,6 +81,6 @@
      text-align: center;
      font-weight: bold;
      font-size: 50px;
-     color: white;
-     border-bottom: 5px solid white;
+     color: black;
+     border-bottom: 5px solid black;
   }

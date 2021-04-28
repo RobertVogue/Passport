@@ -22,22 +22,23 @@ html
         //- https://i.postimg.cc/mrMzWH9K/Pass-Port-Icon.png
         a#lg(href="/"): img#logo(alt="logo" src="/passportglobal.png")
         //- a#app_title(href="/") PASSPORT GLOBAL
-      div.searchBar
-        <input type="text" placeholder="Search for Countries" class="search">
+
       if authenticated
         //- div.container__links
-        div.container__account
-          a(href=`/users/${curUser.id}`): button.btn Profile
-          a(href='/stamps/create'): button.btn Create Stamp
+        div.container__links
+          a(href='/').btn Home
+          a(href=`/users/${curUser.id}`).btn Profile
+          a(href='/countries').btn Countries
+          a(href='/stamps/create').btn Create Stamp
+          a(href='/team').btn Meet The Team
 
           form(action='/users/logout' method='post')
             button.btn(type='submit') Logout
       else
         div.container__account
           form(method='post' action='/users/demo')
-            button.btn(type='submit') Demo Login
-          a(href='/users/signup'): button.btn Register
-          a(href='/users/login'): button.btn Login
+          a(href='/users/signup').btn Register
+          a(href='/users/login').btn Login
     block content
 
     nav.footer_container
